@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Aplikasi Pengumuman Akademik Online</title>
+  <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Hubungkan CSS -->
+  <link rel="stylesheet" href="style1.css">
+
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <img src="Logo Polibatam.jpg" alt="Logo Polibatam" class="logo">
+      <h2>PENGUMUMAN<br>AKADEMIK ONLINE</h2>
+
+      <input type="text" id="nama" placeholder="Masukkan nama">
+      <div id="errorNama" class="error"></div>
+
+      <div class="password-container">
+        <input type="password" id="password" placeholder="Masukkan kata sandi">
+        <i class="fa-solid fa-eye" id="togglePassword"></i>
+      </div>
+      <div id="errorPassword" class="error"></div>
+
+      <div class="forgot">Lupa Kata Sandi?</div>
+
+      <button onclick="validasiLogin()">Masuk</button>
+      <div id="loginError" class="error"></div>
+    </div>
+  </div>
+
+  <!-- Hubungkan JavaScript -->
+  <script src="script2.js"></script>
+</body>
+
+</html>

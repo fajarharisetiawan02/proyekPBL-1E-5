@@ -1,0 +1,377 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: #1E3A8A;
+    width: 260px;
+    padding: 24px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.sidebar i {
+    color: white;
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+    margin-right: 6px;
+    text-align: center;
+}
+
+.main-content {
+    background-color: #ffffff;
+    flex-grow: 1;
+}
+
+.logo-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.sidebar .header .list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 10px;
+    border-radius: 8px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.sidebar .header .list-item .icon {
+    margin-right: 12px;
+}
+
+.sidebar .main .list-item .description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 16px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.sidebar .main .list-item .icon {
+    margin-right: 12px;
+}
+
+.sidebar .main .list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 10px;
+    border-radius: 8px;
+    height: 45px;
+    box-sizing: border-box;
+    transition: all ease-in .2s
+}
+
+.sidebar .main .list-item:hover {
+    background: lightblue;
+    transition: all ease-in .2
+}
+
+#menu-button {
+    width: 32px;
+    position: absolute;
+    overflow: hidden;
+}
+
+#menu-label {
+    position: relative;
+    display: block;
+    height: 20px;
+    cursor: pointer;
+}
+
+#menu-checkbox {
+    display: none;
+}
+
+#hamburger,
+#menu-label:after,
+#menu-label:before {
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 4px;
+    background-color: #474388;
+}
+
+#menu-label:after,
+#menu-label:before {
+    content: "";
+}
+
+#menu-label:before {
+    top: 0;
+}
+
+#menu-label:after {
+    top: 8px;
+}
+
+#hamburger {
+    top: 16px;
+}
+
+.main-content {
+    flex: 1;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    font-size: 25px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 820px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+.icons i {
+    font-size: 18px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 25px;
+    margin-left: 35px;
+}
+
+.header-icons i {
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.header-icons i:hover {
+    transform: scale(1.2);
+    color: #2a4b9b;
+}
+
+/* Konten Tengah */
+.filters {
+    margin-top: 20px;
+}
+
+.filters button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    border: 1px solid #000;
+    background-color: white;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    background-color: #ddd;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: lightblue;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .main {
+        min-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+}
+
+/* Tambahkan footer di luar media query */
+footer {
+    width: 100%;
+    background-color: #1a1a2e;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    position: relative;
+    bottom: 0;
+}
+
+.main-content {
+    padding-bottom: 20px;
+    overflow-y: auto;
+}
+/* Konten */
+.content {
+  margin-left: -16px;
+  padding: 20px;
+}
+
+.profile-card {
+  background-color: white;
+  padding: 25px 40px; /* tambahkan padding kiri yang sedikit */
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 95%; /* kecilkan sedikit supaya tidak terlalu lebar */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 15px; /* jarak antar foto dan tabel */
+  position: relative;
+  min-height: 450px;
+  margin-top: 20px;
+}
+  
+
+.profile-photo {
+  text-align: center;
+}
+
+.profile-photo img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4b72ff;
+}
+
+.profile-photo button {
+  background-color: #006aff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  display: block;
+  margin: 25px auto 0;
+}
+
+.profile-photo button:hover {
+  background-color: #004ccc;
+}
+
+.profile-info h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.profile-info table {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.edit-btn {
+  position: absolute;
+  right: 30px;
+  bottom: 25px;
+  background-color: #006aff;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #004ccc;
+}
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .main {
+        min-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+}
+
+/* Tambahkan footer di luar media query */
+footer {
+    width: 100%;
+    background-color: #1a1a2e;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    position: relative;
+    bottom: 0;
+}
+
+.main-content {
+    padding-bottom: 20px;
+    overflow-y: auto;
+}
+
