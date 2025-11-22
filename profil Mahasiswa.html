@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!--Koneksikan dengan CSS-->
-  <link rel="stylesheet" href="style8..css">
+  <link rel="stylesheet" href="style8.css">
 
 </head>
 
@@ -79,7 +79,21 @@
 
         <div class="header-icons">
           <i class="fa-regular fa-bell" title="Notifikasi" onclick="window.location.href='notifikasi.html'"></i>
-          <i class="fa-regular fa-user" title="Profil" onclick="window.location.href='profil Mahasiswa.html'"></i>
+          <div class="profile-dropdown">
+            <i class="fa-solid fa-circle-user" id="profileIcon"></i>
+
+            <div class="dropdown-menu" id="dropdownMenu">
+              <a href="profil Mahasiswa.html">
+                <i class="fa-solid fa-id-card"></i> Profil
+              </a>
+              <a href="#">
+                <i class="fa-solid fa-gear"></i> Pengaturan
+              </a>
+              <a href="tampilan_login.html">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 

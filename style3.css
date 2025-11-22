@@ -6,7 +6,7 @@
 
 .container {
     display: flex;
-    min-height: 100vh;
+    min-height: calc(100vh - 50px);
 }
 
 .sidebar {
@@ -16,6 +16,31 @@
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+}
+
+/* Sidebar tertutup (geser ke kiri) */
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+/* Untuk tampilan kecil: tetap bisa slide */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+#menu-toggle {
+    cursor: pointer;
 }
 
 .sidebar i {
@@ -30,6 +55,13 @@
 .main-content {
     background-color: #ffffff;
     flex-grow: 1;
+    margin-left: 260px;
+    transition: margin-left 0.3s ease;
+}
+
+/* Kalau sidebar tertutup */
+.main-content.expanded {
+    margin-left: 50px;
 }
 
 .logo-text {
@@ -139,23 +171,35 @@
 }
 
 .topbar {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    /* kiri - tengah - kanan */
     align-items: center;
     background-color: white;
     padding: 10px 20px;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     font-size: 25px;
+    position: relative;
+    gap: 20px;
+}
+
+.topbar i:hover {
+    transform: scale(1.2);
+    color: #2a4b9b;
 }
 
 .search-box {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 5px 10px;
-    margin-right: 820px;
+    background: #fff;
+    width: 100%;
+    max-width: 200px;
+    transition: all 0.3s ease;
 }
 
 .search-box input {
@@ -232,6 +276,11 @@ th {
         z-index: 1000;
     }
 
+    footer {
+        margin-left: 0;
+        width: 100%;
+    }
+
     .sidebar.open {
         left: 0;
     }
@@ -255,123 +304,132 @@ footer {
     padding: 40px 0;
     position: relative;
     bottom: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .main-content {
-    padding-bottom: 20px;
+    padding-bottom: 80px;
     overflow-y: auto;
 }
-/* Konten */
-.content {
-  margin-left: -16px;
-  padding: 20px;
+/* --- SIDEBAR COLLAPSE MODE --- */
+.sidebar.collapsed {
+    width: 70px !important;
+    padding: 24px 10px;
 }
 
-.profile-card {
-  background-color: white;
-  padding: 25px 40px; /* tambahkan padding kiri yang sedikit */
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  width: 95%; /* kecilkan sedikit supaya tidak terlalu lebar */
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 15px; /* jarak antar foto dan tabel */
+.sidebar.collapsed .logo-text {
+    display: none;
+}
+
+.sidebar.collapsed .description {
+    display: none;
+}
+
+.sidebar.collapsed .list-item {
+    justify-content: center;
+}
+
+.sidebar.collapsed i {
+    margin-right: 0 !important;
+}
+
+/* Main content geser saat sidebar collapse */
+.main-content.collapsed {
+    margin-left: 70px !important;
+}
+/* --- SMOOTH SIDEBAR COLLAPSE ANIMATION --- */
+.sidebar {
+    transition: width 0.35s ease, padding 0.35s ease;
+}
+
+.sidebar .list-item,
+.sidebar i,
+.sidebar .description,
+.logo-text {
+    transition: all 0.3s ease;
+}
+
+/* MODE COLLAPSED */
+.sidebar.collapsed {
+    width: 70px !important;
+    padding: 24px 10px;
+}
+
+.sidebar.collapsed .description,
+.sidebar.collapsed .logo-text {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar.collapsed .list-item {
+    justify-content: center;
+}
+
+/* Icon bergerak smooth */
+.sidebar.collapsed i {
+    margin-right: 0 !important;
+    transform: translateX(0);
+}
+
+/* Main content smooth saat bergeser */
+.main-content {
+    transition: margin-left 0.35s ease;
+}
+
+.main-content.collapsed {
+    margin-left: 70px !important;
+}
+.profile-dropdown {
   position: relative;
-  min-height: 450px;
-  margin-top: 20px;
-}
-  
-
-.profile-photo {
-  text-align: center;
 }
 
-.profile-photo img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #4b72ff;
-}
-
-.profile-photo button {
-  background-color: #006aff;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  margin-top: 10px;
+#profileIcon {
   cursor: pointer;
-  display: block;
-  margin: 25px auto 0;
 }
 
-.profile-photo button:hover {
-  background-color: #004ccc;
+.dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: #fff;
+    padding: 12px 18px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 99;
 }
 
-.profile-info h2 {
-  font-size: 22px;
-  margin-bottom: 8px;
+.dropdown-menu a {
+    text-decoration: none;
+    color: #1d2d50;
+    font-size: 15px;
 }
 
-.profile-info table {
+.dropdown-menu a:hover {
+    color: #0d6efd;
+}
+
+/* Item */
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #1a1a1a;
   font-size: 16px;
-  line-height: 1.8;
+  transition: 0.2s;
 }
 
-.edit-btn {
-  position: absolute;
-  right: 30px;
-  bottom: 25px;
-  background-color: #006aff;
-  color: white;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 6px;
-  cursor: pointer;
+.dropdown-menu a i {
+  font-size: 18px;
+  color: #2a4b9b;
 }
-
-.edit-btn:hover {
-  background-color: #004ccc;
+/* Slide animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-@media (max-width: 768px) {
-    .sidebar {
-        position: fixed;
-        left: -250px;
-        top: 0;
-        height: 100%;
-        z-index: 1000;
-    }
-
-    .sidebar.open {
-        left: 0;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    .main {
-        min-height: calc(100vh - 60px);
-        overflow-y: auto;
-    }
-}
-
-/* Tambahkan footer di luar media query */
-footer {
-    width: 100%;
-    background-color: #1a1a2e;
-    color: white;
-    text-align: center;
-    padding: 40px 0;
-    position: relative;
-    bottom: 0;
-}
-
-.main-content {
-    padding-bottom: 20px;
-    overflow-y: auto;
-}
-

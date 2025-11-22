@@ -30,3 +30,17 @@ function editProfil() {
     alert('Profil berhasil disimpan!');
   }
 }
+document.getElementById("profileIcon").addEventListener("click", function () {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+});
+
+window.addEventListener("click", function(e){
+    const menu = document.getElementById("dropdownMenu");
+    const icon = document.getElementById("profileIcon");
+
+    if (!icon.contains(e.target) && !menu.contains(e.target)) {
+        menu.style.display = "none";
+    }
+});
+

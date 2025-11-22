@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!--Koneksikan dengan CSS-->
-    <link rel="stylesheet" href="style.....2.css">
+    <link rel="stylesheet" href="style2.css">
 
 </head>
 
@@ -70,23 +70,36 @@
 
         <div class="main-content">
             <div class="topbar">
-              <i class="fa-solid fa-bars" id="menu-toggle"></i>
+                <i class="fa-solid fa-bars" id="menu-toggle"></i>
 
-    <div class="search-box">
-        <input type="text" placeholder="Search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
 
 
                 <div class="header-icons">
                     <i class="fa-regular fa-bell" title="Notifikasi"
                         onclick="window.location.href='notifikasi.html'"></i>
-                    <i class="fa-regular fa-user" title="Profil"
-                        onclick="window.location.href='profil Mahasiswa.html'"></i>
+                    <div class="profile-dropdown">
+                        <i class="fa-solid fa-circle-user" id="profileIcon"></i>
+
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="profil Mahasiswa.html">
+                                <i class="fa-solid fa-id-card"></i> Profil
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-gear"></i> Pengaturan
+                            </a>
+                            <a href="tampilan_login.html">
+                                <i class="fa-solid fa-right-from-bracket"></i> Logout
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="content">
-                <h2>Welcome, Kelompok PBL 5! 🚀</h2>   
+                <h2>Welcome, Kelompok PBL 5! 🚀</h2>
                 <h3>Kategori Pengumuman</h3>
                 <div class="cards">
                     <div class="cards">
@@ -113,14 +126,14 @@
                     </div>
                 </div>
             </div>
-        </div> 
-    </div> 
+        </div>
+    </div>
 
     <footer>
         © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
     </footer>
 
-    <script src="script.4.js"></script>
+    <script src="script4.js"></script>
 
 </body>
 
