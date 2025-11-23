@@ -17,6 +17,25 @@
     box-sizing: border-box;
     flex-direction: column;
 }
+/* Sidebar tertutup (geser ke kiri) */
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+/* Untuk tampilan kecil: tetap bisa slide */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+#menu-toggle {
+    cursor: pointer;
+}
 
 .sidebar i {
     color: white;
@@ -373,6 +392,74 @@ footer {
 .main-content {
     padding-bottom: 20px;
     overflow-y: auto;
+}
+/* --- SIDEBAR COLLAPSE MODE --- */
+.sidebar.collapsed {
+    width: 70px !important;
+    padding: 24px 10px;
+}
+
+.sidebar.collapsed .logo-text {
+    display: none;
+}
+
+.sidebar.collapsed .description {
+    display: none;
+}
+
+.sidebar.collapsed .list-item {
+    justify-content: center;
+}
+
+.sidebar.collapsed i {
+    margin-right: 0 !important;
+}
+
+/* Main content geser saat sidebar collapse */
+.main-content.collapsed {
+    margin-left: 70px !important;
+}
+/* --- SMOOTH SIDEBAR COLLAPSE ANIMATION --- */
+.sidebar {
+    transition: width 0.35s ease, padding 0.35s ease;
+}
+
+.sidebar .list-item,
+.sidebar i,
+.sidebar .description,
+.logo-text {
+    transition: all 0.3s ease;
+}
+
+/* MODE COLLAPSED */
+.sidebar.collapsed {
+    width: 70px !important;
+    padding: 24px 10px;
+}
+
+.sidebar.collapsed .description,
+.sidebar.collapsed .logo-text {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar.collapsed .list-item {
+    justify-content: center;
+}
+
+/* Icon bergerak smooth */
+.sidebar.collapsed i {
+    margin-right: 0 !important;
+    transform: translateX(0);
+}
+
+/* Main content smooth saat bergeser */
+.main-content {
+    transition: margin-left 0.35s ease;
+}
+
+.main-content.collapsed {
+    margin-left: 70px !important;
 }
 .profile-dropdown {
   position: relative;

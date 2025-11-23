@@ -43,4 +43,15 @@ window.addEventListener("click", function(e){
         menu.style.display = "none";
     }
 });
+document.getElementById("menu-toggle").addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    const main = document.querySelector(".main-content");
+
+    sidebar.classList.toggle("collapsed");
+    main.classList.toggle("collapsed");
+});
+document.getElementById("profileIcon").addEventListener("click", function () {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+});
 
