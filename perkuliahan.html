@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!--Koneksikan dengan CSS-->
-    <link rel="stylesheet" href="style..4.css">
+    <link rel="stylesheet" href="style4.css">
 
+    <!-- Bootstrap (untuk modal) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -68,33 +70,47 @@
 
         </div>
 
-         <div class="main-content">
+        <div class="main-content">
             <div class="topbar">
-              <i class="fa-solid fa-bars" id="menu-toggle"></i>
+                <i class="fa-solid fa-bars" id="menu-toggle"></i>
 
-    <div class="search-box">
-        <input type="text" placeholder="Search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
 
                 <div class="header-icons">
                     <i class="fa-regular fa-bell" title="Notifikasi"
                         onclick="window.location.href='notifikasi.html'"></i>
-                    <i class="fa-regular fa-user" title="Profil"
-                        onclick="window.location.href='profil Mahasiswa.html'"></i>
+                    <div class="profile-dropdown">
+                        <i class="fa-solid fa-circle-user" id="profileIcon"></i>
+
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="profil Mahasiswa.html">
+                                <i class="fa-solid fa-id-card"></i> Profil
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-gear"></i> Pengaturan
+                            </a>
+                            <a href="tampilan_login.html">
+                                <i class="fa-solid fa-right-from-bracket"></i> Logout
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <div class="filters">
                 <div class="filters-left">
                     <button>Semua</button>
                     <button>Hari Ini</button>
                     <button>Minggu Ini</button>
                 </div>
-                <button class="add-button">+ Tambah Catatan Kuliah</button>
+                <button class="add-button" data-bs-toggle="modal" data-bs-target="#modalCatatan">
+                    + Tambah Catatan Kuliah
+                </button>
             </div>
 
-            <table>
+            <table id="tabelKuliah">
                 <thead>
                     <tr>
                         <th>Mata Kuliah</th>
@@ -153,15 +169,81 @@
 
     </div>
 
-    </div> 
-    </div> 
+    <!-- ==============================
+        MODAL TAMBAH CATATAN KULIAH
+    =============================== -->
+    <div class="modal fade" id="modalCatatan" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Catatan Kuliah</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="formCatatan">
+                        <label>Mata Kuliah</label>
+                        <input type="text" id="mk" class="form-control mb-2" required>
+
+                        <label>Tanggal</label>
+                        <input type="date" id="tgl" class="form-control mb-2" required>
+
+                        <label>Waktu</label>
+                        <input type="time" id="waktu" class="form-control mb-2" required>
+
+                        <label>Keterangan</label>
+                        <input type="text" id="ket" class="form-control mb-2">
+
+                        <label>Dosen</label>
+                        <input type="text" id="dosen" class="form-control mb-3">
+
+                        <button type="submit" class="btn btn-primary w-100">Simpan</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <footer>
         © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
     </footer>
 
-    <script src="script.4.js"></script>
-    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="script4.js"></script>
+
+    <!-- ==============================
+        SCRIPT TAMBAH DATA KE TABEL
+    =============================== -->
+    <script>
+        document.getElementById("formCatatan").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let mk = document.getElementById("mk").value;
+            let tgl = document.getElementById("tgl").value;
+            let waktu = document.getElementById("waktu").value;
+            let ket = document.getElementById("ket").value;
+            let dosen = document.getElementById("dosen").value;
+
+            let table = document.getElementById("tabelKuliah").getElementsByTagName("tbody")[0];
+            let row = table.insertRow();
+
+            row.insertCell(0).innerHTML = mk;
+            row.insertCell(1).innerHTML = tgl;
+            row.insertCell(2).innerHTML = waktu;
+            row.insertCell(3).innerHTML = ket;
+            row.insertCell(4).innerHTML = dosen;
+
+            // Tutup modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById("modalCatatan"));
+            modal.hide();
+
+            document.getElementById("formCatatan").reset();
+        });
+    </script>
+
 </body>
 
 </html>
