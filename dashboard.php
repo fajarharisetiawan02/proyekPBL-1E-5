@@ -9,7 +9,7 @@
    <style>
     .nav-link:hover {
       background-color: gold;
-      color: white !important;
+      color: color !important;
     }
   </style>
 </head>
