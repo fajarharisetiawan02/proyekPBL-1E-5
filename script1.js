@@ -1,57 +1,99 @@
-// Ganti Foto
-document.getElementById('uploadFoto').addEventListener('change', function (event) {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      document.getElementById('fotoProfil').src = e.target.result;
-    }
-    reader.readAsDataURL(file);
-  }
-});
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle   = document.getElementById("menu-toggle");
+    const sidebar      = document.querySelector(".sidebar");
+    const mainContent  = document.querySelector(".main-content");
 
-// Edit Profil
-function editProfil() {
-  const fields = ['nama', 'nim', 'jurusan', 'prodi', 'email', 'nohp'];
-  const editBtn = document.querySelector('.edit-btn');
-
-  if (editBtn.textContent === 'Edit Profil') {
-    fields.forEach(id => {
-      const value = document.getElementById(id).textContent;
-      document.getElementById(id).innerHTML = `<input type="text" value="${value}" id="edit_${id}" style="width:250px;padding:4px;">`;
+    menuToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("collapsed");
+        mainContent.classList.toggle("collapsed");
     });
-    editBtn.textContent = 'Simpan';
-  } else {
-    fields.forEach(id => {
-      const newValue = document.getElementById(`edit_${id}`).value;
-      document.getElementById(id).textContent = newValue;
+
+    const profileIcon  = document.getElementById("profileIcon");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    profileIcon.addEventListener("click", () => {
+        dropdownMenu.style.display =
+            dropdownMenu.style.display === "flex" ? "none" : "flex";
     });
-    editBtn.textContent = 'Edit Profil';
-    alert('Profil berhasil disimpan!');
-  }
-}
-document.getElementById("profileIcon").addEventListener("click", function () {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-});
 
-window.addEventListener("click", function(e){
-    const menu = document.getElementById("dropdownMenu");
-    const icon = document.getElementById("profileIcon");
+    document.addEventListener("click", (e) => {
+        if (!profileIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.style.display = "none";
+        }
+    });
 
-    if (!icon.contains(e.target) && !menu.contains(e.target)) {
-        menu.style.display = "none";
+    const photoInput   = document.getElementById("photoInput");
+    const profilePhoto = document.getElementById("profilePhoto");
+
+    photoInput.addEventListener("change", () => {
+        const file = photoInput.files[0];
+        if (file) {
+            const imageURL = URL.createObjectURL(file);
+            profilePhoto.src = imageURL;
+            localStorage.setItem("foto", imageURL);
+        }
+    });
+
+    const modal      = document.getElementById("modalOverlay");
+    const btnEdit    = document.querySelector(".btn-edit");
+    const closeBtn   = document.getElementById("closeBtn");
+    const saveBtn    = document.getElementById("saveBtn");
+
+    const editNama   = document.getElementById("editNama");
+    const editEmail  = document.getElementById("editEmail");
+    const editHP     = document.getElementById("editHP");
+
+    const viewNama   = document.getElementById("viewNama");
+    const viewEmail  = document.getElementById("viewEmail");
+    const viewHP     = document.getElementById("viewHP");
+    const headerNama = document.getElementById("headerNama");
+
+    btnEdit.addEventListener("click", () => {
+        modal.style.display = "flex";
+
+        editNama.value  = viewNama.textContent.replace(": ", "");
+        editEmail.value = viewEmail.textContent.replace(": ", "");
+        editHP.value    = viewHP.textContent.replace(": ", "");
+    });
+
+    const closeModal = () => modal.style.display = "none";
+    closeBtn.addEventListener("click", closeModal);
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    saveBtn.addEventListener("click", () => {
+        const nama = editNama.value;
+        const email = editEmail.value;
+        const hp = editHP.value;
+
+        viewNama.textContent = ": " + nama;
+        viewEmail.textContent = ": " + email;
+        viewHP.textContent = ": " + hp;
+        headerNama.textContent = nama;
+
+        localStorage.setItem("nama", nama);
+        localStorage.setItem("email", email);
+        localStorage.setItem("hp", hp);
+
+        closeModal();
+    });
+
+    function loadSavedData() {
+        const savedNama  = localStorage.getItem("nama");
+        const savedEmail = localStorage.getItem("email");
+        const savedHP    = localStorage.getItem("hp");
+        const savedFoto  = localStorage.getItem("foto");
+
+        if (savedNama) {
+            viewNama.textContent = ": " + savedNama;
+            headerNama.textContent = savedNama;
+        }
+
+        if (savedEmail) viewEmail.textContent = ": " + savedEmail;
+        if (savedHP) viewHP.textContent = ": " + savedHP;
+        if (savedFoto) profilePhoto.src = savedFoto;
     }
-});
-document.getElementById("menu-toggle").addEventListener("click", function () {
-    const sidebar = document.querySelector(".sidebar");
-    const main = document.querySelector(".main-content");
 
-    sidebar.classList.toggle("collapsed");
-    main.classList.toggle("collapsed");
+    loadSavedData(); 
 });
-document.getElementById("profileIcon").addEventListener("click", function () {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-});
-

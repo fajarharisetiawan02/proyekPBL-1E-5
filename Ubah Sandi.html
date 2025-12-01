@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Ujian-Aplikasi pengumuman akademik Online</title>
+    <title>Sandi-Aplikasi pengumuman akademik Online</title>
     <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!--Koneksikan dengan CSS-->
-    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="Ubah sandi.css">
 
 </head>
 
@@ -66,7 +66,9 @@
             </div>
         </div>
 
+
         <div class="main-content">
+
             <div class="topbar">
                 <i class="fa-solid fa-bars" id="menu-toggle"></i>
 
@@ -89,80 +91,41 @@
                     </div>
                 </div>
             </div>
-            <div class="filters">
-                <button>Semua</button>
-                <button>Minggu Ini</button>
-                <button>Bulan Ini</button>
-            </div>
-            <br>
-            <h4>IF MALAM 1E</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mata Kuliah</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Ruang</th>
-                        <th>Dosen</th>
-                    </tr>
-                </thead>
 
-                <body>
-                    <tr>
-                        <td>Dasar Pemrograman Web</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Dasar Pemrogramman</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Matematika</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Pendidikan Pancasila</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Pengantar Proyek Perangkat Lunak</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Pengantar Teknologi Informasi</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </body>
-            </table>
+            <section class="content">
+                <article class="card password-card">
+                    <h2>Ubah Password</h2>
+                    <p class="info">Agar akun tetap aman, gunakan password yang kuat.</p>
+
+                    <div class="form-row">
+                        <label>Password Lama</label>
+                        <input id="oldPass" type="password" placeholder="Masukkan password lama">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Password Baru</label>
+                        <input id="newPass" type="password" placeholder="Masukkan password baru">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Konfirmasi Password Baru</label>
+                        <input id="confirmPass" type="password" placeholder="Konfirmasi password">
+                    </div>
+
+                    <button id="saveBtn" class="btn">Simpan Password</button>
+                    <p id="msg" class="message"></p>
+                </article>
+            </section>
+            </main>
         </div>
 
-    </div>
-    </div>
     </div>
 
     <footer>
         © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
     </footer>
-
-    <script src="script3.js"></script>
+    <!-- JS -->
+    <script src="Ubah sandi.js"></script>
 
 </body>
 

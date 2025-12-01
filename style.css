@@ -10,18 +10,14 @@ body {
   color: #333;
 }
 
-/* HEADER */
 header {
   background-color: #1E3A8A;
   color: white;
-
-  height: 90px; /* tinggi selalu sama */
-  padding: 0 50px; /* hanya kiri–kanan */
-  
+  height: 90px;
+  padding: 0 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -35,11 +31,13 @@ header h1 {
   font-size: 22px;
   font-weight: 600;
 }
+
 .logo-header {
-  height: 50px; /* jaga konsistensi logo */
+  height: 50px;
   width: auto;
   display: block;
 }
+
 .logo-container {
   display: flex;
   flex-direction: column;
@@ -49,12 +47,11 @@ header h1 {
 
 .logo-text {
   font-size: 13px;
-  color: #66ccff; /* warna biru muda */
+  color: #66ccff;
   font-weight: 600;
   margin-top: -9px;
 }
 
-/* Tombol Login */
 nav .login-btn {
   border: 2px solid #fff;
   padding: 6px 18px;
@@ -81,7 +78,6 @@ nav a:hover {
   color: lightblue;
 }
 
-/* HERO */
 .hero {
   background: url("mahasiswa.jpg") center/cover no-repeat;
   height: 70vh;
@@ -129,7 +125,6 @@ nav a:hover {
   }
 }
 
-/* PENGUMUMAN */
 .section {
   padding: 60px 80px;
   text-align: center;
@@ -221,7 +216,6 @@ nav a:hover {
   color: #333;
 }
 
-/* FOOTER */
 footer {
   background: #1a1a2e;
   color: white;
@@ -230,7 +224,6 @@ footer {
   font-size: 14px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   header {
     flex-direction: column;

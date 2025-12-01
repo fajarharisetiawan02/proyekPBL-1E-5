@@ -4,135 +4,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+    <title>Dashboard-Aplikasi pengumuman akademik Online</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
 
     <!--Koneksikan dengan CSS-->
     <link rel="stylesheet" href="style2.css">
-
 </head>
 
 <body>
-    <div class="container">
 
-        <div class="sidebar">
+    <div class="container">
+        <aside class="sidebar">
+
             <div class="header">
                 <div class="list-item">
-                    <i class="fas fa-graduation-cap fa-lg"></i>
-                    <div class="logo-text">Pengumuman <br> Akademik Online</div>
-
-                </div>
-                <div class="main">
-                    <div class="list-item">
-                        <a href="Dashboard.html">
-                            <i class="fas fa-home"></i>
-                            <span class="description">Dashboard</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="main">
-                    <div class="list-item">
-                        <a href="jadwal_ujian.html">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span class="description">Jadwal Ujian</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="main">
-                    <div class="list-item">
-                        <a href="perkuliahan.html">
-                            <i class="fas fa-book-open"></i>
-                            <span class="description">Perkuliahan</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="main">
-                    <div class="list-item">
-                        <a href="perubahan_kelas.html">
-                            <i class="fas fa-exchange-alt"></i>
-                            <span class="description">Perubahan Kelas</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="main">
-                    <div class="list-item">
-                        <a href="beasiswa.html">
-                            <i class="fas fa-award"></i>
-                            <span class="description">Beasiswa</span>
-                        </a>
+                    <i class="fas fa-graduation-cap logo-icon"></i>
+                    <div class="logo-text">
+                        Pengumuman <br> Akademik Online
                     </div>
                 </div>
             </div>
 
-        </div>
+            <nav class="main">
+                <div class="list-item"><a href="dashboard.html"><i class="fas fa-home"></i><span
+                            class="description">Dashboard</span></a></div>
+                <div class="list-item"><a href="jadwal_ujian.html"><i class="fas fa-calendar-alt"></i><span
+                            class="description">Jadwal Ujian</span></a></div>
+                <div class="list-item"><a href="perkuliahan.html"><i class="fas fa-book-open"></i><span
+                            class="description">Perkuliahan</span></a></div>
+                <div class="list-item"><a href="perubahan_kelas.html"><i class="fas fa-exchange-alt"></i><span
+                            class="description">Perubahan Kelas</span></a></div>
+                <div class="list-item"><a href="beasiswa.html"><i class="fas fa-award"></i><span
+                            class="description">Beasiswa</span></a></div>
+            </nav>
 
-        <div class="main-content">
-            <div class="topbar">
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
                 <i class="fa-solid fa-bars" id="menu-toggle"></i>
 
                 <div class="search-box">
                     <input type="text" placeholder="Search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-search"></i>
                 </div>
 
-
                 <div class="header-icons">
-                    <i class="fa-regular fa-bell" title="Notifikasi"
-                        onclick="window.location.href='notifikasi.html'"></i>
+                    <i class="fa-regular fa-bell"></i>
+
                     <div class="profile-dropdown">
                         <i class="fa-solid fa-circle-user" id="profileIcon"></i>
 
                         <div class="dropdown-menu" id="dropdownMenu">
-                            <a href="profil Mahasiswa.html">
-                                <i class="fa-solid fa-id-card"></i> Profil
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-gear"></i> Pengaturan
-                            </a>
-                            <a href="tampilan_login.html">
-                                <i class="fa-solid fa-right-from-bracket"></i> Logout
-                            </a>
+                            <a href="profil mahasiswa.html"><i class="fa-solid fa-id-card"></i> Profil</a>
+                            <a href="Ubah Sandi.html"><i class="fa-solid fa-key"></i> Change Password</a>
+                            <a href="tampilan_login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                         </div>
                     </div>
                 </div>
+            </header>
+
+            <section class="hero">
+                <h1>Selamat Datang, Mahasiswa!</h1>
+                <p>Akses informasi akademik kampus secara cepat dan mudah.</p>
+            </section>
+            <div class="news-bar">
+                <marquee>
+                    🔔 Pengumuman penting: Ruang kuliah B-203 pindah ke C-102 |
+                    🎓 Pendaftaran beasiswa Gelombang 2 dibuka |
+                    📅 Cek jadwal UTS terbaru di halaman jadwal
+                </marquee>
             </div>
-            <div class="content">
-                <h2>Welcome, Kelompok PBL 5! 🚀</h2>
-                <h3>Kategori Pengumuman</h3>
-                <div class="cards">
-                    <div class="cards">
-                        <a href="jadwal_ujian.html" class="card">
-                            <i class="fa-solid fa-calendar-days"></i>
-                            <h3>Jadwal Ujian</h3>
-                            <p>Lihat pengumuman terkait jadwal ujian</p>
-                        </a>
-                        <a href="perkuliahan.html" class="card">
-                            <i class="fa-solid fa-chalkboard-user"></i>
-                            <h3>Perkuliahan</h3>
-                            <p>Berita dan informasi kuliah</p>
-                        </a>
-                        <a href="perubahan_kelas.html" class="card">
-                            <i class="fa-solid fa-arrows-rotate"></i>
-                            <h3>Perubahan Kelas</h3>
-                            <p>Pengumuman perubahan kelas</p>
-                        </a>
-                        <a href="beasiswa.html" class="card">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <h3>Beasiswa</h3>
-                            <p>Informasi mengenai beasiswa</p>
-                        </a>
+
+            <h3 class="section-title">Kategori Pengumuman</h3>
+
+            <div class="cards">
+                <a href="jadwal_ujian.html" class="card">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <h3>Jadwal Ujian</h3>
+                    <p>Lihat pengumuman terkait jadwal ujian</p>
+                </a>
+
+                <a href="perkuliahan.html" class="card">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <h3>Perkuliahan</h3>
+                    <p>Berita dan informasi kuliah</p>
+                </a>
+
+                <a href="perubahan_kelas.html" class="card">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <h3>Perubahan Kelas</h3>
+                    <p>Pengumuman perubahan kelas</p>
+                </a>
+
+                <a href="beasiswa.html" class="card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3>Beasiswa</h3>
+                    <p>Informasi mengenai beasiswa</p>
+                </a>
+            </div>
+
+            <section class="stats">
+                <div class="stat">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <div>
+                        <div class="num">12</div>
+                        <div class="sub">Pengumuman Baru</div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+                <div class="stat">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <div>
+                        <div class="num">5</div>
+                        <div class="sub">Jadwal Minggu Ini</div>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div>
+                        <div class="num">78</div>
+                        <div class="sub">SKS Lulus</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
     </div>
 
     <footer>
         © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
     </footer>
 
-    <script src="script4.js"></script>
+    <script src="script3.js"></script>
 
 </body>
 

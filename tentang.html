@@ -1,22 +1,24 @@
 <!doctype html>
 <html lang="id">
+
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tentang — Aplikasi Pengumuman Akademik Online</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!--Koneksikan dengan CSS-->
   <link rel="stylesheet" href="tentang.css">
 </head>
 
 <body>
+
   <header>
-  <h1 class="logo-container">
-  <img src="Logo Polibatam1.png" class="logo-header" alt="Logo Aplikasi">
-  <span class="logo-text">polibatam</span>
-</h1>
+    <h1 class="logo-container">
+      <img src="Logo Polibatam1.png" class="logo-header" alt="Logo Aplikasi">
+      <span class="logo-text">polibatam</span>
+    </h1>
 
     <nav>
       <a href="beranda.html">Beranda</a>
@@ -25,14 +27,14 @@
     </nav>
   </header>
 
-  <!-- KONTEN UTAMA -->
   <main class="container" role="main">
 
-    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-left">
         <div class="kicker">Sistem Informasi</div>
+
         <h1 id="hero-title">Tentang Aplikasi Pengumuman Akademik Online</h1>
+
         <p>
           Aplikasi Pengumuman Akademik Online menyediakan pusat informasi resmi kampus dalam satu platform.
           Mahasiswa, dosen, dan staf dapat menerima pengumuman jadwal, perubahan kelas, pengumuman ujian, dan
@@ -40,7 +42,9 @@
         </p>
 
         <div class="hero-cta">
-          <a class="btn btn-primary" href="dashboard.html"><i class="fa-solid fa-house-chimney"></i>&nbsp;Lihat Pengumuman</a>
+          <a class="btn btn-primary" href="tampilan_login.html">
+            <i class="fa-solid fa-house-chimney"></i>&nbsp;Lihat Pengumuman
+          </a>
           <a class="btn btn-outline" href="#fitur">Pelajari Fitur</a>
         </div>
       </div>
@@ -48,22 +52,24 @@
       <div class="hero-illus" aria-hidden="true">
         <div class="card-illus">
           <i class="fa-solid fa-bell fa-2x"></i>
-          <div style="font-weight:600;color:var(--blue-dark)">Real-time announcements</div>
-          <small style="color:#556">Notifikasi langsung ke pengguna</small>
+          <div class="illus-title">Real-time announcements</div>
+          <small class="illus-subtitle">Notifikasi langsung ke pengguna</small>
         </div>
       </div>
     </section>
 
-    <!-- GRID: Visi/Misi, Manfaat, Fitur -->
     <section class="grid" id="fitur" aria-label="Informasi">
       <div class="card">
         <h3>Visi</h3>
-        <p>Mewujudkan komunikasi akademik yang cepat, terstruktur, dan mudah diakses untuk seluruh sivitas akademika.</p>
+        <p>
+          Mewujudkan komunikasi akademik yang cepat, terstruktur, dan mudah diakses
+          untuk seluruh sivitas akademika.
+        </p>
       </div>
 
       <div class="card">
         <h3>Misi</h3>
-        <ol style="margin:0 0 0 18px;padding:0 0 0 6px">
+        <ol>
           <li>Menyediakan kanal pengumuman terpusat dan real-time.</li>
           <li>Meningkatkan keteraturan jadwal dan transparansi informasi.</li>
           <li>Mendukung aksesibilitas informasi untuk mahasiswa dan staf akademik.</li>
@@ -72,7 +78,7 @@
 
       <div class="card">
         <h3>Manfaat</h3>
-        <ul style="margin:0 0 0 18px;padding:0 0 0 6px">
+        <ul>
           <li>Hemat waktu: tidak perlu ke papan pengumuman fisik.</li>
           <li>Informasi valid & resmi dari pihak kampus.</li>
           <li>Notifikasi dan filter untuk pengumuman relevan.</li>
@@ -80,43 +86,61 @@
       </div>
     </section>
 
-    <!-- Fitur -->
-    <section style="margin-top:18px" aria-labelledby="fitur-title">
-      <h2 id="fitur-title" style="margin:0 0 12px 0;color:var(--blue-dark)">Fitur Unggulan</h2>
+    <section aria-labelledby="fitur-title" style="margin-top: 18px;">
+      <h2 id="fitur-title" class="section-title">Fitur Unggulan</h2>
 
       <div class="card features">
-        <div class="feature-item"><i class="fa-solid fa-bell"></i><div><strong>Notifikasi Real-time</strong><div style="color:#555">Pengumuman penting langsung tersampaikan ke pengguna.</div></div></div>
+        <div class="feature-item">
+          <i class="fa-solid fa-bell"></i>
+          <div>
+            <strong>Notifikasi Real-time</strong>
+            <p class="feature-desc">Pengumuman penting langsung tersampaikan ke pengguna.</p>
+          </div>
+        </div>
 
-        <div class="feature-item"><i class="fa-solid fa-calendar-days"></i><div><strong>Kelola Jadwal & Ujian</strong><div style="color:#555">Jadwal kuliah dan ujian terpusat, mudah dipantau.</div></div></div>
+        <div class="feature-item">
+          <i class="fa-solid fa-calendar-days"></i>
+          <div>
+            <strong>Kelola Jadwal & Ujian</strong>
+            <p class="feature-desc">Jadwal kuliah dan ujian terpusat, mudah dipantau.</p>
+          </div>
+        </div>
 
-        <div class="feature-item"><i class="fa-solid fa-user-check"></i><div><strong>Peran & Hak Akses</strong><div style="color:#555">Admin, dosen, dan mahasiswa mendapat hak akses berbeda sesuai kebutuhan.</div></div></div>
+        <div class="feature-item">
+          <i class="fa-solid fa-user-check"></i>
+          <div>
+            <strong>Peran & Hak Akses</strong>
+            <p class="feature-desc">Admin, dosen, dan mahasiswa memiliki hak akses berbeda.</p>
+          </div>
+        </div>
 
-        <div class="feature-item"><i class="fa-solid fa-filter"></i><div><strong>Filter & Kategori</strong><div style="color:#555">Filter per jurusan, kelas, atau tanggal.</div></div></div>
+        <div class="feature-item">
+          <i class="fa-solid fa-filter"></i>
+          <div>
+            <strong>Filter & Kategori</strong>
+            <p class="feature-desc">Filter per jurusan, kelas, atau tanggal.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Tim -->
-    <section style="margin-top:18px">
-      <h2 style="margin:0 0 12px 0;color:var(--blue-dark)">Tim Pengembang</h2>
-      <div class="team">
-        <div class="member"><div class="avatar">FH</div><div><strong>Fajar Hari Setiawan.</strong><div style="color:#666">Frontend & UX</div></div></div>
-        <div class="member"><div class="avatar">FM</div><div><strong>Farhan Mansyuri.</strong><div style="color:#666">Backend & API</div></div></div>
-        <div class="member"><div class="avatar">HU</div><div><strong>Hilda Tri Utami.</strong><div style="color:#666">QA & Dokumentasi</div></div></div>
-        <div class="member"><div class="avatar">NN</div><div><strong>Nadhil Nasuha.</strong><div style="color:#666">QA & Dokumentasi</div></div></div>
-      </div>
-
-      <div style="margin-top:16px" class="card">
+    <section style="margin-top: 18px;">
+      <div class="card">
         <h3>Kontak & Dukungan</h3>
-        <p>Butuh bantuan? Hubungi admin: <strong>info@polibatam.ac.id</strong> atau telepon +62-778-469858 .</p>
+        <p>
+          Butuh bantuan? Hubungi admin:
+          <strong>info@polibatam.ac.id</strong> atau telepon +62-778-469858.
+        </p>
       </div>
     </section>
-
   </main>
-    <footer>
+
+  <footer>
     © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
   </footer>
 
   <script src="tentang.js"></script>
 
 </body>
+
 </html>

@@ -2,160 +2,252 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jadwal Ujian</title>
-  <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Mahasiswa-Aplikasi pengumuman akademik Online</title>
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!--Koneksikan dengan CSS-->
-  <link rel="stylesheet" href="style8.css">
-
+    <!--Koneksikan dengan CSS-->
+    <link rel="stylesheet" href="style7.css">
 </head>
 
 <body>
-  <div class="container">
 
-    <div class="sidebar">
-      <div class="header">
-        <div class="list-item">
-          <i class="fas fa-graduation-cap fa-lg"></i>
-          <div class="logo-text">Pengumuman <br> Akademik Online</div>
+    <div class="container">
+        <div class="sidebar">
 
-        </div>
-        <br>
-        <div class="main">
-          <div class="list-item">
-            <a href="dashboard.html">
-              <i class="fas fa-home"></i>
-              <span class="description">Dashboard</span>
-            </a>
-          </div>
-        </div>
-        <div class="main">
-          <div class="list-item">
-            <a href="jadwal_ujian.html">
-              <i class="fas fa-calendar-alt"></i>
-              <span class="description">Jadwal Ujian</span>
-            </a>
-          </div>
-        </div>
-        <div class="main">
-          <div class="list-item">
-            <a href="perkuliahan.html">
-              <i class="fas fa-book-open"></i>
-              <span class="description">Perkuliahan</span>
-            </a>
-          </div>
-        </div>
-        <div class="main">
-          <div class="list-item">
-            <a href="perubahan_kelas.html">
-              <i class="fas fa-exchange-alt"></i>
-              <span class="description">Perubahan Kelas</span>
-            </a>
-          </div>
-        </div>
-        <div class="main">
-          <div class="list-item">
-            <a href="beasiswa.html">
-              <i class="fas fa-award"></i>
-              <span class="description">Beasiswa</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="main-content">
-      <div class="topbar">
-        <i class="fa-solid fa-bars" id="menu-toggle"></i>
-
-        <div class="search-box">
-          <input type="text" placeholder="Search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-
-        <div class="header-icons">
-          <i class="fa-regular fa-bell" title="Notifikasi" onclick="window.location.href='notifikasi.html'"></i>
-          <div class="profile-dropdown">
-            <i class="fa-solid fa-circle-user" id="profileIcon"></i>
-
-            <div class="dropdown-menu" id="dropdownMenu">
-              <a href="profil Mahasiswa.html">
-                <i class="fa-solid fa-id-card"></i> Profil
-              </a>
-              <a href="#">
-                <i class="fa-solid fa-gear"></i> Pengaturan
-              </a>
-              <a href="tampilan_login.html">
-                <i class="fa-solid fa-right-from-bracket"></i> Logout
-              </a>
+            <div class="header">
+                <div class="list-item">
+                    <i class="fas fa-graduation-cap logo-icon"></i>
+                    <div class="logo-text">
+                        Pengumuman <br> Akademik Online
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Konten -->
-      <div class="content">
-        <h1>Profil Mahasiswa</h1>
-        <div class="profile-card">
-          <div class="profile-photo">
-            <img id="fotoProfil" src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Foto Profil">
-            <input type="file" id="uploadFoto" style="display:none" accept="image/*">
-            <button onclick="document.getElementById('uploadFoto').click()">Ganti Foto</button>
-          </div>
+            <div class="main">
 
-          <div class="profile-info">
-            <h2>Data Pribadi</h2>
-            <table>
-              <tr>
-                <td><b>Nama Lengkap</b></td>
-                <td>:</td>
-                <td><span id="nama"></span></td>
-              </tr>
-              <tr>
-                <td><b>NIM</b></td>
-                <td>:</td>
-                <td><span id="nim"></span></td>
-              </tr>
-              <tr>
-                <td><b>Jurusan</b></td>
-                <td>:</td>
-                <td><span id="jurusan"></span></td>
-              </tr>
-              <tr>
-                <td><b>Program Studi</b></td>
-                <td>:</td>
-                <td><span id="prodi"></span></td>
-              </tr>
-              <tr>
-                <td><b>Email</b></td>
-                <td>:</td>
-                <td><span id="email"></span></td>
-              </tr>
-              <tr>
-                <td><b>No HP</b></td>
-                <td>:</td>
-                <td><span id="nohp"></span></td>
-              </tr>
-            </table>
-            <button class="edit-btn" onclick="editProfil()">Edit Profil</button>
-          </div>
+                <div class="list-item">
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span class="description">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="list-item">
+                    <a href="jadwal_ujian.html">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span class="description">Jadwal Ujian</span>
+                    </a>
+                </div>
+
+                <div class="list-item">
+                    <a href="perkuliahan.html">
+                        <i class="fas fa-book-open"></i>
+                        <span class="description">Perkuliahan</span>
+                    </a>
+                </div>
+
+                <div class="list-item">
+                    <a href="perubahan_kelas.html">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span class="description">Perubahan Kelas</span>
+                    </a>
+                </div>
+
+                <div class="list-item">
+                    <a href="beasiswa.html">
+                        <i class="fas fa-award"></i>
+                        <span class="description">Beasiswa</span>
+                    </a>
+                </div>
+
+            </div>
         </div>
-      </div>
+     
+        <div class="main-content">
+
+            <div class="topbar">
+                <i class="fa-solid fa-bars" id="menu-toggle"></i>
+
+                <div class="search-box">
+                    <input type="text" placeholder="Search">
+                    <i class="fa-solid fa-search"></i>
+                </div>
+
+                <div class="header-icons">
+                    <i class="fa-regular fa-bell"></i>
+
+                    <div class="profile-dropdown">
+                        <i class="fa-solid fa-circle-user" id="profileIcon"></i>
+
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="profil mahasiswa.html"><i class="fa-solid fa-id-card"></i> Profil</a>
+                            <a href="Ubah Sandi.html"><i class="fa-solid fa-key"></i> Change Password</a>
+                            <a href="tampilan_login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-header">
+                <div class="photo-wrapper">
+                    <img id="profilePhoto" src="https://cdn-icons-png.flaticon.com/512/847/847969.png">
+                    <label class="edit-photo-btn">
+                        <i class="fa-solid fa-camera"></i>
+                        <input type="file" id="photoInput" accept="image/*" hidden>
+                    </label>
+                </div>
+
+                <div>
+                    <h1 id="headerNama">Kel PBL 5</h1>
+                    <p>Mahasiswa – Teknik Informatika</p>
+                    <p>NIM : 202320014</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <h2>Data Pribadi</h2>
+                <div class="data-grid">
+                    <div class="label">Nama Lengkap</div>
+                    <div id="viewNama">: </div>
+
+                    <div class="label">Program Studi</div>
+                    <div>: Teknik Informatika</div>
+
+                    <div class="label">Email</div>
+                    <div id="viewEmail">: </div>
+
+                    <div class="label">No HP</div>
+                    <div id="viewHP">: </div>
+                </div>
+
+                <button class="btn-edit">Edit Profil</button>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>IPK Saat Ini</h3>
+                    <p>3.72</p>
+                </div>
+                <div class="stat-box">
+                    <h3>SKS Lulus</h3>
+                    <p>78</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Pengumuman Baru</h3>
+                    <p>4</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+
+                <div class="card">
+                    <h3>Aktivitas Terakhir</h3>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">📘</div>
+                        <div><strong>Mengikuti Kuliah</strong>
+                            <p>Pemrograman Web</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">🔔</div>
+                        <div><strong>Melihat Pengumuman</strong>
+                            <p>Pengumuman Prodi terbaru</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon">📥</div>
+                        <div><strong>Mengunduh Dokumen</strong>
+                            <p>Jadwal Ujian Semester</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Akun & Keamanan</h3>
+
+                    <div class="acc-row">
+                        <div><strong>Email Login</strong>
+                            <p>fajar@student.univ.ac.id</p>
+                        </div>
+                        <span class="acc-icon">📧</span>
+                    </div>
+
+                    <div class="acc-row">
+                        <div><strong>Status Akun</strong>
+                            <p>Aktif</p>
+                        </div>
+                        <span class="acc-icon">✔️</span>
+                    </div>
+
+                    <div class="acc-row">
+                        <div><strong>Terakhir Login</strong>
+                            <p>22 Februari 2025</p>
+                        </div>
+                        <span class="acc-icon">⏱️</span>
+                    </div>
+
+                    <a href="Ubah Sandi.html" class="pw-btn">Ubah Password</a>
+                </div>
+
+            </div>
+
+            <div class="grid-2" style="margin-top:35px;">
+
+                <div class="card">
+                    <h3>Kelas yang Diikuti</h3>
+                    <div class="class-item"><strong>Pemrograman Web</strong><br>Dosen: Dr. Andi</div>
+                    <div class="class-item"><strong>Basis Data</strong><br>Dosen: Ir. Susi</div>
+                    <div class="class-item"><strong>Jaringan Komputer</strong><br>Dosen: Mirza, M.Kom</div>
+                </div>
+
+                <div class="card">
+                    <h3>Progress Studi</h3>
+                    <p><strong>Kemajuan Semester</strong></p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p>78% Selesai</p>
+                </div>
+
+            </div>
+
+        </div> 
+
     </div>
 
-  </div>
-  </div>
 
-  <footer>
-    © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
-  </footer>
+    <footer>
+        © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+    </footer>
 
-  <!-- LINK ke JavaScript -->
-  <script src="script1.js"></script>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+
+            <h2>Edit Profil</h2>
+
+            <label>Nama Lengkap</label>
+            <input type="text" id="editNama" placeholder="Masukkan nama">
+
+            <label>Email</label>
+            <input type="email" id="editEmail" placeholder="Masukkan email">
+
+            <label>No HP</label>
+            <input type="text" id="editHP" placeholder="Masukkan no HP">
+
+            <div class="modal-buttons">
+                <button id="closeBtn" class="btn-cancel">Batal</button>
+                <button id="saveBtn" class="btn-save">Simpan</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="script1.js"></script>
 
 </body>
 
