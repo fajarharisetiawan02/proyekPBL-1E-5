@@ -4,6 +4,13 @@ function validasiLogin() {
   const errorNama = document.getElementById("errorNama");
   const errorPassword = document.getElementById("errorPassword");
   const loginError = document.getElementById("loginError");
+  const menu = document.getElementById("menu-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+menu.onclick = () => {
+    sidebar.classList.toggle("active");
+};
+
   let valid = true;
 
   errorNama.textContent = "";

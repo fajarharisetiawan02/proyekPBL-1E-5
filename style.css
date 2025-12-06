@@ -31,6 +31,102 @@ header h1 {
   font-size: 22px;
   font-weight: 600;
 }
+/* =============================== */
+/*        RESPONSIVE DESIGN        */
+/* =============================== */
+
+/* --- 1. Tampilan Tablet (max-width: 992px) --- */
+@media (max-width: 992px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* --- 2. Tampilan Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+
+    /* Sidebar berubah menjadi hidden dulu */
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        width: 250px;
+        transition: 0.3s;
+        z-index: 999;
+    }
+
+    /* Sidebar muncul ketika menu ditekan (JS harus toggle class "active") */
+    .sidebar.active {
+        left: 0;
+    }
+
+    /* Konten melebar penuh */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Topbar */
+    .topbar {
+        justify-content: space-between;
+    }
+
+    /* Cards jadi 1 kolom */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stats jadi 1 kolom */
+    .stats {
+        grid-template-columns: 1fr;
+        row-gap: 15px;
+    }
+
+    /* Search box melebar */
+    .search-box input {
+        width: 130px;
+    }
+}
+
+
+/* --- 3. Mobile kecil (max-width: 480px) --- */
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .search-box input {
+        width: 100px;
+    }
+
+    marquee {
+        font-size: 12px;
+    }
+
+    footer {
+        font-size: 12px;
+        text-align: center;
+    }
+}
 
 .logo-header {
   height: 50px;
