@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggle.addEventListener("click", () => {
         sidebar.classList.toggle("collapsed");
         mainContent.classList.toggle("collapsed");
+        const menu = document.getElementById("menu-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+menu.onclick = () => {
+    sidebar.classList.toggle("active");
+};
+
     });
 
     const profileIcon  = document.getElementById("profileIcon");
