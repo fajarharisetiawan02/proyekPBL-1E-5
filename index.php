@@ -1,0 +1,73 @@
+<?php 
+require_once "config/koneksi.php";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profil Mahasiswa</title>
+
+<link rel="stylesheet" href="/PBL-1E-5_akademik/assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style_profil_mahasiswa.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+</head>
+<body>
+  <header>
+    <h1 class="logo-container">
+      <img src="/PBL-1E-5_akademik/assets/img/Logo Polibatam1.png" class="logo-header" alt="Logo Aplikasi">
+      <span class="logo-text">polibatam</span>
+    </h1>
+
+    <nav>
+      <a href="index.php">Beranda</a>
+      <a href="tentang.php">Tentang</a>
+      <a href="login.php" class="login-btn">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Selamat Datang di Pengumuman Akademik Online</h2>
+      <p>Tempat resmi untuk melihat informasi kampus, jadwal ujian, dan pengumuman terbaru.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>📢 Pengumuman Terbaru</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="lni lni-calendar"></i>
+        <h3>Jadwal UTS Ganjil 2025</h3>
+        <p>Ujian Tengah Semester Ganjil akan dilaksanakan mulai tanggal 27 Oktober 2025. Pastikan seluruh mahasiswa
+          mempersiapkan diri dengan baik.</p>
+      </div>
+
+      <div class="card">
+        <i class="lni lni-certificate"></i>
+        <h3>Beasiswa Prestasi Akademik</h3>
+        <p>Kampus membuka program Beasiswa Prestasi Akademik bagi mahasiswa aktif dengan IPK minimal 3.50. Pendaftaran
+          dibuka mulai 1–20 Desember 2025 melalui portal kemahasiswaan.</p>
+      </div>
+
+      <div class="card">
+        <i class="lni lni-users"></i>
+        <h3>Jadwal Perkuliahan Pengganti</h3>
+        <p>Bagi dosen dan mahasiswa yang memiliki jadwal kuliah tertunda, harap melakukan perkuliahan pengganti sebelum
+          29 Oktober 2025. Koordinasikan dengan program studi masing-masing untuk jadwal ruang dan waktu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h3>Ingin Melihat Semua Pengumuman?</h3>
+    <a href="login.php">Lihat Selengkapnya</a>
+  </section>
+
+  <footer>
+    © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+  </footer>
+</body>
+
+</html>
