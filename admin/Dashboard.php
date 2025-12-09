@@ -20,7 +20,7 @@ $sks        = 78;
     <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
 
 
-    <link rel="stylesheet" href="../assets/css/style2.css">
+    <link rel="stylesheet" href="../assets/css/style.2.css">
 </head>
 
 <body>
@@ -137,7 +137,7 @@ $sks        = 78;
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../assets/js/script.3.js"></script>
+<script src="../assets/js/script..3.js"></script>
 
 </body>
 </html>
