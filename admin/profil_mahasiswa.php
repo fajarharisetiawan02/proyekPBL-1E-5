@@ -2,44 +2,36 @@
 require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 
-session_start();
-if (!isset($_SESSION['id_mahasiswa'])) {
-    header("Location: ../login.php");
-    exit;
-}
+$role = $_SESSION['role'] ?? null;
 
-if (!isset($_GET['id']) || empty($_GET['id'])) {
-    $find = mysqli_query($koneksi, "SELECT id_mahasiswa FROM mahasiswa LIMIT 1");
+if ($role === 'admin') {
 
-    if (mysqli_num_rows($find) == 0) {
-        echo "<h2 style='padding:20px;color:#b00'>❌ Tidak ada data mahasiswa.</h2>";
+    if (!isset($_GET['id'])) {
+        echo "<h2 style='padding:20px;color:red'>❌ ID mahasiswa tidak ada</h2>";
         exit;
     }
 
-    $first = mysqli_fetch_assoc($find);
-    header("Location: profil_mahasiswa.php?id=" . $first['id_mahasiswa']);
-    exit;
+    $id = mysqli_real_escape_string($koneksi, $_GET['id']);
+
+    $q = mysqli_query($koneksi,
+        "SELECT * FROM mahasiswa WHERE id_mahasiswa='$id'"
+    );
+
+} else {
+
+    $nim = $_SESSION['username'];
+
+    $q = mysqli_query($koneksi,
+        "SELECT * FROM mahasiswa WHERE nim='$nim'"
+    );
 }
 
-$id = $_GET['id'];
-
-$q  = mysqli_query($koneksi, "SELECT * FROM mahasiswa WHERE id_mahasiswa='$id'");
 $mhs = mysqli_fetch_assoc($q);
 
 if (!$mhs) {
-    echo "<h2 style='padding:20px;color:#b00'>
-            ❌ Data mahasiswa dengan ID <b>$id</b> tidak ditemukan.
-          </h2>";
+    echo "<h2 style='padding:20px;color:red'>❌ Data mahasiswa tidak ditemukan.</h2>";
     exit;
 }
-
-/* ==== CEK FOTO ==== */
-$foto = $mhs['foto'];
-
-$fotoPath = (!empty($foto) && file_exists("../uploads/$foto"))
-            ? "../uploads/$foto"
-            : "https://cdn-icons-png.flaticon.com/512/847/847969.png";
-
 ?>
 
 <!DOCTYPE html>

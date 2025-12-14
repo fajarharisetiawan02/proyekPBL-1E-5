@@ -136,7 +136,24 @@ if (ctx2) {
         }
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const notifBtn = document.getElementById("notifBtn");
+    const notifDropdown = document.getElementById("notifDropdown");
 
+    if (notifBtn) {
+        notifBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            notifDropdown.style.display =
+                notifDropdown.style.display === "block" ? "none" : "block";
+        });
+    }
+
+    document.addEventListener("click", function () {
+        if (notifDropdown) {
+            notifDropdown.style.display = "none";
+        }
+    });
+})
 document.querySelectorAll('.menu-link').forEach(menu => {
     menu.addEventListener('click', () => {
         menu.parentElement.classList.toggle('active');
