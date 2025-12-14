@@ -6,15 +6,15 @@
 <meta charset="UTF-8">
 <title>Profil Mahasiswa</title>
 
-<link rel="stylesheet" href="/PBL-1E-5_akademik/assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/style_profil_mahasiswa.css">
+<link rel="stylesheet" href="/ProyekPBL-1E-5/assets/css/style.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
 </head>
 <body>
   <header>
     <h1 class="logo-container">
-      <img src="/PBL-1E-5_akademik/assets/img/Logo Polibatam1.png" class="logo-header" alt="Logo Aplikasi">
+      <img src="/ProyekPBL-1E-5/assets/img/Logo Polibatam1.png" class="logo-header" alt="Logo Aplikasi">
       <span class="logo-text">polibatam</span>
     </h1>
 
