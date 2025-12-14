@@ -1,5 +1,7 @@
 <?php
-include "../config/koneksi.php";
+require_once "../config/auth.php";
+require_once "../config/koneksi.php";
+
 
 // ==============================
 //  AMBIL DATA OTOMATIS DARI DB
@@ -22,7 +24,7 @@ $sks        = 78; // contoh, ganti sesuai tabel kamu jika ada
     <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
 
     <!-- CSS UTAMA -->
-    <link rel="stylesheet" href="../assets/css/style..2.css">
+    <link rel="stylesheet" href="../assets/css/style2.css">
 </head>
 
 <body>
@@ -42,7 +44,7 @@ $sks        = 78; // contoh, ganti sesuai tabel kamu jika ada
 
             <!-- HERO SECTION -->
             <section class="hero fade-in">
-                <h1>Selamat Datang, Mahasiswa!</h1>
+                <h2>Selamat Datang, <?= $nama; ?>!</h2>
                 <p>Kelola informasi akademik dengan cepat & efisien.</p>
             </section>
 
@@ -144,7 +146,7 @@ $sks        = 78; // contoh, ganti sesuai tabel kamu jika ada
 
 <!-- JS FILES -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../assets/js/script.3.js"></script>
+<script src="../assets/js/script3.js"></script>
 
 </body>
 </html>

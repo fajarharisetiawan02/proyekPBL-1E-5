@@ -1,6 +1,6 @@
 <?php
-session_start();
-include "../config/koneksi.php";
+require_once "../config/auth.php";
+require_once "../config/koneksi.php";
 
 if (!isset($_SESSION['username'])) {
     echo "<script>alert('Silakan login terlebih dahulu!'); window.location='../tampilan_login.php';</script>";

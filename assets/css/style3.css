@@ -460,7 +460,7 @@ h3 {
 
 .form-box {
     width: 100%;
-    max-width: 600px;
+    max-width: 1170px;
     background: #ffffff;
     padding: 20px 25px;
     border-radius: 12px;
@@ -475,7 +475,7 @@ h3 {
 }
 
 .form-box input {
-    width: 100%;
+    width: 98%;
     padding: 10px;
     border: 1px solid #d4d4d4;
     border-radius: 8px;
@@ -533,6 +533,98 @@ footer {
     width: 180px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     animation: fadeDropdown 0.25s ease-out;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    background: #3f51b5; /* warna kampus */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+/* ===== PROFIL TOPBAR FINAL ===== */
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    padding-right: 40px;
+    font-size: initial; /* RESET */
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* Avatar profil - NORMAL HITAM */
+.profile-avatar {
+    width: 35px;
+    height: 35px;
+    background-color: #000;     /* HITAM */
+    color: #fff;               /* Huruf putih */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    flex-shrink: 0;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+    transition: 
+        background-color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Saat hover → BIRU */
+.profile-avatar:hover {
+    background-color: #1E3A8A; /* BIRU KAMPUS */
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(30,58,138,0.45);
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.profile-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+}
+
+.profile-nim {
+    font-size: 11px;      /* lebih kecil */
+    color: #9ca3af;      /* abu-abu lembut */
+}
+
+@keyframes fadeDropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeDropdown {

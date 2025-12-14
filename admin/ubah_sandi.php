@@ -1,6 +1,6 @@
 <?php
-session_start();
-include "../config/koneksi.php";
+require_once "../config/auth.php";
+require_once "../config/koneksi.php";
 
 // CEK LOGIN
 if (!isset($_SESSION['username'])) {

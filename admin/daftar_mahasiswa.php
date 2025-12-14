@@ -1,5 +1,6 @@
 <?php
-require "../config/koneksi.php";
+require_once "../config/auth.php";
+require_once "../config/koneksi.php";
 
 $q = mysqli_query($koneksi, "SELECT * FROM mahasiswa ORDER BY id_mahasiswa ASC");
 ?>

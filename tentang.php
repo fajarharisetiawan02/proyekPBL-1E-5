@@ -1,5 +1,6 @@
-<?php 
-require_once "config/koneksi.php";
+<?php
+require_once "../config/auth.php";
+require_once "../config/koneksi.php";
 ?>
 <!doctype html>
 <html lang="id">

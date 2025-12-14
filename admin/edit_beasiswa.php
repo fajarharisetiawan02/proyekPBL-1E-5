@@ -1,5 +1,7 @@
 <?php
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
+
 
 // --- Ambil ID dari URL ---
 if (!isset($_GET['id'])) {

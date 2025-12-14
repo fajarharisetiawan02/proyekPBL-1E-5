@@ -1,6 +1,8 @@
-<?php 
+<?php
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +39,7 @@ require_once "../config/koneksi.php";
                     <table class="admin-table">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Mata Kuliah</th>
                                 <th>Tanggal</th>
                                 <th>Waktu</th>
@@ -48,12 +51,14 @@ require_once "../config/koneksi.php";
 
                         <tbody>
                             <?php
+                            $no = 1; // ← nomor mulai dari 1
                         $data = mysqli_query($koneksi, "SELECT * FROM jadwal_ujian ORDER BY tanggal, waktu");
                         if (mysqli_num_rows($data) === 0) {
                         echo "<tr><td colspan='6' style='text-align:center;'>Belum ada data.</td></tr>";
                         }
                         while ($row = mysqli_fetch_assoc($data)) { ?>
                             <tr>
+                                <td><?= $no++; ?></td>
                                 <td><?= $row['mata_kuliah']; ?></td>
                                 <td><?= date("d M Y", strtotime($row['tanggal'])); ?></td>
                                 <td><?= date("g:i A", strtotime($row['waktu'])); ?></td>

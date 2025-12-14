@@ -1,10 +1,8 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +35,7 @@ require_once "../config/koneksi.php";
                     <table class="admin-table">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Nama</th>
                                 <th>Periode</th>
                                 <th>Tanggal Buka</th>
@@ -47,6 +46,7 @@ require_once "../config/koneksi.php";
 
                         <tbody>
                             <?php
+                            $no = 1; // ← nomor mulai dari 1
                         $data = mysqli_query($koneksi, "SELECT * FROM beasiswa ORDER BY created_at DESC");
 
                         if (mysqli_num_rows($data) == 0) {
@@ -55,6 +55,7 @@ require_once "../config/koneksi.php";
 
                         while ($row = mysqli_fetch_assoc($data)) { ?>
                             <tr>
+                                <td><?= $no++; ?></td>
                                 <td><?= $row['nama_beasiswa']; ?></td>
                                 <td><?= $row['periode']; ?></td>
                                 <td><?= date('d M Y', strtotime($row['tanggal_buka'])); ?></td>

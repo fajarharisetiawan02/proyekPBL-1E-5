@@ -1,4 +1,5 @@
 <?php
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 ?>
 
@@ -35,6 +36,7 @@ require_once "../config/koneksi.php";
                     <table class="admin-table">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Tanggal</th>
                                 <th>Mata Kuliah</th>
                                 <th>Kelas Asal</th>
@@ -46,6 +48,7 @@ require_once "../config/koneksi.php";
 
                         <tbody>
                             <?php 
+                            $no = 1; // ← nomor mulai dari 1
                         $data = mysqli_query($koneksi, 
                         "SELECT * FROM perubahan_kelas ORDER BY tanggal_perubahan DESC"
                         );
@@ -56,6 +59,7 @@ require_once "../config/koneksi.php";
 
                         while ($row = mysqli_fetch_assoc($data)) { ?>
                             <tr>
+                                <td><?= $no++; ?></td>
                                 <td><?= date("d M Y", strtotime($row['tanggal_perubahan'])); ?></td>
                                 <td><?= $row['mata_kuliah']; ?></td>
                                 <td><?= $row['kelas_asal']; ?></td>

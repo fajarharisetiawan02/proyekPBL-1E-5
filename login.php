@@ -10,7 +10,7 @@
     <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <link rel="stylesheet" href="assets/css/style.1.css">
+    <link rel="stylesheet" href="assets/css/style1.css">
 
 </head>
 
@@ -33,8 +33,6 @@
                     <input type="password" name="password" id="password" placeholder="Masukkan kata sandi" required class="input">
                     <i class="fa-solid fa-eye" id="togglePassword"></i>
                 </div>
-
-                <div class="forgot">Lupa Kata Sandi?</div>
 
                 <button type="submit" class="btn-login">Masuk</button>
             </form>

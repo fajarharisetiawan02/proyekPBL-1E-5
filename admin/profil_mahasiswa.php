@@ -1,5 +1,6 @@
 <?php
-require '../config/koneksi.php';
+require_once "../config/auth.php";
+require_once "../config/koneksi.php";
 
 session_start();
 if (!isset($_SESSION['id_mahasiswa'])) {
@@ -109,6 +110,6 @@ $fotoPath = (!empty($foto) && file_exists("../uploads/$foto"))
 
 </div>
 
-<script src="../assets/js/script..1.js"></script>
+<script src="../assets/js/script1.js"></script>
 </body>
 </html>

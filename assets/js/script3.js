@@ -136,3 +136,10 @@ if (ctx2) {
         }
     });
 }
+
+document.querySelectorAll('.menu-link').forEach(menu => {
+    menu.addEventListener('click', () => {
+        menu.parentElement.classList.toggle('active');
+    });
+});
+

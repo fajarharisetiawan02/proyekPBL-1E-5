@@ -1,5 +1,6 @@
 <?php
-require '../config/koneksi.php';
+require_once "../config/auth.php";
+require_once "../config/koneksi.php";
 
 // Ambil data
 $id = $_POST['id_mahasiswa'];

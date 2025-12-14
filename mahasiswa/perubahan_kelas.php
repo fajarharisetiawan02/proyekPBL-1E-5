@@ -1,6 +1,8 @@
-<?php 
+<?php
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,14 +12,14 @@ require_once "../config/koneksi.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Ujian - Mahasiswa</title>
 
-    <link rel="stylesheet" href="../assets/css/style....3.css">
+    <link rel="stylesheet" href="../assets/css/style3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body>
 
     <!-- ================== WRAPPER ================== -->
-    <div class="main-wrapper">
+    <div class="main-wrapper">  
 
         <?php include "../components_mahasiswa/sidebar.php"; ?>
         <?php include "../components_mahasiswa/topbar.php"; ?>

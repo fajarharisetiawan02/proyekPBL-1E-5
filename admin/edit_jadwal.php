@@ -1,5 +1,8 @@
 <?php
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
+
+
 
 if (!isset($_GET['id'])) {
     header("Location: jadwal_ujian.php");

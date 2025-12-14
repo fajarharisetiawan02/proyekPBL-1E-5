@@ -1,5 +1,9 @@
 <?php
-include "../config/koneksi.php";
+require_once "../config/auth.php";
+require_once "../config/koneksi.php";
+
+
+$nama = $_SESSION['nama'];
 
 //  AMBIL DATA OTOMATIS DARI DB
 
@@ -20,7 +24,7 @@ $sks        = 78;
     <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
 
 
-    <link rel="stylesheet" href="../assets/css/style.2.css">
+    <link rel="stylesheet" href="../assets/css/style2.css">
 </head>
 
 <body>
@@ -40,7 +44,7 @@ $sks        = 78;
 
             <!-- HERO SECTION -->
             <section class="hero fade-in">
-                <h1>Selamat Datang, Admin!</h1>
+                <h2>Selamat Datang, <?= $nama; ?>!</h2>
                 <p>Kelola informasi akademik dengan cepat & efisien.</p>
             </section>
 
@@ -137,7 +141,7 @@ $sks        = 78;
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../assets/js/script..3.js"></script>
+<script src="../assets/js/script3.js"></script>
 
 </body>
 </html>

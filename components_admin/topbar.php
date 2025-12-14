@@ -1,10 +1,22 @@
 <?php
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+include "../config/koneksi.php";
 
-$id_mhs = isset($_SESSION['id_mahasiswa']) ? $_SESSION['id_mahasiswa'] : 0;
+$notif_admin = mysqli_query($koneksi, "
+    SELECT * FROM notifikasi
+    WHERE status='aktif'
+    AND role IN ('admin','all')
+    ORDER BY tanggal DESC
+    LIMIT 5
+");
+
+$jumlah_notif = mysqli_num_rows($notif_admin);
+
+$nama = $_SESSION['nama'];
+$nim  = $_SESSION['username']; // username = NIM
+$inisial = strtoupper(substr($nama, 0, 1));
 ?>
 
 <div class="topbar">
@@ -20,26 +32,27 @@ $id_mhs = isset($_SESSION['id_mahasiswa']) ? $_SESSION['id_mahasiswa'] : 0;
         <i class="fa-solid fa-bell" style="font-size:30px;color:black;"></i>
 
         <div class="profile-dropdown">
-            <i class="fa-solid fa-circle-user" id="profileIcon"></i>
+            <div class="profile-info" id="profileIcon">
+                <div class="profile-avatar"><?= $inisial; ?></div>
+
+                <div class="profile-text">
+                    <span class="profile-name"><?= $nama; ?></span>
+                    <span class="profile-nim"><?= $nim; ?></span>
+                </div>
+            </div>
 
             <div class="dropdown-menu" id="dropdownMenu">
 
-                <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
-
-                <a href="../admin/profil_mahasiswa.php?id=<?= $_SESSION['id_mahasiswa'] ?>">
+                <a href="../admin/profil_mahasiswa.php">
                     <i class="fa-solid fa-id-card"></i> Profil
                 </a>
-
                 <a href="../admin/ubah_sandi.php">
-                    <i class="fa-solid fa-key"></i> Change Password
+                    <i class="fa-solid fa-key"></i> Ubah Kata Sandi
                 </a>
-
-                <a href="../login.php">
-                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                <a href="../logout.php">
+                    <i class="fa-solid fa-right-from-bracket"></i> Keluar
                 </a>
-
             </div>
         </div>
     </div>
 </div>
-    <script src="../assets/js/script.3.js"></script>

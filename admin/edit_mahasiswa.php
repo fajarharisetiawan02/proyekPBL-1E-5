@@ -1,5 +1,7 @@
 <?php
-require '../config/koneksi.php';
+require_once "../config/auth.php";
+require_once "../config/koneksi.php";
+
 
 if (!isset($_GET['id'])) {
     echo "ID tidak ditemukan";

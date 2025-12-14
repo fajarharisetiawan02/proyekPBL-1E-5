@@ -1,5 +1,6 @@
 <?php
-require "../config/koneksi.php";
+require_once "../config/auth.php";
+require_once "../config/koneksi.php";
 
 $id = $_POST['id'];
 $nama = $_POST['nama'];

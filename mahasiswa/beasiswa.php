@@ -1,6 +1,8 @@
-<?php 
+<?php
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +11,7 @@ require_once "../config/koneksi.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beasiswa - Mahasiswa</title>
 
-    <link rel="stylesheet" href="../assets/css/style...6.css">
+    <link rel="stylesheet" href="../assets/css/style6.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
