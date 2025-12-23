@@ -160,8 +160,28 @@ if (ctx2) {
         }
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const notifBtn = document.getElementById("notifBtn");
+    const notifDropdown = document.getElementById("notifDropdown");
 
+<<<<<<< HEAD
 
+=======
+    if (notifBtn) {
+        notifBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            notifDropdown.style.display =
+                notifDropdown.style.display === "block" ? "none" : "block";
+        });
+    }
+
+    document.addEventListener("click", function () {
+        if (notifDropdown) {
+            notifDropdown.style.display = "none";
+        }
+    });
+})
+>>>>>>> 3cdbf79c7137e21f59cd2a8c7e5656cb38e4e55b
 document.querySelectorAll('.menu-link').forEach(menu => {
     menu.addEventListener('click', () => {
         menu.parentElement.classList.toggle('active');

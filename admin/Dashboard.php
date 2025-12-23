@@ -224,6 +224,12 @@ $aktivitas = mysqli_query($koneksi, "
     <script src="../assets/js/script3.js"></script>
 
 
+<<<<<<< HEAD
+=======
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<script src="../assets/js/script3.js"></script>
+>>>>>>> 3cdbf79c7137e21f59cd2a8c7e5656cb38e4e55b
 
 </body>
 

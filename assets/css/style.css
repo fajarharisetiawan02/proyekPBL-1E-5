@@ -79,7 +79,11 @@ nav a:hover {
 }
 
 .hero {
+<<<<<<< HEAD
   background: url("/proyekPBL-1E-5/assets/img/mahasiswa.jpg") center/cover no-repeat;
+=======
+  background: url("/ProyekPBL-1E-5/assets/img/mahasiswa.jpg") center/cover no-repeat;
+>>>>>>> 3cdbf79c7137e21f59cd2a8c7e5656cb38e4e55b
   height: 70vh;
   display: flex;
   justify-content: center;
