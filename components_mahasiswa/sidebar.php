@@ -1,48 +1,49 @@
 <div class="sidebar">
-
-    <!-- HEADER -->
     <div class="header">
-        <div class="logo-wrapper">
-            <img src="../assets/img/Logo Politeknik.png" class="logo-img" alt="Logo Kampus">
+        <div class="list-item">
+            <i class="fas fa-graduation-cap logo-icon"></i>
             <div class="logo-text">
-                Pengumuman<br>Akademik Online
+                Pengumuman <br> Akademik Online
             </div>
         </div>
     </div>
 
-    <!-- MENU -->
-    <div class="menu">
-        <div class="menu-title">MENU UTAMA</div>
+    <div class="main">
 
-        <a href="../mahasiswa/dashboard.php" class="menu-item active">
-            <i class="fas fa-home"></i>
-            <span>Dashboard</span>
-        </a>
+        <div class="list-item">
+            <a href="../mahasiswa/dashboard.php">
+                <i class="fas fa-home"></i>
+                <span class="description">Dashboard</span>
+            </a>
+        </div>
 
-        <a href="../mahasiswa/pengumuman.php" class="menu-item">
-            <i class="fas fa-bullhorn"></i>
-            <span>Pengumuman</span>
-        </a>
+        <div class="list-item">
+            <a href="../mahasiswa/jadwal_ujian.php">
+                <i class="fas fa-calendar-alt"></i>
+                <span class="description">Jadwal Ujian</span>
+            </a>
+        </div>
 
-        <a href="../mahasiswa/jadwal_ujian.php" class="menu-item">
-            <i class="fas fa-calendar-alt"></i>
-            <span>Jadwal Ujian</span>
-        </a>
+        <div class="list-item">
+            <a href="../mahasiswa/perkuliahan.php">
+                <i class="fas fa-book-open"></i>
+                <span class="description">Perkuliahan</span>
+            </a>
+        </div>
 
-        <a href="../mahasiswa/perubahan_kelas.php" class="menu-item">
-            <i class="fas fa-exchange-alt"></i>
-            <span>Perubahan Kelas</span>
-        </a>
+        <div class="list-item">
+            <a href="../mahasiswa/perubahan_kelas.php">
+                <i class="fas fa-exchange-alt"></i>
+                <span class="description">Perubahan Kelas</span>
+            </a>
+        </div>
 
-        <a href="../mahasiswa/beasiswa.php" class="menu-item">
-            <i class="fas fa-award"></i>
-            <span>Beasiswa</span>
-        </a>
+        <div class="list-item">
+            <a href="../mahasiswa/beasiswa.php">
+                <i class="fas fa-award"></i>
+                <span class="description">Beasiswa</span>
+            </a>
+        </div>
 
-        <a href="../logout.php" class="menu-item logout">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Keluar</span>
-        </a>
     </div>
-
 </div>

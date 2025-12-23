@@ -6,13 +6,11 @@ const sidebar = document.querySelector(".sidebar");
 const mainContent = document.querySelector(".main-content");
 const topbar = document.querySelector(".topbar");
 
-if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-        sidebar.classList.toggle("collapsed");
-        mainContent.classList.toggle("collapsed");
-        topbar.classList.toggle("collapsed");
-    });
-}
+menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    mainContent.classList.toggle("collapsed");
+    topbar.classList.toggle("collapsed");
+});
 
 
 /* =========================================================
@@ -21,19 +19,17 @@ if (menuToggle) {
 const profileIcon = document.getElementById("profileIcon");
 const dropdownMenu = document.getElementById("dropdownMenu");
 
-if (profileIcon && dropdownMenu) {
-    profileIcon.addEventListener("click", (e) => {
-        e.stopPropagation();
-        dropdownMenu.classList.toggle("show");
-    });
+profileIcon.addEventListener("click", () => {
+    dropdownMenu.style.display =
+        dropdownMenu.style.display === "flex" ? "none" : "flex";
+});
 
-    // Tutup dropdown ketika klik di luar menu
-    window.addEventListener("click", (e) => {
-        if (!profileIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
-            dropdownMenu.classList.remove("show");
-        }
-    });
-}
+// Tutup dropdown ketika klik di luar menu
+window.addEventListener("click", (e) => {
+    if (!profileIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.style.display = "none";
+    }
+});
 
 
 /* =========================================================
@@ -89,44 +85,24 @@ window.addEventListener("load", () => {
 /* =========================================================
    CHART.JS — GRAFIK 1: Pengumuman
 ========================================================= */
-const canvas = document.getElementById('chartPengumuman');
+const ctx1 = document.getElementById("chartPengumuman");
 
-if (canvas && typeof grafikLabels !== 'undefined' && typeof grafikData !== 'undefined') {
-    new Chart(canvas, {
-        type: 'bar',
+if (ctx1) {
+    new Chart(ctx1, {
+        type: "bar",
         data: {
-            labels: grafikLabels,
+            labels: ["Ujian", "Perkuliahan", "Perubahan Kelas", "Beasiswa"],
             datasets: [{
-                label: 'Jumlah Pengumuman',
-                data: grafikData,
-                backgroundColor: '#1e3a8a',
-                borderRadius: 10,
-                barThickness: 22
+                label: "Jumlah Pengumuman",
+                data: [12, 7, 5, 10], // bisa dibuat dinamis dari database
+                backgroundColor: "#1E3A8A",
             }]
         },
         options: {
-            indexAxis: 'y',
             responsive: true,
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        label: ctx => `${ctx.raw} pengumuman`
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    ticks: {
-                        precision: 0,
-                        stepSize: 1
-                    },
-                    grid: { display: false }
-                },
-                y: {
-                    grid: { display: false }
-                }
+            animation: {
+                duration: 2000,
+                easing: "easeOutBounce",
             }
         }
     });
@@ -161,39 +137,9 @@ if (ctx2) {
     });
 }
 
-
 document.querySelectorAll('.menu-link').forEach(menu => {
     menu.addEventListener('click', () => {
         menu.parentElement.classList.toggle('active');
     });
 });
-/* =========================================================
-   NOTIFICATIONS
-========================================================= */
-const notifBtn = document.getElementById("notifBtn");
-const notifDropdown = document.getElementById("notifDropdown");
-
-if (notifBtn && notifDropdown) {
-    notifBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        notifDropdown.classList.toggle("show");
-        // Mark notifications as read
-        fetch("../admin/notif_read.php");
-    });
-
-    window.addEventListener("click", function (e) {
-        if (!notifBtn.contains(e.target) && !notifDropdown.contains(e.target)) {
-            notifDropdown.classList.remove("show");
-        }
-    });
-}
-
-    const toggleUser = document.getElementById('toggleUser');
-    const menuGroup = toggleUser.parentElement;
-
-    toggleUser.addEventListener('click', () => {
-        menuGroup.classList.toggle('active');
-    });
-
-
 

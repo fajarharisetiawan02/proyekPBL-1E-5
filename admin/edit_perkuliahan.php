@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth_admin.php";
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 
 
@@ -47,8 +47,6 @@ if (isset($_POST['update'])) {
     <title>Edit Perkuliahan</title>
 
     <link rel="stylesheet" href="../assets/css/style3.css">
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
@@ -93,11 +91,11 @@ if (isset($_POST['update'])) {
 
             </div>
 
-        </div>
+        </div> 
 
     </div>
 
-    </div>
+    </div> 
 
     <footer>
         © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam

@@ -1,93 +1,71 @@
-<?php 
-session_start();
-require_once "config/koneksi.php"; 
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Beranda</title>
+<title>Profil Mahasiswa</title>
 
-<link rel="stylesheet" href="/proyekPBL-1E-5/assets/css/style.css">
-<link rel="stylesheet" href="/proyekPBL-1E-5/assets/css/footer.css">
-<link rel="stylesheet" href="/proyekPBL-1E-5/assets/css/home_extra.css">
+<link rel="stylesheet" href="/PBL-1E-5_akademik/assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style_profil_mahasiswa.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
 </head>
-
 <body>
+  <header>
+    <h1 class="logo-container">
+      <img src="/PBL-1E-5_akademik/assets/img/Logo Polibatam1.png" class="logo-header" alt="Logo Aplikasi">
+      <span class="logo-text">polibatam</span>
+    </h1>
 
-<header class="main-header">
-    <div class="logo-container">
-        <img src="/proyekPBL-1E-5/assets/img/Logo Politeknik.png" class="logo-header" alt="Logo Polibatam">
-    </div>
-
-    <nav class="nav-menu">
-        <a href="index.php" class="active">
-            <i class="fa-solid fa-house"></i> Beranda
-        </a>
-        <a href="tentang.php">
-            <i class="fa-solid fa-circle-info"></i> Tentang
-        </a>
-        <a href="login.php" class="login-btn">
-            <i class="fa-solid fa-right-to-bracket"></i> Login
-        </a>
+    <nav>
+      <a href="index.php">Beranda</a>
+      <a href="tentang.php">Tentang</a>
+      <a href="login.php" class="login-btn">Login</a>
     </nav>
-</header>
+  </header>
 
-<!-- HERO -->
-<section class="hero">
+  <section class="hero">
     <div class="hero-content">
-        <h2>Selamat Datang di Pengumuman Akademik Online</h2>
-        <p>
-            Sistem resmi untuk mengakses pengumuman kampus, jadwal ujian,
-            serta informasi akademik mahasiswa Polibatam.
-        </p>
+      <h2>Selamat Datang di Pengumuman Akademik Online</h2>
+      <p>Tempat resmi untuk melihat informasi kampus, jadwal ujian, dan pengumuman terbaru.</p>
     </div>
-</section>
+  </section>
 
-<!-- PENGUMUMAN -->
-<section class="section">
-    <div class="section-header">
-        <h2><i class="fa-solid fa-bullhorn"></i> Pengumuman Terbaru</h2>
-        <p class="section-desc">Beberapa informasi akademik terbaru untuk mahasiswa</p>
-    </div>
-
+  <section class="section">
+    <h2>📢 Pengumuman Terbaru</h2>
     <div class="cards">
-        <?php
-        $query = mysqli_query($koneksi, "
-            SELECT * FROM pengumuman
-            WHERE untuk_mahasiswa = 1 OR untuk_mahasiswa IS NULL
-            ORDER BY dibuat_pada DESC
-            LIMIT 3
-        ");
+      <div class="card">
+        <i class="lni lni-calendar"></i>
+        <h3>Jadwal UTS Ganjil 2025</h3>
+        <p>Ujian Tengah Semester Ganjil akan dilaksanakan mulai tanggal 27 Oktober 2025. Pastikan seluruh mahasiswa
+          mempersiapkan diri dengan baik.</p>
+      </div>
 
-        if (mysqli_num_rows($query) == 0) {
-            echo "<p style='text-align:center;'>Belum ada pengumuman.</p>";
-        }
+      <div class="card">
+        <i class="lni lni-certificate"></i>
+        <h3>Beasiswa Prestasi Akademik</h3>
+        <p>Kampus membuka program Beasiswa Prestasi Akademik bagi mahasiswa aktif dengan IPK minimal 3.50. Pendaftaran
+          dibuka mulai 1–20 Desember 2025 melalui portal kemahasiswaan.</p>
+      </div>
 
-        while ($row = mysqli_fetch_assoc($query)) {
-        ?>
-            <div class="card">
-                <h3><?= htmlspecialchars($row['judul']); ?></h3>
-                <p>
-                    <?= nl2br(substr(htmlspecialchars($row['isi']), 0, 160)); ?>...
-                </p>
-                <small style="color:#666;">
-                    <?= date("d M Y", strtotime($row['dibuat_pada'])); ?>
-                </small>
-            </div>
-        <?php } ?>
+      <div class="card">
+        <i class="lni lni-users"></i>
+        <h3>Jadwal Perkuliahan Pengganti</h3>
+        <p>Bagi dosen dan mahasiswa yang memiliki jadwal kuliah tertunda, harap melakukan perkuliahan pengganti sebelum
+          29 Oktober 2025. Koordinasikan dengan program studi masing-masing untuk jadwal ruang dan waktu.</p>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="cta">
-    <h3>Ingin melihat semua pengumuman akademik?</h3>
-    <a href="login.php" class="cta-btn">Lihat Selengkapnya</a>
-</section>
+  <section class="cta">
+    <h3>Ingin Melihat Semua Pengumuman?</h3>
+    <a href="login.php">Lihat Selengkapnya</a>
+  </section>
 
-<?php include "components_admin/footer.php"; ?>
-
+  <footer>
+    © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+  </footer>
 </body>
+
 </html>

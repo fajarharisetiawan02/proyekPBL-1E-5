@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth_mahasiswa.php";
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 ?>
 
@@ -12,30 +12,28 @@ require_once "../config/koneksi.php";
     <title>Beasiswa - Mahasiswa</title>
 
     <link rel="stylesheet" href="../assets/css/style6.css">
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
 </head>
 
 <body>
 
-    <div class="main-wrapper">
+<div class="main-wrapper">
 
-        <?php include "../components_mahasiswa/sidebar.php"; ?>
-        <?php include "../components_mahasiswa/topbar.php"; ?>
+    <?php include "../components_mahasiswa/sidebar.php"; ?>
+    <?php include "../components_mahasiswa/topbar.php"; ?>
 
-        <div class="main-content">
-            <div class="content-container">
+<div class="main-content">
+    <div class="content-container">
 
-                <div class="alert-box">
-                    Terdapat berbagai program beasiswa untuk mahasiswa aktif! <br>
-                    <strong>Baca syarat dan tenggat waktu sebelum mendaftar.</strong>
-                </div>
+        <div class="alert-box">
+            Terdapat berbagai program beasiswa untuk mahasiswa aktif! <br>
+            <strong>Baca syarat dan tenggat waktu sebelum mendaftar.</strong>
+        </div>
 
-                <div class="beasiswa-grid">
+        <!-- KONTEN BEASISWA -->
+        <div class="beasiswa-grid">
 
-                    <?php
+                <?php
                 $data = mysqli_query($koneksi, "SELECT * FROM beasiswa WHERE status='aktif' ORDER BY created_at DESC");
 
                 if (mysqli_num_rows($data) == 0) {
@@ -44,45 +42,44 @@ require_once "../config/koneksi.php";
 
                 while ($row = mysqli_fetch_assoc($data)) { ?>
 
-                    <div class="beasiswa-card">
+                <div class="beasiswa-card">
 
-                        <?php if (!empty($row['gambar'])) { ?>
+                    <?php if (!empty($row['gambar'])) { ?>
                         <img src="../uploads/beasiswa/<?= $row['gambar']; ?>" class="beasiswa-img">
-                        <?php } ?>
-
-                        <h3><?= $row['nama_beasiswa']; ?></h3>
-
-                        <p><?= substr($row['deskripsi'], 0, 110); ?>...</p>
-
-                        <p><strong>Periode:</strong> <?= $row['periode']; ?></p>
-
-                        <p>
-                            <strong>Buka:</strong> <?= date("d M Y", strtotime($row['tanggal_buka'])); ?><br>
-                            <strong>Tutup:</strong> <?= date("d M Y", strtotime($row['tanggal_tutup'])); ?>
-                        </p>
-
-                        <a href="detail_beasiswa.php?id=<?= $row['id_beasiswa']; ?>" class="btn-detail">
-                            Lihat Detail
-                        </a>
-
-                    </div>
-
                     <?php } ?>
 
-                </div> 
+                    <h3><?= $row['nama_beasiswa']; ?></h3>
 
-            </div> 
+                    <p><?= substr($row['deskripsi'], 0, 110); ?>...</p>
 
-        </div>
+                    <p><strong>Periode:</strong> <?= $row['periode']; ?></p>
 
-    </div> 
+                    <p>
+                        <strong>Buka:</strong> <?= date("d M Y", strtotime($row['tanggal_buka'])); ?><br>
+                        <strong>Tutup:</strong> <?= date("d M Y", strtotime($row['tanggal_tutup'])); ?>
+                    </p>
 
-    <footer>
-        © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
-    </footer>
+                    <a href="detail_beasiswa.php?id=<?= $row['id_beasiswa']; ?>" class="btn-detail">
+                        Lihat Detail
+                    </a>
 
-    <script src="../assets/js/script3.js"></script>
+                </div>
+
+                <?php } ?>
+
+            </div> <!-- end beasiswa-grid -->
+
+        </div> <!-- end content-container -->
+
+    </div> <!-- end main-content -->
+
+</div> <!-- end wrapper -->
+
+<footer>
+    © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+</footer>
+
+<script src="../assets/js/script3.js"></script>
 
 </body>
-
 </html>

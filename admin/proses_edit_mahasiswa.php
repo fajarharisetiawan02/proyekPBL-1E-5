@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth_admin.php";
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 
 $id = $_POST['id'];

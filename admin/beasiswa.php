@@ -1,20 +1,17 @@
 <?php
-require_once "../config/auth_admin.php";
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 ?>
 
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Beasiswa - Admin</title>
-
-    <link rel="stylesheet" href="../assets/css/style4.css">
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+    <link rel="stylesheet" href="../assets/css/style5.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
 </head>
 
 <body>
@@ -26,8 +23,7 @@ require_once "../config/koneksi.php";
         <div class="main-content">
             <div class="content-container">
 
-                <!-- HEADER -->
-                <div class="header-section header-beasiswa">
+                <div class="header-section">
                     <h3>Beasiswa</h3>
 
                     <a href="tambah_beasiswa.php" class="btn-add">
@@ -35,52 +31,35 @@ require_once "../config/koneksi.php";
                     </a>
                 </div>
 
-                <!-- TABLE -->
                 <div class="table-wrapper">
                     <table class="admin-table">
                         <thead>
                             <tr>
-                                <th width="50">No</th>
-                                <th>Nama Beasiswa</th>
+                                <th>No</th>
+                                <th>Nama</th>
                                 <th>Periode</th>
                                 <th>Tanggal Buka</th>
                                 <th>Status</th>
-                                <th width="120">Aksi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <?php
-                    $no = 1;
-                    $data = mysqli_query($koneksi, "SELECT * FROM beasiswa ORDER BY created_at DESC");
+                            $no = 1; // ← nomor mulai dari 1
+                        $data = mysqli_query($koneksi, "SELECT * FROM beasiswa ORDER BY created_at DESC");
 
-                    if (mysqli_num_rows($data) == 0) {
-                        echo "
-                        <tr>
-                            <td colspan='6' class='empty-table'>
-                                <i class='fa-solid fa-circle-info'></i><br>
-                                Belum ada data beasiswa
-                            </td>
-                        </tr>";
-                    }
-
-                    while ($row = mysqli_fetch_assoc($data)) {
-
-                        // Badge status
-                        if ($row['status'] == 'aktif') {
-                            $badge = "<span class='badge badge-aktif'>Aktif</span>";
-                        } elseif ($row['status'] == 'nonaktif') {
-                            $badge = "<span class='badge badge-nonaktif'>Ditutup</span>";
-                        } else {
-                            $badge = "<span class='badge badge-menunggu'>Menunggu</span>";
+                        if (mysqli_num_rows($data) == 0) {
+                        echo "<tr><td colspan='5' style='text-align:center;'>Belum ada data beasiswa.</td></tr>";
                         }
-                    ?>
+
+                        while ($row = mysqli_fetch_assoc($data)) { ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><strong><?= $row['nama_beasiswa']; ?></strong></td>
-                                <td><?= $row['periode'] ?: 'Belum ditentukan'; ?></td>
+                                <td><?= $row['nama_beasiswa']; ?></td>
+                                <td><?= $row['periode']; ?></td>
                                 <td><?= date('d M Y', strtotime($row['tanggal_buka'])); ?></td>
-                                <td><?= $badge; ?></td>
+                                <td><?= ucfirst($row['status']); ?></td>
 
                                 <td class="text-center">
                                     <a href="edit_beasiswa.php?id=<?= $row['id_beasiswa']; ?>"
@@ -95,6 +74,8 @@ require_once "../config/koneksi.php";
                             </tr>
                             <?php } ?>
                         </tbody>
+
+
                     </table>
                 </div>
 

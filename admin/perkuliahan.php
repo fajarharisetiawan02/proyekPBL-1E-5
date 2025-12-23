@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth_admin.php";
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 ?>
 
@@ -11,8 +11,6 @@ require_once "../config/koneksi.php";
     <title>Perkuliahan - Admin</title>
 
     <link rel="stylesheet" href="../assets/css/style4.css">
-        <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
@@ -48,7 +46,7 @@ require_once "../config/koneksi.php";
 
                         <tbody>
                             <?php
-                            $no = 1; 
+                            $no = 1; // ← nomor mulai dari 1
                         $data = mysqli_query($koneksi, "SELECT * FROM perkuliahan ORDER BY tanggal DESC");
 
                         if (mysqli_num_rows($data) === 0) {

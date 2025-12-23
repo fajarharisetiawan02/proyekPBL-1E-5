@@ -3,25 +3,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once "../config/koneksi.php";
-
-$notif_mahasiswa = mysqli_query($koneksi, "
-    SELECT *
-    FROM notifikasi
-    WHERE role = 'mahasiswa'
-      AND status = 'aktif'
-    ORDER BY tanggal DESC
-    LIMIT 5
-");
-
-$jumlah_notif = mysqli_num_rows($notif_mahasiswa);
-
 $nama = $_SESSION['nama'];
-$nim  = $_SESSION['username'];
+$nim  = $_SESSION['username']; // username = NIM
 $inisial = strtoupper(substr($nama, 0, 1));
 ?>
-
-
 
 <div class="topbar">
     <i class="fa-solid fa-bars" id="menu-toggle"></i>
@@ -33,34 +18,7 @@ $inisial = strtoupper(substr($nama, 0, 1));
 
     <div class="header-icons">
 
-<div class="notif-wrapper">
-    <button class="notif-btn" id="notifBtn">
-        <i class="fa-solid fa-bell"></i>
-        <?php if ($jumlah_notif > 0): ?>
-            <span class="notif-badge"><?= $jumlah_notif ?></span>
-        <?php endif; ?>
-    </button>
-
-    <div class="notif-dropdown" id="notifDropdown">
-        <h4>Notifikasi</h4>
-
-        <?php if ($jumlah_notif > 0): ?>
-            <ul class="notif-list">
-                <?php while ($n = mysqli_fetch_assoc($notif_mahasiswa)): ?>
-                    <li class="unread">
-                        <strong><?= htmlspecialchars($n['judul']) ?></strong><br>
-                        <small><?= date('d M Y H:i', strtotime($n['tanggal'])) ?></small>
-                    </li>
-                <?php endwhile; ?>
-            </ul>
-        <?php else: ?>
-            <div class="notif-empty">Tidak ada notifikasi</div>
-        <?php endif; ?>
-
-        <a href="../mahasiswa/notifikasi.php" class="notif-link">Lihat Semua</a>
-    </div>
-</div>
-
+        <i class="fa-solid fa-bell" style="font-size:30px;color:black;"></i>
 
         <div class="profile-dropdown">
             <div class="profile-info" id="profileIcon">
@@ -74,7 +32,7 @@ $inisial = strtoupper(substr($nama, 0, 1));
 
             <div class="dropdown-menu" id="dropdownMenu">
 
-                <a href="../mahasiswa/profil_mahasiswa.php">
+                <a href="../admin/profil_mahasiswa.php">
                     <i class="fa-solid fa-id-card"></i> Profil
                 </a>
                 <a href="../admin/ubah_sandi.php">

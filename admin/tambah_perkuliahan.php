@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth_admin.php";
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 
 if (isset($_POST['simpan'])) {
@@ -27,8 +27,6 @@ if (isset($_POST['simpan'])) {
     <title>Tambah Perkuliahan</title>
 
     <link rel="stylesheet" href="../assets/css/style4.css">
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
