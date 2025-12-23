@@ -1,0 +1,286 @@
+/* ================================
+   SIDEBAR (ADMIN)
+   ================================ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: #1E3A8A;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: width 0.35s ease;
+}
+
+/* ================================
+   HEADER / LOGO
+   ================================ */
+
+.sidebar .header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    padding-bottom: 12px;     
+    margin-bottom: 6px;    
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 48px;
+    height: auto;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* ================================
+   MENU AREA
+   ================================ */
+
+.menu {
+    flex: 1;
+    padding: 16px 12px;
+    overflow-y: auto;
+}
+
+.menu-title {
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: .7;
+    margin-bottom: 12px;
+}
+
+/* MENU ITEM (SEMUA SAMA RATA) */
+.menu-item {
+    display: grid;
+    grid-template-columns: 24px 1fr 16px;
+    align-items: center;
+    column-gap: 12px;
+
+    padding: 12px 20px;
+    margin-bottom: 6px;
+
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background .2s ease;
+}
+
+.menu-item i {
+    width: 24px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.menu-item span {
+    white-space: nowrap;
+}
+
+.menu-item:hover {
+    background: rgba(255,255,255,.15);
+}
+
+.menu-item.active {
+    background: rgba(255,255,255,.25);
+    font-weight: 600;
+}
+
+/* ================================
+   SUBMENU (DATA PENGGUNA)
+   ================================ */
+
+.menu-group {
+    margin-bottom: 6px;
+}
+
+.menu-parent {
+    cursor: pointer;
+}
+
+.menu-parent .arrow {
+    font-size: 12px;
+    transition: transform .3s ease;
+}
+
+/* SUBMENU HIDDEN */
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: max-height .35s ease;
+}
+
+/* SUBMENU OPEN */
+.menu-group.active .submenu {
+    max-height: 300px;
+}
+
+.menu-group.active .arrow {
+    transform: rotate(180deg);
+}
+
+.submenu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    font-size: 14px;
+    color: #dbeafe;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.submenu-item:hover {
+    background: rgba(255,255,255,.15);
+    color: #ffffff;
+}
+
+/* ================================
+   FOOTER SIDEBAR
+   ================================ */
+
+.sidebar-footer {
+    padding-left: 26px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    margin-top: auto;      
+    padding-top: 8px;     
+    padding-bottom: 16px;
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    background: #ffffff;
+    color: #1E3A8A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.admin-text span {
+    font-size: 12px;
+    opacity: .8;
+}
+
+.footer-link {
+    display: block;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-link.logout {
+    color: #ffdede;
+}
+
+.sidebar-footer .admin-info {
+    padding-left: 0;
+}
+
+.sidebar-footer .footer-link {
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ================================
+   SIDEBAR COLLAPSED
+   ================================ */
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .menu-title,
+.sidebar.collapsed .menu-item span,
+.sidebar.collapsed .submenu {
+    display: none;
+}
+
+.sidebar.collapsed .menu-item {
+    grid-template-columns: 24px;
+    justify-content: center;
+}
+
+.sidebar.collapsed .menu-item i {
+    margin: auto;
+}
+
+/* ================================
+   SCROLLBAR (HALUS)
+   ================================ */
+
+.menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.3);
+    border-radius: 6px;
+}
+
+.menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.topbar.collapsed {
+    left: 70px;
+    width: calc(100% - 70px);
+}
+
+.main-content.collapsed {
+    margin-left: 70px;
+    width: calc(100% - 70px);
+}
+.sidebar,
+.topbar,
+.main-content {
+    transition:
+        width 0.35s ease,
+        left 0.35s ease,
+        margin-left 0.35s ease;
+}
+.sidebar.collapsed .sidebar-footer {
+    display: none;
+}
+.sidebar-footer {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.sidebar.collapsed .sidebar-footer {
+    opacity: 0;
+    transform: translateY(10px);
+}
