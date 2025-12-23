@@ -9,26 +9,13 @@ require_once "config/koneksi.php";
 <meta charset="UTF-8">
 <title>Beranda</title>
 
-<<<<<<< HEAD
 <link rel="stylesheet" href="/proyekPBL-1E-5/assets/css/style.css">
 <link rel="stylesheet" href="/proyekPBL-1E-5/assets/css/footer.css">
 <link rel="stylesheet" href="/proyekPBL-1E-5/assets/css/home_extra.css">
-=======
-<link rel="stylesheet" href="/ProyekPBL-1E-5/assets/css/style.css">
-
->>>>>>> 3cdbf79c7137e21f59cd2a8c7e5656cb38e4e55b
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body>
-<<<<<<< HEAD
-=======
-  <header>
-    <h1 class="logo-container">
-      <img src="/ProyekPBL-1E-5/assets/img/Logo Polibatam1.png" class="logo-header" alt="Logo Aplikasi">
-      <span class="logo-text">polibatam</span>
-    </h1>
->>>>>>> 3cdbf79c7137e21f59cd2a8c7e5656cb38e4e55b
 
 <header class="main-header">
     <div class="logo-container">

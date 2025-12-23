@@ -42,11 +42,6 @@ if ($isFiltered) {
 </head>
 
 <body>
-<<<<<<< HEAD
-=======
-    
-
->>>>>>> 3cdbf79c7137e21f59cd2a8c7e5656cb38e4e55b
     <div class="main-wrapper">
 
         <?php include "../components_admin/sidebar.php"; ?>
