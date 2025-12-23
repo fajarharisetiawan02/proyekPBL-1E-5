@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth_mahasiswa.php";
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
 ?>
 
@@ -13,13 +13,12 @@ require_once "../config/koneksi.php";
     <title>Jadwal Ujian - Mahasiswa</title>
 
     <link rel="stylesheet" href="../assets/css/style4.css">
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body>
 
+    <!-- ================== WRAPPER ================== -->
     <div class="main-wrapper">
 
         <?php include "../components_mahasiswa/sidebar.php"; ?>
@@ -67,11 +66,11 @@ require_once "../config/koneksi.php";
                     </table>
                 </div>
 
-            </div>
+            </div> <!-- end content-container -->
 
-        </div>
+        </div> <!-- end main-content -->
 
-    </div>
+    </div> <!-- end wrapper -->
 
     <footer>
         © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam

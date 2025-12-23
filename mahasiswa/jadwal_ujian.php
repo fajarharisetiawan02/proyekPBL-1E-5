@@ -1,155 +1,82 @@
 <?php
-require_once "../config/auth_mahasiswa.php";
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
-
-$kelas = $_SESSION['kelas'] ?? '';
-$prodi = $_SESSION['prodi'] ?? '';
-$tanggalHariIni = date('Y-m-d');
 ?>
+
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Ujian - Mahasiswa</title>
 
     <link rel="stylesheet" href="../assets/css/style3.css">
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- tambahan ringan -->
-    <style>
-        .info-text {
-            margin: 6px 0 14px;
-            font-size: 13px;
-            color: #555;
-        }
-        .today-row {
-            background-color: #f0f8ff;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body>
 
-<div class="main-wrapper">
+    <!-- ================== WRAPPER ================== -->
+    <div class="main-wrapper">
 
-    <?php include "../components_mahasiswa/sidebar.php"; ?>
-    <?php include "../components_mahasiswa/topbar.php"; ?>
+        <?php include "../components_mahasiswa/sidebar.php"; ?>
+        <?php include "../components_mahasiswa/topbar.php"; ?>
 
-    <div class="main-content">
-        <div class="content-container">
+        <div class="main-content">
 
-            <div class="header-section">
-                <h3>Jadwal Ujian</h3>
-                <small>
-                    Kelas: <b><?= $kelas ?: '-'; ?></b> |
-                    Prodi: <b><?= $prodi ?: '-'; ?></b>
-                </small>
+            <div class="content-container">
 
-                <div class="info-text">
-                    Menampilkan jadwal ujian sesuai data akademik mahasiswa.
+                <div class="header-section">
+                    <h3>IF MALAM 1E</h3>
                 </div>
-            </div>
 
-            <div class="table-wrapper">
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Mata Kuliah</th>
-                            <th>Hari</th>
-                            <th>Tanggal</th>
-                            <th>Waktu</th>
-                            <th>Ruang</th>
-                            <th>Dosen</th>
-                        </tr>
-                    </thead>
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Mata Kuliah</th>
+                                <th>Tanggal</th>
+                                <th>Waktu</th>
+                                <th>Ruang</th>
+                                <th>Dosen</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                    <?php
-                    // 1. filter kelas
-                    $query = mysqli_query($koneksi, "
-                        SELECT * FROM jadwal_ujian
-                        WHERE kelas='$kelas'
-                        ORDER BY tanggal ASC, waktu_mulai ASC
-                    ");
+                        <tbody>
+                            <?php
+                        $data = mysqli_query($koneksi, "SELECT * FROM jadwal_ujian ORDER BY tanggal, waktu");
 
-                    // 2. fallback prodi
-                    if (mysqli_num_rows($query) === 0 && $prodi != '') {
-                        $query = mysqli_query($koneksi, "
-                            SELECT * FROM jadwal_ujian
-                            WHERE prodi='$prodi'
-                            ORDER BY tanggal ASC, waktu_mulai ASC
-                        ");
-                    }
+                        if (mysqli_num_rows($data) === 0) {
+                            echo "<tr><td colspan='5' style='text-align:center;'>Belum ada jadwal ujian.</td></tr>";
+                        }
 
-                    // 3. fallback semua
-                    if (mysqli_num_rows($query) === 0) {
-                        $query = mysqli_query($koneksi, "
-                            SELECT * FROM jadwal_ujian
-                            ORDER BY tanggal ASC, waktu_mulai ASC
-                        ");
-                    }
+                        while ($row = mysqli_fetch_assoc($data)) { ?>
+                            <tr>
+                                <td><?= $row['mata_kuliah']; ?></td>
+                                <td><?= date("d M Y", strtotime($row['tanggal'])); ?></td>
+                                <td><?= date("g:i A", strtotime($row['waktu'])); ?></td>
+                                <td><?= $row['ruang']; ?></td>
+                                <td><?= $row['dosen']; ?></td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
 
-                    if (!$query || mysqli_num_rows($query) === 0) {
-                        echo "<tr>
-                                <td colspan='7' style='text-align:center;'>
-                                    Jadwal ujian belum tersedia
-                                </td>
-                              </tr>";
-                    }
+                    </table>
+                </div>
 
-                    $no = 1;
-                    $hariIndo = [
-                        'Sunday' => 'Minggu',
-                        'Monday' => 'Senin',
-                        'Tuesday' => 'Selasa',
-                        'Wednesday' => 'Rabu',
-                        'Thursday' => 'Kamis',
-                        'Friday' => 'Jumat',
-                        'Saturday' => 'Sabtu'
-                    ];
+            </div> <!-- end content-container -->
 
-                    while ($row = mysqli_fetch_assoc($query)) {
-                        $hari = $hariIndo[date('l', strtotime($row['tanggal']))];
-                        $isToday = ($row['tanggal'] === $tanggalHariIni);
-                    ?>
-                        <tr class="<?= $isToday ? 'today-row' : ''; ?>">
-                            <td><?= $no++; ?></td>
-                            <td><?= $row['mata_kuliah']; ?></td>
-                            <td><?= $hari; ?></td>
-                            <td><?= date("d M Y", strtotime($row['tanggal'])); ?></td>
-                            <td>
-                                <?php
-                                if (!empty($row['waktu_mulai']) && !empty($row['waktu_selesai'])) {
-                                    echo date("H:i", strtotime($row['waktu_mulai'])) .
-                                         " - " .
-                                         date("H:i", strtotime($row['waktu_selesai'])) .
-                                         " WIB";
-                                } else {
-                                    echo "-";
-                                }
-                                ?>
-                            </td>
-                            <td><?= $row['ruang']; ?></td>
-                            <td><?= $row['dosen']; ?></td>
-                        </tr>
-                    <?php } ?>
-                    </tbody>
+        </div> <!-- end main-content -->
 
-                </table>
-            </div>
+    </div> <!-- end wrapper -->
 
-        </div>
-    </div>
-</div>
+    <footer>
+        © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+    </footer>
 
-<footer>
-    © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
-</footer>
-
-<script src="../assets/js/script3.js"></script>
+    <script src="../assets/js/script3.js"></script>
 </body>
+
 </html>

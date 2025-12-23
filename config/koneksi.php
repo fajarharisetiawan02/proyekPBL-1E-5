@@ -7,5 +7,3 @@ $db = "pengumuman_akademik"; //Nama Database
 $koneksi = mysqli_connect($host, $user, $pass, $db); if(!$koneksi){
 echo "Gagal konek: " . die(mysqli_error($koneksi));
 }
-// SET TIMEZONE MYSQL
-mysqli_query($koneksi, "SET time_zone = '+07:00'");

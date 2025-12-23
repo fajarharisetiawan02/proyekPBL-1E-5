@@ -1,141 +1,84 @@
 <?php
-require_once "../config/auth_mahasiswa.php";
+require_once "../config/auth.php";
 require_once "../config/koneksi.php";
-
-$kelas = $_SESSION['kelas'] ?? '';
-$prodi = $_SESSION['prodi'] ?? '';
 ?>
+
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perubahan Kelas - Mahasiswa</title>
+    <title>Jadwal Ujian - Mahasiswa</title>
 
-    <link rel="stylesheet" href="../assets/css/style5.css">
-<link rel="stylesheet" href="../assets/css/sidebar.css">
-<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <style>
-        /* header konsisten dengan jadwal ujian */
-        .header-flex {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-bottom: 12px;
-            margin-bottom: 18px;
-            border-bottom: 1px solid #e6eef5;
-        }
-        .header-center {
-            text-align: center;
-            font-size: 13px;
-            color: #444;
-        }
-        .header-right {
-            font-size: 13px;
-            color: #666;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body>
 
-<div class="main-wrapper">
+    <!-- ================== WRAPPER ================== -->
+    <div class="main-wrapper">  
 
-    <?php include "../components_mahasiswa/sidebar.php"; ?>
-    <?php include "../components_mahasiswa/topbar.php"; ?>
+        <?php include "../components_mahasiswa/sidebar.php"; ?>
+        <?php include "../components_mahasiswa/topbar.php"; ?>
 
-    <div class="main-content">
-        <div class="content-container">
+        <div class="main-content">
 
-            <!-- HEADER (SAMA DENGAN JADWAL UJIAN) -->
-            <div class="header-section header-flex">
-                <h3>Perubahan Kelas</h3>
+            <div class="content-container">
 
-                <small class="header-center">
-                    Kelas: <b><?= $kelas ?: '-'; ?></b> |
-                    Prodi: <b><?= $prodi ?: '-'; ?></b>
-                </small>
+                <div class="header-section">
+                    <h3>IF MALAM 1E</h3>
+                </div>
 
-                <small class="header-right">
-                    Menampilkan informasi perubahan kelas terbaru.
-                </small>
-            </div>
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Mata Kuliah</th>
+                                <th>Kelas Asal</th>
+                                <th>Kelas Baru</th>
+                                <th>Dosen</th>
+                            </tr>
+                        </thead>
 
-            <!-- TABEL -->
-            <div class="table-wrapper">
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Tanggal</th>
-                            <th>Mata Kuliah</th>
-                            <th>Kelas Asal</th>
-                            <th>Kelas Baru</th>
-                            <th>Dosen</th>
-                        </tr>
-                    </thead>
+                        <tbody>
+                            <?php 
+                        $data = mysqli_query($koneksi, 
+                        "SELECT * FROM perubahan_kelas ORDER BY tanggal_perubahan DESC"
+                        );
 
-                    <tbody>
-                    <?php
-                    // filter kelas
-                    $query = mysqli_query($koneksi, "
-                        SELECT * FROM perubahan_kelas
-                        WHERE kelas='$kelas'
-                        ORDER BY tanggal_perubahan DESC
-                    ");
+                        if (mysqli_num_rows($data) === 0) {
+                        echo "<tr><td colspan='6' style='text-align:center;'>Belum ada data.</td></tr>";
+                        }
 
-                    // fallback prodi
-                    if (mysqli_num_rows($query) === 0 && $prodi != '') {
-                        $query = mysqli_query($koneksi, "
-                            SELECT * FROM perubahan_kelas
-                            WHERE prodi='$prodi'
-                            ORDER BY tanggal_perubahan DESC
-                        ");
-                    }
+                        while ($row = mysqli_fetch_assoc($data)) { ?>
+                            <tr>
+                                <td><?= date("d M Y", strtotime($row['tanggal_perubahan'])); ?></td>
+                                <td><?= $row['mata_kuliah']; ?></td>
+                                <td><?= $row['kelas_asal']; ?></td>
+                                <td><?= $row['kelas_baru']; ?></td>
+                                <td><?= $row['dosen']; ?></td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
 
-                    // fallback semua
-                    if (mysqli_num_rows($query) === 0) {
-                        $query = mysqli_query($koneksi, "
-                            SELECT * FROM perubahan_kelas
-                            ORDER BY tanggal_perubahan DESC
-                        ");
-                    }
+                    </table>
+                </div>
 
-                    if (!$query || mysqli_num_rows($query) === 0) {
-                        echo "<tr>
-                                <td colspan='6' style='text-align:center;'>
-                                    Belum ada data perubahan kelas
-                                </td>
-                              </tr>";
-                    }
+            </div> <!-- end content-container -->
 
-                    $no = 1;
-                    while ($row = mysqli_fetch_assoc($query)) {
-                    ?>
-                        <tr>
-                            <td><?= $no++; ?></td>
-                            <td><?= date("d M Y", strtotime($row['tanggal_perubahan'])); ?></td>
-                            <td><?= $row['mata_kuliah']; ?></td>
-                            <td><?= $row['kelas_asal']; ?></td>
-                            <td><?= $row['kelas_baru']; ?></td>
-                            <td><?= $row['dosen']; ?></td>
-                        </tr>
-                    <?php } ?>
-                    </tbody>
+        </div> <!-- end main-content -->
 
-                </table>
-            </div>
+    </div> <!-- end wrapper -->
 
-        </div>
-    </div>
-</div>
+    <footer>
+        © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+    </footer>
 
-<footer>
-    © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
-</footer>
-
-<script src="../assets/js/script3.js"></script>
+    <script src="../assets/js/script3.js"></script>
 </body>
+
 </html>

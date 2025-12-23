@@ -58,18 +58,3 @@ saveBtn.addEventListener('click', () => {
     if (e.key === 'Enter') saveBtn.click();
   });
 });
-const notifBtn = document.getElementById("notifBtn");
-const notifDropdown = document.getElementById("notifDropdown");
-
-notifBtn.addEventListener("click", function (e) {
-    e.stopPropagation();
-    notifDropdown.classList.toggle("show");
-});
-
-window.addEventListener("click", function () {
-    notifDropdown.classList.remove("show");
-});
-
-document.getElementById("notifBtn").addEventListener("click", function () {
-    fetch("../admin/notif_read.php");
-});
