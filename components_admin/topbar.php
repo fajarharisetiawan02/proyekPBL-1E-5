@@ -1,49 +1,120 @@
 <?php
+// ===============================
+// SESSION & BASIC SAFETY
+// ===============================
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include "../config/koneksi.php";
 
+require_once "../config/koneksi.php";
+
+// ===============================
+// SESSION DATA (AMAN PHP 8)
+// ===============================
+$id_login = $_SESSION['id_login'] ?? null;
+$nama     = $_SESSION['nama'] ?? 'Admin';
+$nim      = $_SESSION['username'] ?? '-';
+
+// Inisial aman walau nama kosong
+$inisial  = strtoupper(substr($nama ?: 'A', 0, 1));
+
+// ===============================
+// NOTIFIKASI ADMIN
+// ===============================
+$last_read = '1970-01-01 00:00:00';
+
+if ($id_login) {
+    $qUser = mysqli_query($koneksi, "
+        SELECT last_notif_read 
+        FROM login 
+        WHERE id_login = '$id_login'
+    ");
+
+    if ($qUser) {
+        $user = mysqli_fetch_assoc($qUser);
+        $last_read = $user['last_notif_read'] ?? $last_read;
+    }
+}
+
+// Hitung notifikasi belum dibaca
+$qJumlah = mysqli_query($koneksi, "
+    SELECT id_notifikasi 
+    FROM notifikasi
+    WHERE role = 'admin'
+    AND tanggal > '$last_read'
+");
+
+$jumlah_notif = $qJumlah ? mysqli_num_rows($qJumlah) : 0;
+
+// Ambil notifikasi terbaru
 $notif_admin = mysqli_query($koneksi, "
     SELECT * FROM notifikasi
-    WHERE status='aktif'
-    AND role IN ('admin','all')
+    WHERE role = 'admin'
+    AND tanggal > '$last_read'
     ORDER BY tanggal DESC
     LIMIT 5
 ");
-
-$jumlah_notif = mysqli_num_rows($notif_admin);
-
-$nama = $_SESSION['nama'];
-$nim  = $_SESSION['username']; // username = NIM
-$inisial = strtoupper(substr($nama, 0, 1));
 ?>
 
+<!-- =============================== -->
+<!-- TOPBAR -->
+<!-- =============================== -->
 <div class="topbar">
+
+    <!-- Toggle Sidebar -->
     <i class="fa-solid fa-bars" id="menu-toggle"></i>
 
+    <!-- Search -->
     <div class="search-box">
-        <input type="text" placeholder="Search">
+        <input type="text" placeholder="Search...">
         <i class="fa-solid fa-search"></i>
     </div>
 
+    <!-- Right Icons -->
     <div class="header-icons">
 
-        <i class="fa-solid fa-bell" style="font-size:30px;color:black;"></i>
+        <!-- NOTIFIKASI -->
+        <div class="notif-wrapper">
+            <button class="notif-btn" id="notifBtn">
+                <i class="fa-solid fa-bell"></i>
+                <?php if ($jumlah_notif > 0): ?>
+                    <span class="notif-badge"><?= $jumlah_notif; ?></span>
+                <?php endif; ?>
+            </button>
 
+            <div class="notif-dropdown" id="notifDropdown">
+                <h4>Notifikasi</h4>
+
+                <?php if ($notif_admin && mysqli_num_rows($notif_admin) > 0): ?>
+                    <ul class="notif-list">
+                        <?php while ($n = mysqli_fetch_assoc($notif_admin)): ?>
+                            <li class="unread">
+                                <strong><?= htmlspecialchars($n['judul']); ?></strong><br>
+                                <small><?= date('d M Y H:i', strtotime($n['tanggal'])); ?></small>
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
+                <?php else: ?>
+                    <div class="notif-empty">Tidak ada notifikasi</div>
+                <?php endif; ?>
+
+                <a href="../admin/notifikasi.php" class="notif-link">Lihat Semua</a>
+            </div>
+        </div>
+
+        <!-- PROFILE -->
         <div class="profile-dropdown">
             <div class="profile-info" id="profileIcon">
-                <div class="profile-avatar"><?= $inisial; ?></div>
+                <div class="profile-avatar"><?= htmlspecialchars($inisial); ?></div>
 
                 <div class="profile-text">
-                    <span class="profile-name"><?= $nama; ?></span>
-                    <span class="profile-nim"><?= $nim; ?></span>
+                    <span class="profile-name"><?= htmlspecialchars($nama); ?></span>
+                    <span class="profile-nim"><?= htmlspecialchars($nim); ?></span>
                 </div>
             </div>
 
             <div class="dropdown-menu" id="dropdownMenu">
-
-                <a href="../admin/profil_mahasiswa.php">
+                <a href="../admin/profil_admin.php">
                     <i class="fa-solid fa-id-card"></i> Profil
                 </a>
                 <a href="../admin/ubah_sandi.php">
@@ -54,5 +125,6 @@ $inisial = strtoupper(substr($nama, 0, 1));
                 </a>
             </div>
         </div>
+
     </div>
 </div>

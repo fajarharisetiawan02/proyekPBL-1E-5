@@ -1,15 +1,13 @@
 <?php
-require_once "../config/auth.php";
+require_once "../config/auth_admin.php";
 require_once "../config/koneksi.php";
 
-// Ambil data
 $id = $_POST['id_mahasiswa'];
 $nama = $_POST['nama'];
 $prodi = $_POST['prodi'];
 $email = $_POST['email'];
 $no_hp = $_POST['no_hp'];
 
-// Update ke database
 $update = mysqli_query($koneksi, "UPDATE mahasiswa SET
         nama='$nama',
         prodi='$prodi',
