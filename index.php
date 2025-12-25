@@ -9,9 +9,8 @@ require_once "config/koneksi.php";
 <meta charset="UTF-8">
 <title>Beranda</title>
 
-<link rel="stylesheet" href="/proyekPBL-1E-5/assets/css/style.css">
-<link rel="stylesheet" href="/proyekPBL-1E-5/assets/css/footer.css">
-<link rel="stylesheet" href="/proyekPBL-1E-5/assets/css/home_extra.css">
+<link rel="stylesheet" href="/PBL-1E-5_akademik/assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style_profil_mahasiswa.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 

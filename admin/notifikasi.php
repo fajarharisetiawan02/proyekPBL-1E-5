@@ -6,99 +6,56 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once "../config/auth_admin.php";
 require_once "../config/koneksi.php";
 
+/* ===== TANDAI SUDAH DIBACA ===== */
+if (isset($_GET['read'])) {
+    $id = (int) $_GET['read'];
+    mysqli_query($koneksi, "
+        UPDATE notifikasi 
+        SET is_read = 1 
+        WHERE id_notifikasi = '$id'
+    ");
+    header("Location: notifikasi.php");
+    exit;
+}
+
+/* ===== AMBIL NOTIFIKASI ===== */
 $notifikasi = mysqli_query($koneksi, "
     SELECT * FROM notifikasi
     WHERE role='admin'
     ORDER BY tanggal DESC
 ");
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
     <meta charset="UTF-8">
-    <title>Semua Notifikasi</title>
-
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/style3.css">
-    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Kirim Notifikasi</title>
 </head>
 
 <body>
 
-    <div class="main-wrapper">
+<h2>Kirim Pengumuman / Notifikasi</h2>
 
-        <?php include "../components_admin/sidebar.php"; ?>
-        <?php include "../components_admin/topbar.php"; ?>
+<form action="proses_notifikasi.php" method="post">
+    <input type="text" name="judul" placeholder="Judul Pengumuman" required>
 
-        <div class="main-content">
-            <div class="content-container">
+    <br><br>
 
-                <div class="notif-hero">
-                    <div class="notif-hero-left">
-                        <div class="notif-hero-icon">
-                            <i class="fa-solid fa-bell"></i>
-                        </div>
-                        <div class="notif-hero-text">
-                            <h2>Semua Notifikasi</h2>
-                            <p>Riwayat aktivitas akademik terbaru</p>
-                        </div>
-                    </div>
+    <textarea name="isi" placeholder="Isi pengumuman..." required></textarea>
 
-                    <div class="notif-hero-right">
-                        <span class="notif-count">
-                            <?= mysqli_num_rows($notifikasi); ?> Notifikasi
-                        </span>
-                    </div>
-                </div>
+    <br><br>
 
-                <div class="notif-list">
+    <select name="role" required>
+        <option value="all">Semua</option>
+        <option value="mahasiswa">Mahasiswa</option>
+        <option value="admin">Admin</option>
+    </select>
 
-                    <?php if (mysqli_num_rows($notifikasi) > 0): ?>
-                    <?php while ($n = mysqli_fetch_assoc($notifikasi)): ?>
-                    <div class="notif-card <?= $n['status'] === 'aktif' ? 'unread' : 'read'; ?>">
+    <br><br>
 
-                        <div class="notif-icon">
-                            <i class="fa-solid fa-bell"></i>
-                        </div>
-
-                        <div class="notif-content">
-                            <h4><?= htmlspecialchars($n['judul']); ?></h4>
-                            <p><?= htmlspecialchars($n['isi']); ?></p>
-
-                            <div class="notif-meta">
-                                <span>
-                                    <i class="fa-regular fa-clock"></i>
-                                    <?= date('d M Y · H:i', strtotime($n['tanggal'])); ?>
-                                </span>
-
-                                <?php if ($n['status'] === 'aktif'): ?>
-                                <span class="badge-new">BARU</span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-
-                    </div>
-                    <?php endwhile; ?>
-                    <?php else: ?>
-                    <div class="notif-empty">
-                        <i class="fa-regular fa-bell-slash"></i>
-                        <p>Tidak ada notifikasi</p>
-                    </div>
-                    <?php endif; ?>
-
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
-    </footer>
+    <button type="submit">Kirim</button>
+</form>
 
 </body>
 

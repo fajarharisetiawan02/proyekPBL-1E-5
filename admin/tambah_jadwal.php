@@ -1,41 +1,18 @@
 <?php
 require_once "../config/auth_admin.php";
+require_once "../config/auth_admin.php";
 require_once "../config/koneksi.php";
+require_once "../config/email_helper.php";
 
 if (isset($_POST['simpan'])) {
+    $mata_kuliah = $_POST['mata_kuliah'];
+    $tanggal     = $_POST['tanggal'];
+    $waktu       = $_POST['waktu'];
+    $ruang       = $_POST['ruang'];
+    $dosen       = $_POST['dosen'];
 
-    $mata_kuliah   = $_POST['mata_kuliah'];
-    $jurusan       = $_POST['jurusan'];
-    $prodi         = $_POST['prodi'];
-    $kelas         = $_POST['kelas'];   
-    $shift         = $_POST['shift']; 
-    $semester      = $_POST['semester'];
-    $tanggal       = $_POST['tanggal'];
-    $waktu_mulai   = $_POST['waktu_mulai'];
-    $waktu_selesai = $_POST['waktu_selesai'];
-    $ruang         = $_POST['ruang'];
-    $dosen         = $_POST['dosen'];
-
-    mysqli_query($koneksi, "
-        INSERT INTO jadwal_ujian 
-        (mata_kuliah, jurusan, prodi, kelas, shift, semester, tanggal, waktu_mulai, waktu_selesai, ruang, dosen)
-        VALUES 
-        ('$mata_kuliah', '$jurusan', '$prodi', '$kelas', '$shift', '$semester',
-         '$tanggal', '$waktu_mulai', '$waktu_selesai', '$ruang', '$dosen')
-    ");
-
-    // NOTIFIKASI
-    $judul_notif = "Jadwal Ujian Baru";
-    $isi_notif = "Ujian $mata_kuliah
-Kelas $kelas $shift ($prodi)
-Tanggal $tanggal
-Pukul $waktu_mulai - $waktu_selesai
-Ruang $ruang";
-
-    mysqli_query($koneksi, "
-        INSERT INTO notifikasi (judul, isi, role, status)
-        VALUES ('$judul_notif', '$isi_notif', 'mahasiswa', 'aktif')
-    ");
+    mysqli_query($koneksi, "INSERT INTO jadwal_ujian (mata_kuliah, tanggal, waktu, ruang, dosen)
+                            VALUES ('$mata_kuliah', '$tanggal', '$waktu', '$ruang', '$dosen')");
 
     header("Location: jadwal_ujian.php");
     exit;
