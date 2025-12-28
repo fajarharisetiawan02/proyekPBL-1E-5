@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 /*-- SIDEBAR ADMIN --*/
+=======
+/* ================================
+   SIDEBAR (ADMIN)
+   ================================ */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
 .sidebar {
     position: fixed;
@@ -7,13 +13,18 @@
     width: 260px;
     height: 100vh;
     background-color: #1E3A8A;
+<<<<<<< HEAD
     color: #fff;
+=======
+    color: #ffffff;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     display: flex;
     flex-direction: column;
     z-index: 1000;
     transition: width 0.35s ease;
 }
 
+<<<<<<< HEAD
 /*-- HEADER --*/
 
 .sidebar .header {
@@ -23,6 +34,17 @@
     border-bottom: 1px solid rgba(255, 255, 255, .15);
     display: flex;
     align-items: center;
+=======
+/* ================================
+   HEADER / LOGO
+   ================================ */
+
+.sidebar .header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    padding-bottom: 12px;     
+    margin-bottom: 6px;    
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 }
 
 .logo-wrapper {
@@ -43,7 +65,13 @@
     white-space: nowrap;
 }
 
+<<<<<<< HEAD
 /*-- MENU --*/
+=======
+/* ================================
+   MENU AREA
+   ================================ */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
 .menu {
     flex: 1;
@@ -54,21 +82,40 @@
 .menu-title {
     font-size: 12px;
     letter-spacing: 1px;
+<<<<<<< HEAD
     opacity: 0.7;
     margin-bottom: 12px;
 }
 
+=======
+    opacity: .7;
+    margin-bottom: 12px;
+}
+
+/* MENU ITEM (SEMUA SAMA RATA) */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .menu-item {
     display: grid;
     grid-template-columns: 24px 1fr 16px;
     align-items: center;
     column-gap: 12px;
+<<<<<<< HEAD
     padding: 12px 20px;
     margin-bottom: 6px;
     color: #fff;
     text-decoration: none;
     border-radius: 12px;
     transition: background 0.2s ease;
+=======
+
+    padding: 12px 20px;
+    margin-bottom: 6px;
+
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background .2s ease;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 }
 
 .menu-item i {
@@ -82,6 +129,7 @@
 }
 
 .menu-item:hover {
+<<<<<<< HEAD
     background: rgba(255, 255, 255, .15);
 }
 
@@ -91,6 +139,19 @@
 }
 
 /*-- SUBMENU --*/
+=======
+    background: rgba(255,255,255,.15);
+}
+
+.menu-item.active {
+    background: rgba(255,255,255,.25);
+    font-weight: 600;
+}
+
+/* ================================
+   SUBMENU (DATA PENGGUNA)
+   ================================ */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
 .menu-group {
     margin-bottom: 6px;
@@ -100,6 +161,7 @@
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 .submenu {
     max-height: 0;
     overflow: hidden;
@@ -118,6 +180,27 @@
     margin-left: auto;
     font-size: 12px;
     transition: transform 0.3s ease;
+=======
+.menu-parent .arrow {
+    font-size: 12px;
+    transition: transform .3s ease;
+}
+
+/* SUBMENU HIDDEN */
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: max-height .35s ease;
+}
+
+/* SUBMENU OPEN */
+.menu-group.active .submenu {
+    max-height: 300px;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 }
 
 .menu-group.active .arrow {
@@ -125,6 +208,7 @@
 }
 
 .submenu-item {
+<<<<<<< HEAD
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 14px;
@@ -147,6 +231,88 @@
 }
 
 /*-- COLLAPSED --*/
+=======
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    font-size: 14px;
+    color: #dbeafe;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.submenu-item:hover {
+    background: rgba(255,255,255,.15);
+    color: #ffffff;
+}
+
+/* ================================
+   FOOTER SIDEBAR
+   ================================ */
+
+.sidebar-footer {
+    padding-left: 26px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    margin-top: auto;      
+    padding-top: 8px;     
+    padding-bottom: 16px;
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    background: #ffffff;
+    color: #1E3A8A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.admin-text span {
+    font-size: 12px;
+    opacity: .8;
+}
+
+.footer-link {
+    display: block;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-link.logout {
+    color: #ffdede;
+}
+
+.sidebar-footer .admin-info {
+    padding-left: 0;
+}
+
+.sidebar-footer .footer-link {
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ================================
+   SIDEBAR COLLAPSED
+   ================================ */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
 .sidebar.collapsed {
     width: 70px;
@@ -155,6 +321,7 @@
 .sidebar.collapsed .logo-text,
 .sidebar.collapsed .menu-title,
 .sidebar.collapsed .menu-item span,
+<<<<<<< HEAD
 .sidebar.collapsed .submenu,
 .sidebar.collapsed .sidebar-footer {
     display: none;
@@ -164,6 +331,12 @@
     justify-content: center;
 }
 
+=======
+.sidebar.collapsed .submenu {
+    display: none;
+}
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .sidebar.collapsed .menu-item {
     grid-template-columns: 24px;
     justify-content: center;
@@ -173,20 +346,31 @@
     margin: auto;
 }
 
+<<<<<<< HEAD
 /*-- SCROLLBAR --*/
+=======
+/* ================================
+   SCROLLBAR (HALUS)
+   ================================ */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
 .menu::-webkit-scrollbar {
     width: 6px;
 }
 
 .menu::-webkit-scrollbar-thumb {
+<<<<<<< HEAD
     background: rgba(255, 255, 255, .3);
+=======
+    background: rgba(255,255,255,.3);
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     border-radius: 6px;
 }
 
 .menu::-webkit-scrollbar-track {
     background: transparent;
 }
+<<<<<<< HEAD
 
 /*-- SIDEBAR COLLAPSED --*/
 
@@ -194,30 +378,41 @@
     width: 260px;
 }
 
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .sidebar.collapsed {
     width: 70px;
 }
 
+<<<<<<< HEAD
 .topbar {
     left: 260px;
     width: calc(100% - 260px);
 }
 
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .topbar.collapsed {
     left: 70px;
     width: calc(100% - 70px);
 }
 
+<<<<<<< HEAD
 .main-content {
     margin-left: 260px;
     width: calc(100% - 260px);
 }
 
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .main-content.collapsed {
     margin-left: 70px;
     width: calc(100% - 70px);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .sidebar,
 .topbar,
 .main-content {
@@ -226,6 +421,7 @@
         left 0.35s ease,
         margin-left 0.35s ease;
 }
+<<<<<<< HEAD
 
 .sidebar.collapsed .logo-wrapper {
     width: 100%;
@@ -241,3 +437,16 @@
 .sidebar.collapsed .logo-text {
     display: none;
 }
+=======
+.sidebar.collapsed .sidebar-footer {
+    display: none;
+}
+.sidebar-footer {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.sidebar.collapsed .sidebar-footer {
+    opacity: 0;
+    transform: translateY(10px);
+}
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815

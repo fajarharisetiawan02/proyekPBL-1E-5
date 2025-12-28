@@ -59,7 +59,11 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <title>Edit Beasiswa</title>
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="../assets/css/style5.css">
+=======
+    <link rel="stylesheet" href="../assets/css/style4.css">
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />

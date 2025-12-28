@@ -19,12 +19,17 @@ function kirimEmail($emailTujuan, $namaTujuan, $judul, $isi) {
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
+<<<<<<< HEAD
         // 🔴 INI YANG PENTING (FIX ERROR â€“)
         $mail->CharSet = 'UTF-8';
         $mail->Encoding = 'base64';
 
         // 🔥 HARUS SAMA DENGAN USERNAME
         $mail->setFrom('pblifmalame@gmail.com', 'Pengumuman Akademik (No-Reply)');
+=======
+        // 🔥 HARUS SAMA DENGAN USERNAME
+        $mail->setFrom('pblifmalame@gmail.com', 'Sistem Akademik Kampus');
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
         $mail->addAddress($emailTujuan, $namaTujuan);
 

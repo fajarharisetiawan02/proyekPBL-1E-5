@@ -5,9 +5,17 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <div class="sidebar">
 
     <!-- HEADER -->
+<<<<<<< HEAD
     <div class="header">
         <div class="logo-wrapper">
             <img src="../assets/img/Logo Politeknik.png" class="logo-img" alt="Logo">
+=======
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo-wrapper">
+            <img src="../assets/img/Logo Politeknik.png" class="logo-img">
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
             <div class="logo-text">
                 Pengumuman<br>Akademik Online
             </div>

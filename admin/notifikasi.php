@@ -27,6 +27,7 @@ $notifikasi = mysqli_query($koneksi, "
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 <meta charset="UTF-8">
 <title>Semua Notifikasi</title>
@@ -155,4 +156,5 @@ $notifikasi = mysqli_query($koneksi, "
 
 <script src="../assets/js/script3.js"></script>
 </body>
+
 </html>

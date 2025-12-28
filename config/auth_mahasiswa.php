@@ -1,10 +1,14 @@
 <?php
 session_start();
+<<<<<<< HEAD
 require_once "koneksi.php";
 
 /* =========================
    CEK LOGIN MAHASISWA
    ========================= */
+=======
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 if (
     !isset($_SESSION['id_login']) ||
     !isset($_SESSION['role']) ||
@@ -13,6 +17,7 @@ if (
     header("Location: ../login.php");
     exit;
 }
+<<<<<<< HEAD
 
 /* =========================
    AMBIL DATA MAHASISWA
@@ -44,3 +49,5 @@ if ($data) {
     $_SESSION['shift'] = $data['shift'];
     $_SESSION['prodi'] = $data['prodi'];
 }
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815

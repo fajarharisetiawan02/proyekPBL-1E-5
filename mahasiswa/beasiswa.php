@@ -10,20 +10,29 @@ require_once "../config/koneksi.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beasiswa - Mahasiswa</title>
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="../assets/css/style5.css">
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+=======
+    <link rel="stylesheet" href="../assets/css/style6.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 </head>
 
 <body>
 
-<div class="main-wrapper">
+    <div class="main-wrapper">
 
-    <?php include "../components_mahasiswa/sidebar.php"; ?>
-    <?php include "../components_mahasiswa/topbar.php"; ?>
+        <?php include "../components_mahasiswa/sidebar.php"; ?>
+        <?php include "../components_mahasiswa/topbar.php"; ?>
 
+<<<<<<< HEAD
     <div class="main-content">
         <div class="content-container">
 
@@ -41,6 +50,20 @@ require_once "../config/koneksi.php";
                 WHERE status = 'aktif'
                 ORDER BY tanggal_buka DESC
             ");
+=======
+        <div class="main-content">
+            <div class="content-container">
+
+                <div class="alert-box">
+                    Terdapat berbagai program beasiswa untuk mahasiswa aktif! <br>
+                    <strong>Baca syarat dan tenggat waktu sebelum mendaftar.</strong>
+                </div>
+
+                <div class="beasiswa-grid">
+
+                    <?php
+                $data = mysqli_query($koneksi, "SELECT * FROM beasiswa WHERE status='aktif' ORDER BY created_at DESC");
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
             if (!$data) {
                 die("Query Error: " . mysqli_error($koneksi));
@@ -56,8 +79,9 @@ require_once "../config/koneksi.php";
                 $status_beasiswa = ($hari_ini <= $row['tanggal_tutup']) ? 'Dibuka' : 'Ditutup';
             ?>
 
-                <div class="beasiswa-card">
+                    <div class="beasiswa-card">
 
+<<<<<<< HEAD
                     <?php if (!empty($row['gambar'])) { ?>
                         <img src="../uploads/beasiswa/<?= htmlspecialchars($row['gambar']); ?>" class="beasiswa-img">
                     <?php } ?>
@@ -139,6 +163,45 @@ require_once "../config/koneksi.php";
 
 <script src="../assets/js/script3.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+=======
+                        <?php if (!empty($row['gambar'])) { ?>
+                        <img src="../uploads/beasiswa/<?= $row['gambar']; ?>" class="beasiswa-img">
+                        <?php } ?>
+
+                        <h3><?= $row['nama_beasiswa']; ?></h3>
+
+                        <p><?= substr($row['deskripsi'], 0, 110); ?>...</p>
+
+                        <p><strong>Periode:</strong> <?= $row['periode']; ?></p>
+
+                        <p>
+                            <strong>Buka:</strong> <?= date("d M Y", strtotime($row['tanggal_buka'])); ?><br>
+                            <strong>Tutup:</strong> <?= date("d M Y", strtotime($row['tanggal_tutup'])); ?>
+                        </p>
+
+                        <a href="detail_beasiswa.php?id=<?= $row['id_beasiswa']; ?>" class="btn-detail">
+                            Lihat Detail
+                        </a>
+
+                    </div>
+
+                    <?php } ?>
+
+                </div> 
+
+            </div> 
+
+        </div>
+
+    </div> 
+
+    <footer>
+        © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+    </footer>
+
+    <script src="../assets/js/script3.js"></script>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
 </body>
+
 </html>

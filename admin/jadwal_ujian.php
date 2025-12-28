@@ -1,5 +1,9 @@
 <?php
 require_once "../config/auth_admin.php";
+<<<<<<< HEAD
+=======
+require_once "../config/auth_admin.php";
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 require_once "../config/koneksi.php";
 
 /* ======================
@@ -130,9 +134,15 @@ foreach($prodiList as $p):
 </form>
 </div>
 
+<<<<<<< HEAD
 <!-- ===== HEADER ===== -->
 <div class="header-admin">
 <h3>Data Jadwal Ujian</h3>
+=======
+<footer>
+© 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+</footer>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
 <div style="display:flex; gap:10px;">
 <a href="tambah_jadwal.php" class="btn-add">

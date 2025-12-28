@@ -1,10 +1,19 @@
 <?php
 require_once "../config/auth_admin.php";
+<<<<<<< HEAD
 require_once "../config/koneksi.php";
 
 /* ===============================
    CEK ID
 ================================ */
+=======
+require_once "../config/auth_admin.php";
+require_once "../config/koneksi.php";
+
+// ===============================
+// CEK ID
+// ===============================
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 if (!isset($_GET['id'])) {
     header("Location: mahasiswa.php");
     exit;
@@ -12,6 +21,7 @@ if (!isset($_GET['id'])) {
 
 $id = mysqli_real_escape_string($koneksi, $_GET['id']);
 
+<<<<<<< HEAD
 /* ===============================
    AMBIL DATA MAHASISWA
 ================================ */
@@ -46,6 +56,34 @@ if (isset($_POST['update'])) {
     $shift    = mysqli_real_escape_string($koneksi, $_POST['shift']);
     $semester = (int) $_POST['semester'];
     $email    = mysqli_real_escape_string($koneksi, $_POST['email']);
+=======
+// ===============================
+// AMBIL DATA MAHASISWA
+// ===============================
+$query = mysqli_query($koneksi, "
+    SELECT * FROM mahasiswa 
+    WHERE id_mahasiswa = '$id'
+");
+
+$data = mysqli_fetch_assoc($query);
+
+if (!$data) {
+    echo "<h3>Data mahasiswa tidak ditemukan</h3>";
+    exit;
+}
+
+// ===============================
+// PROSES UPDATE
+// ===============================
+if (isset($_POST['update'])) {
+
+    $nim     = mysqli_real_escape_string($koneksi, $_POST['nim']);
+    $nama    = mysqli_real_escape_string($koneksi, $_POST['nama']);
+    $prodi   = mysqli_real_escape_string($koneksi, $_POST['prodi']);
+    $jurusan = mysqli_real_escape_string($koneksi, $_POST['jurusan']);
+    $kelas   = mysqli_real_escape_string($koneksi, $_POST['kelas']);
+    $email   = mysqli_real_escape_string($koneksi, $_POST['email']);
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
     mysqli_query($koneksi, "
         UPDATE mahasiswa SET
@@ -54,8 +92,11 @@ if (isset($_POST['update'])) {
             prodi='$prodi',
             jurusan='$jurusan',
             kelas='$kelas',
+<<<<<<< HEAD
             shift='$shift',
             semester='$semester',
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
             email='$email'
         WHERE id_mahasiswa='$id'
     ");

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <footer class="footer-app">
     <div class="footer-inner">
 
@@ -26,10 +27,32 @@
                 <a href="#"><i class="fab fa-x-twitter"></i></a>
             </div>
         </div>
+=======
+<footer class="footer-mini">
+  <div class="footer-mini-container">
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
+    <div class="footer-left">
+      Pengumuman Akademik Online © 2025
     </div>
 
+<<<<<<< HEAD
     <div class="footer-bottom">
         © <?= date('Y'); ?> Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+=======
+    <div class="footer-center">
+      <a href="#">Pengumuman</a>
+      <a href="#">Jadwal Ujian</a>
+      <a href="#">Perubahan Kelas</a>
+      <a href="#">Kalender Akademik</a>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     </div>
+
+    <div class="footer-right">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+
+  </div>
 </footer>

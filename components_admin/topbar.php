@@ -55,6 +55,10 @@ $notif_admin = mysqli_query($koneksi, "
     LIMIT 5
 ");
 ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 <!-- =============================== -->
 <!-- TOPBAR -->
 <!-- =============================== -->
@@ -63,6 +67,15 @@ $notif_admin = mysqli_query($koneksi, "
     <!-- Toggle Sidebar -->
     <i class="fa-solid fa-bars" id="menu-toggle"></i>
 
+<<<<<<< HEAD
+=======
+    <!-- Search -->
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class="fa-solid fa-search"></i>
+    </div>
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     <!-- Right Icons -->
     <div class="header-icons">
 

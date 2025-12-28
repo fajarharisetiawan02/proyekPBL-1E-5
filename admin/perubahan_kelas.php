@@ -1,5 +1,9 @@
 <?php
 require_once "../config/auth_admin.php";
+<<<<<<< HEAD
+=======
+require_once "../config/auth_admin.php";
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 require_once "../config/koneksi.php";
 
 /* ======================
@@ -58,8 +62,13 @@ if ($isFiltered) {
 
 <div class="main-wrapper">
 
+<<<<<<< HEAD
 <?php include "../components_admin/sidebar.php"; ?>
 <?php include "../components_admin/topbar.php"; ?>
+=======
+    <?php include "../components_admin/sidebar.php"; ?>
+    <?php include "../components_admin/topbar.php"; ?>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
 <div class="main-content">
 <div class="content-container">
@@ -72,12 +81,29 @@ if ($isFiltered) {
 
 <form method="GET" class="form-grid">
 
+<<<<<<< HEAD
 <div class="search-wrapper">
     <i class="fa fa-search"></i>
     <input type="text" name="search"
         placeholder="Cari mata kuliah / dosen"
         value="<?= htmlspecialchars($search); ?>">
 </div>
+=======
+            <!-- ===== TABEL ===== -->
+            <div class="table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Mata Kuliah</th>
+                            <th>Kelas Asal</th>
+                            <th>Kelas Baru</th>
+                            <th>Dosen</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
 <select name="jurusan">
 <option value="">Semua Jurusan</option>
@@ -127,9 +153,15 @@ foreach ($prodiList as $p):
 </form>
 </div>
 
+<<<<<<< HEAD
 <!-- ===== HEADER (SAMA DENGAN JADWAL UJIAN) ===== -->
 <div class="header-admin">
 <h3>Data Perubahan Kelas</h3>
+=======
+<footer>
+    © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+</footer>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
 <a href="tambah_perubahan_kelas.php" class="btn-add">
 <i class="fa fa-plus"></i> Tambah Perubahan Kelas

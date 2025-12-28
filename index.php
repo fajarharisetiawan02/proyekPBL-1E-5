@@ -1,7 +1,13 @@
 <?php 
 session_start();
+<<<<<<< HEAD
 require_once "config/koneksi.php";
 ?>
+=======
+require_once "config/koneksi.php"; 
+?>
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -42,6 +48,7 @@ require_once "config/koneksi.php";
             Sistem resmi untuk mengakses pengumuman kampus, jadwal ujian,
             serta informasi akademik mahasiswa Polibatam.
         </p>
+<<<<<<< HEAD
 
         <a href="#pengumuman" class="hero-btn">
             Lihat Pengumuman Terbaru
@@ -115,6 +122,50 @@ require_once "config/koneksi.php";
 <?php } else { ?>
     <a href="pengumuman.php" class="cta-btn">Lihat Selengkapnya</a>
 <?php } ?>
+=======
+    </div>
+</section>
+
+<!-- PENGUMUMAN -->
+<section class="section">
+    <div class="section-header">
+        <h2><i class="fa-solid fa-bullhorn"></i> Pengumuman Terbaru</h2>
+        <p class="section-desc">Beberapa informasi akademik terbaru untuk mahasiswa</p>
+    </div>
+
+    <div class="cards">
+        <?php
+        $query = mysqli_query($koneksi, "
+            SELECT * FROM pengumuman
+            WHERE untuk_mahasiswa = 1 OR untuk_mahasiswa IS NULL
+            ORDER BY dibuat_pada DESC
+            LIMIT 3
+        ");
+
+        if (mysqli_num_rows($query) == 0) {
+            echo "<p style='text-align:center;'>Belum ada pengumuman.</p>";
+        }
+
+        while ($row = mysqli_fetch_assoc($query)) {
+        ?>
+            <div class="card">
+                <h3><?= htmlspecialchars($row['judul']); ?></h3>
+                <p>
+                    <?= nl2br(substr(htmlspecialchars($row['isi']), 0, 160)); ?>...
+                </p>
+                <small style="color:#666;">
+                    <?= date("d M Y", strtotime($row['dibuat_pada'])); ?>
+                </small>
+            </div>
+        <?php } ?>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h3>Ingin melihat semua pengumuman akademik?</h3>
+    <a href="login.php" class="cta-btn">Lihat Selengkapnya</a>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 </section>
 
 <?php include "components_admin/footer.php"; ?>

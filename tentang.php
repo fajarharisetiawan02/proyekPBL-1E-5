@@ -12,14 +12,19 @@ require_once "config/koneksi.php";
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="/PBL-1E-5_akademik/assets/css/tentang.css">
+=======
+<link rel="stylesheet" href="/proyekPBL-1E-5/assets/css/tentang.css">
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 </head>
 
 <body>
 
   <header>
     <h1 class="logo-container">
-      <img src="/PBL-1E-5_akademik/assets/img/Logo Polibatam1.png" class="logo-header" alt="Logo Aplikasi">
+      <img src="/proyekPBL-1E-5/assets/img/Logo Polibatam1.png" class="logo-header" alt="Logo Aplikasi">
       <span class="logo-text">polibatam</span>
     </h1>
 

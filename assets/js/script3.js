@@ -27,10 +27,54 @@ if (profileIcon && dropdownMenu) {
         dropdownMenu.classList.toggle("show");
     });
 
+<<<<<<< HEAD
+=======
+    // Tutup dropdown ketika klik di luar menu
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     window.addEventListener("click", (e) => {
         if (!profileIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
             dropdownMenu.classList.remove("show");
         }
+<<<<<<< HEAD
+=======
+    });
+}
+
+
+/* =========================================================
+   EDIT DATA (untuk halaman jadwal ujian)
+========================================================= */
+function editData(id, mk, tanggal, waktu, ruang, dosen) {
+    document.getElementById("edit_id").value = id;
+    document.getElementById("edit_mk").value = mk;
+    document.getElementById("edit_tanggal").value = tanggal;
+    document.getElementById("edit_waktu").value = waktu;
+    document.getElementById("edit_ruang").value = ruang;
+    document.getElementById("edit_dosen").value = dosen;
+}
+
+
+/* =========================================================
+   ANIMASI ANGKA (COUNT-UP)
+========================================================= */
+function animateNumbers() {
+    document.querySelectorAll(".count").forEach(el => {
+        let target = parseInt(el.getAttribute("data-value"));
+        let start = 0;
+        let duration = 1200;
+
+        // Jika target 0 → tidak perlu animasi
+        if (target === 0) return;
+
+        let step = Math.max(20, Math.floor(duration / target));
+
+        let interval = setInterval(() => {
+            start++;
+            el.textContent = start;
+
+            if (start >= target) clearInterval(interval);
+        }, step);
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     });
 }
 
@@ -67,10 +111,58 @@ window.addEventListener("load", () => {
 });
 
 
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", () => {
 
     const canvas = document.getElementById("chartPengumuman");
     if (!canvas || typeof trendLabels === "undefined") return;
+=======
+/* =========================================================
+   CHART.JS — GRAFIK 1: Pengumuman
+========================================================= */
+const canvas = document.getElementById('chartPengumuman');
+
+if (canvas && typeof grafikLabels !== 'undefined' && typeof grafikData !== 'undefined') {
+    new Chart(canvas, {
+        type: 'bar',
+        data: {
+            labels: grafikLabels,
+            datasets: [{
+                label: 'Jumlah Pengumuman',
+                data: grafikData,
+                backgroundColor: '#1e3a8a',
+                borderRadius: 10,
+                barThickness: 22
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: ctx => `${ctx.raw} pengumuman`
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0,
+                        stepSize: 1
+                    },
+                    grid: { display: false }
+                },
+                y: {
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+}
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 
     const ctx = canvas.getContext("2d");
 
@@ -140,6 +232,7 @@ if (notifBtn && notifDropdown) {
 }
 
 
+<<<<<<< HEAD
 /* =========================================================
    MENU USER
 ========================================================= */
@@ -224,8 +317,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggleUser.addEventListener('click', function () {
         menuGroup.classList.toggle('active');
+=======
+document.querySelectorAll('.menu-link').forEach(menu => {
+    menu.addEventListener('click', () => {
+        menu.parentElement.classList.toggle('active');
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     });
 });
+/* =========================================================
+   NOTIFICATIONS
+========================================================= */
+const notifBtn = document.getElementById("notifBtn");
+const notifDropdown = document.getElementById("notifDropdown");
+
+if (notifBtn && notifDropdown) {
+    notifBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        notifDropdown.classList.toggle("show");
+        // Mark notifications as read
+        fetch("../admin/notif_read.php");
+    });
+
+    window.addEventListener("click", function (e) {
+        if (!notifBtn.contains(e.target) && !notifDropdown.contains(e.target)) {
+            notifDropdown.classList.remove("show");
+        }
+    });
+}
+
+    const toggleUser = document.getElementById('toggleUser');
+    const menuGroup = toggleUser.parentElement;
+
+    toggleUser.addEventListener('click', () => {
+        menuGroup.classList.toggle('active');
+    });
+
+
 
 document.getElementById('menu-toggle').onclick = function () {
     document.querySelector('.sidebar').classList.toggle('collapsed');

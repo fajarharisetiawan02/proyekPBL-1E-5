@@ -867,6 +867,7 @@ footer {
     border-radius: 8px;
 }
 
+<<<<<<< HEAD
 .menu {
     padding: 20px 12px;
     flex: 1;
@@ -1709,6 +1710,92 @@ footer {
     margin-top: 6px;
     font-size: 14px;
     color: #6b7280;
+=======
+.notif-wrapper {
+    position: relative;
+    font-size: 20px
+  
+}
+
+.notif-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    font-size: 30px;
+}
+
+.notif-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: red;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.notif-dropdown {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 450px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 9999;
+}
+
+.notif-dropdown h4 {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.notif-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+
+.notif-dropdown ul li {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 14px;   
+    color: #333;
+}
+
+
+.notif-dropdown ul li:hover {
+    background: #f9f9f9;
+}
+
+.notif-empty {
+    padding: 15px;
+    text-align: center;
+    color: #888;
+}
+
+.notif-link {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    border-top: 1px solid #eee;
+}
+.notif-dropdown ul li.unread {
+    background: #eef3ff;
+    font-weight: 600;
+}
+
+.notif-dropdown ul li.read {
+    opacity: 0.7;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 }
 .sidebar {
     width: 260px;
@@ -1885,7 +1972,51 @@ footer {
     background-color: rgba(255, 255, 255, 0.12);
     color: #fff;
 }
+<<<<<<< HEAD
 
+=======
+/* ===== SIDEBAR SCROLL ===== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: #1E3A8A;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER & FOOTER TETAP */
+.header,
+.sidebar-footer {
+    flex-shrink: 0;
+}
+
+/* MENU BISA SCROLL */
+.menu {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+/* SCROLLBAR (OPSIONAL, BIAR HALUS) */
+.menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+}
+
+.menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+.menu-item span {
+    white-space: nowrap;
+}
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 /* ===== MENU ITEM BASE ===== */
 .menu-item {
     display: grid;
@@ -1923,6 +2054,7 @@ footer {
     font-size: 12px;
     margin-left: auto;    /* paksa ke kanan */
 }
+<<<<<<< HEAD
 /* ==============================
    MODAL DETAIL BEASISWA - ADMIN
    ============================== */
@@ -2056,3 +2188,5 @@ footer {
 
 
 
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815

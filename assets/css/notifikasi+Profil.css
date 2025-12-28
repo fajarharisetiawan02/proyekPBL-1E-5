@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 /* =====================================================
    NOTIFICATION ICON
 ===================================================== */
+=======
+/* ===============================
+   NOTIFICATION ICON
+================================ */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-wrapper {
     position: relative;
 }
@@ -24,9 +30,15 @@
     border-radius: 50%;
 }
 
+<<<<<<< HEAD
 /* =====================================================
    NOTIFICATION DROPDOWN (DEFAULT)
 ===================================================== */
+=======
+/* ===============================
+   NOTIFICATION DROPDOWN
+================================ */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-dropdown {
     display: none;
     position: absolute;
@@ -93,10 +105,34 @@
     text-decoration: none;
     border-top: 1px solid #eee;
 }
+<<<<<<< HEAD
 
 /* =====================================================
    NOTIFICATION PAGE (CARD / TIMELINE / HERO)
 ===================================================== */
+=======
+/* ===============================
+   PAGE HEADER
+================================ */
+.page-header {
+    margin-bottom: 25px;
+}
+
+.page-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.page-header p {
+    margin-top: 6px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===============================
+   NOTIFIKASI LIST
+================================ */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-page {
     max-width: 800px;
     margin: 0 auto;
@@ -105,22 +141,39 @@
     gap: 18px;
 }
 
+<<<<<<< HEAD
+=======
+/* ITEM */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-item {
     display: flex;
     gap: 18px;
     padding: 18px 20px;
     border-radius: 14px;
+<<<<<<< HEAD
     background: #fff;
     box-shadow: 0 8px 22px rgba(0,0,0,.06);
     transition: .25s ease;
+=======
+    background: #ffffff;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    transition: all .25s ease;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     border-left: 5px solid transparent;
 }
 
 .notif-item:hover {
     transform: translateY(-3px);
+<<<<<<< HEAD
     box-shadow: 0 14px 32px rgba(0,0,0,.12);
 }
 
+=======
+    box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+}
+
+/* STATUS */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-item.unread {
     background: #f0f6ff;
     border-left-color: #2563eb;
@@ -130,6 +183,10 @@
     opacity: .75;
 }
 
+<<<<<<< HEAD
+=======
+/* ICON */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-icon {
     width: 44px;
     height: 44px;
@@ -142,6 +199,10 @@
     font-size: 18px;
 }
 
+<<<<<<< HEAD
+=======
+/* CONTENT */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-content {
     flex: 1;
 }
@@ -158,31 +219,95 @@
     font-weight: 600;
 }
 
+<<<<<<< HEAD
+=======
+/* BADGE */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .badge-new {
     background: #2563eb;
     color: #fff;
     font-size: 11px;
+<<<<<<< HEAD
     padding: 4px 12px;
     border-radius: 999px;
     font-weight: 600;
 }
 
+=======
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* TEXT */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-content p {
     margin: 6px 0 10px;
     font-size: 14px;
     color: #444;
 }
 
+<<<<<<< HEAD
+=======
+/* META */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-meta {
     font-size: 12px;
     color: #888;
     display: flex;
+<<<<<<< HEAD
     gap: 6px;
 }
 
 /* =====================================================
    TIMELINE
 ===================================================== */
+=======
+    align-items: center;
+    gap: 6px;
+}
+
+/* EMPTY */
+.notif-empty {
+    text-align: center;
+    padding: 50px;
+    color: #888;
+}
+
+.notif-empty i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+.footer-simple {
+    margin-top: 40px;
+    padding: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+}
+/* =============================
+   HEADER
+============================= */
+.notif-header {
+    margin-bottom: 28px;
+}
+
+.notif-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.notif-header p {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* =============================
+   TIMELINE
+============================= */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-timeline {
     position: relative;
     max-width: 920px;
@@ -200,6 +325,22 @@
     border-radius: 10px;
 }
 
+<<<<<<< HEAD
+=======
+/* =============================
+   ITEM
+============================= */
+.notif-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 26px;
+    position: relative;
+}
+
+/* =============================
+   DOT
+============================= */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-dot {
     width: 42px;
     height: 42px;
@@ -213,9 +354,105 @@
     z-index: 2;
 }
 
+<<<<<<< HEAD
 /* =====================================================
    HERO HEADER
 ===================================================== */
+=======
+/* =============================
+   CARD
+============================= */
+.notif-card {
+    background: #ffffff;
+    padding: 18px 22px;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    transition: all .3s ease;
+    width: 100%;
+}
+
+.notif-item:hover .notif-card {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 42px rgba(0,0,0,0.14);
+}
+
+/* =============================
+   STATUS
+============================= */
+.notif-item.unread .notif-card {
+    background: linear-gradient(180deg, #f0f6ff, #ffffff);
+    border-left: 6px solid #2563eb;
+}
+
+.notif-item.read {
+    opacity: 0.75;
+}
+
+/* =============================
+   CARD TOP
+============================= */
+.notif-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notif-top h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* =============================
+   BADGE
+============================= */
+.badge-new {
+    background: #2563eb;
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* =============================
+   TEXT
+============================= */
+.notif-card p {
+    margin: 10px 0 12px;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* =============================
+   META
+============================= */
+.notif-meta {
+    font-size: 12px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* =============================
+   EMPTY
+============================= */
+.notif-empty {
+    text-align: center;
+    padding: 60px;
+    color: #888;
+}
+
+.notif-empty i {
+    font-size: 44px;
+    margin-bottom: 12px;
+}
+/* ===============================
+   NOTIFICATION HEADER
+================================ */
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 .notif-hero {
     display: flex;
     justify-content: space-between;
@@ -245,6 +482,7 @@
     font-size: 24px;
 }
 
+<<<<<<< HEAD
 /* =====================================================
    DROPDOWN – GAYA PORTAL KAMPUS (FINAL OVERRIDE)
 ===================================================== */
@@ -315,6 +553,131 @@
 .profile-dropdown {
     position: relative;
     cursor: pointer;
+=======
+.notif-hero-text h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.notif-hero-text p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    opacity: .9;
+}
+
+.notif-count {
+    background: rgba(255,255,255,.25);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ===============================
+   NOTIFICATION LIST
+================================ */
+.notif-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.notif-card {
+    display: flex;
+    gap: 18px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.08);
+    transition: all .25s ease;
+    border-left: 6px solid transparent;
+}
+
+.notif-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(0,0,0,.12);
+}
+
+.notif-card.unread {
+    border-left-color: #2563eb;
+    background: #f2f6ff;
+}
+
+.notif-card.read {
+    opacity: .75;
+}
+
+.notif-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.notif-content h4 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.notif-content p {
+    margin: 0 0 12px;
+    font-size: 14px;
+    color: #555;
+}
+
+.notif-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #888;
+}
+
+.badge-new {
+    background: #2563eb;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* EMPTY */
+.notif-empty {
+    text-align: center;
+    padding: 60px 0;
+    color: #888;
+}
+
+.notif-empty i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+/* ===============================
+   BATASI LEBAR NOTIFIKASI
+================================ */
+.notif-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 26px;
+    border-radius: 18px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+/* ===============================
+   PROFILE DROPDOWN
+================================ */
+.profile-dropdown {
+    position: relative;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 }
 
 .profile-info {
@@ -325,6 +688,7 @@
 }
 
 .profile-avatar {
+<<<<<<< HEAD
     width: 35px;
     height: 35px;
     background-color: #000;   
@@ -347,12 +711,18 @@
     width: 40px;
     height: 40px;
     background: #3f51b5; /* warna kampus */
+=======
+    width: 36px;
+    height: 36px;
+    background: black;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     color: #fff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+<<<<<<< HEAD
     font-size: 18px;
     cursor: pointer;
 }
@@ -393,6 +763,20 @@
     width: 180px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     animation: fadeDropdown 0.25s ease-out;
+=======
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: #fff;
+    width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    z-index: 10000;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 }
 
 .dropdown-menu.show {
@@ -400,6 +784,7 @@
 }
 
 .dropdown-menu a {
+<<<<<<< HEAD
     display: flex;
     align-items: center;
     gap: 10px;
@@ -465,4 +850,14 @@
 @keyframes fadeDropdown {
     from { opacity: 0; transform: translateY(-5px); }
     to   { opacity: 1; transform: translateY(0); }
+=======
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-menu a:hover {
+    background: #f2f2f2;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 }

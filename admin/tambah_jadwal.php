@@ -1,7 +1,28 @@
 <?php
 require_once "../config/auth_admin.php";
+<<<<<<< HEAD
 require_once "../config/koneksi.php";
+=======
+require_once "../config/auth_admin.php";
+require_once "../config/koneksi.php";
+require_once "../config/email_helper.php";
+
+if (isset($_POST['simpan'])) {
+    $mata_kuliah = $_POST['mata_kuliah'];
+    $tanggal     = $_POST['tanggal'];
+    $waktu       = $_POST['waktu'];
+    $ruang       = $_POST['ruang'];
+    $dosen       = $_POST['dosen'];
+
+    mysqli_query($koneksi, "INSERT INTO jadwal_ujian (mata_kuliah, tanggal, waktu, ruang, dosen)
+                            VALUES ('$mata_kuliah', '$tanggal', '$waktu', '$ruang', '$dosen')");
+
+    header("Location: jadwal_ujian.php");
+    exit;
+}
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">
@@ -32,8 +53,25 @@ require_once "../config/koneksi.php";
                     </p>
                 </div>
 
+<<<<<<< HEAD
                 <form action="proses_tambah_jadwal.php" method="POST" class="form-card">
 
+
+                    <h4 class="form-section-title">
+                        <i class="fa-solid fa-graduation-cap"></i> Informasi Akademik
+                    </h4>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Jurusan</label>
+                            <select name="jurusan" required>
+                                <option value="">Pilih Jurusan</option>
+                                <option>Manajemen Bisnis</option>
+                                <option>Teknik Elektro</option>
+                                <option>Teknik Informatika</option>
+                                <option>Teknik Mesin</option>
+=======
+                <form method="POST" class="form-card">
 
                     <h4 class="form-section-title">
                         <i class="fa-solid fa-graduation-cap"></i> Informasi Akademik
@@ -60,10 +98,21 @@ require_once "../config/koneksi.php";
                                 <option>D4 Animasi</option>
                                 <option>D3 Teknik Informatika</option>
                                 <option>D4 Teknologi Permainan</option>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
                             </select>
                         </div>
 
                         <div class="form-group">
+<<<<<<< HEAD
+                            <label>Program Studi</label>
+                            <select name="prodi" required>
+                                <option value="">Pilih Prodi</option>
+                                <option>D3 Akuntansi</option>
+                                <option>D4 Rekayasa Perangkat Lunak</option>
+                                <option>D4 Animasi</option>
+                                <option>D3 Teknik Informatika</option>
+                                <option>D4 Teknologi Permainan</option>
+=======
                             <label>Kelas</label>
                             <select name="kelas" required>
                                 <option value="">Pilih Kelas</option>
@@ -72,10 +121,32 @@ require_once "../config/koneksi.php";
                                 <option>C</option>
                                 <option>D</option>
                                 <option>E</option>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
                             </select>
                         </div>
 
                         <div class="form-group">
+<<<<<<< HEAD
+                            <label>Kelas</label>
+                            <select name="kelas" required>
+                                <option value="">Pilih Kelas</option>
+                                <option>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                                <option>D</option>
+                                <option>E</option>
+=======
+                            <label>Shift</label>
+                            <select name="shift" required>
+                                <option value="">Pilih Shift</option>
+                                <option>Pagi</option>
+                                <option>Malam</option>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+<<<<<<< HEAD
                             <label>Shift</label>
                             <select name="shift" required>
                                 <option value="">Pilih Shift</option>
@@ -85,6 +156,8 @@ require_once "../config/koneksi.php";
                         </div>
 
                         <div class="form-group">
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
                             <label>Semester</label>
                             <select name="semester" required>
                                 <option value="">Pilih Semester</option>

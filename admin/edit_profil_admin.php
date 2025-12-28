@@ -132,10 +132,13 @@ if (isset($_POST['simpan'])) {
         </div>
     </div>
 
+<<<<<<< HEAD
     <footer>
         © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
     </footer>
     <script src="../assets/js/script3.js"></script>
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
 </body>
 
 </html>

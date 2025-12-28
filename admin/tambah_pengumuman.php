@@ -87,9 +87,15 @@ if (isset($_POST['simpan'])) {
                 <select name="kategori" required>
                     <option value="">-- Pilih Kategori --</option>
                     <option value="Akademik">Akademik</option>
+<<<<<<< HEAD
                     <option value="Beasiswa">Beasiswa</option>
                     <option value="Ujian">Ujian</option>
                     <option value="Informasi">Informasi</option>
+=======
+                    <option value="Perkuliahan">Perkuliahan</option>
+                    <option value="Beasiswa">Beasiswa</option>
+                    <option value="Umum">Umum</option>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
                 </select>
 
                 <small class="hint">
