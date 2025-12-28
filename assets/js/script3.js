@@ -6,11 +6,13 @@ const sidebar = document.querySelector(".sidebar");
 const mainContent = document.querySelector(".main-content");
 const topbar = document.querySelector(".topbar");
 
-menuToggle.addEventListener("click", () => {
-    sidebar.classList.toggle("collapsed");
-    mainContent.classList.toggle("collapsed");
-    topbar.classList.toggle("collapsed");
-});
+if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("collapsed");
+        mainContent.classList.toggle("collapsed");
+        topbar.classList.toggle("collapsed");
+    });
+}
 
 
 /* =========================================================
@@ -19,60 +21,43 @@ menuToggle.addEventListener("click", () => {
 const profileIcon = document.getElementById("profileIcon");
 const dropdownMenu = document.getElementById("dropdownMenu");
 
-profileIcon.addEventListener("click", () => {
-    dropdownMenu.style.display =
-        dropdownMenu.style.display === "flex" ? "none" : "flex";
-});
+if (profileIcon && dropdownMenu) {
+    profileIcon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle("show");
+    });
 
-// Tutup dropdown ketika klik di luar menu
-window.addEventListener("click", (e) => {
-    if (!profileIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.style.display = "none";
-    }
-});
-
-
-/* =========================================================
-   EDIT DATA (untuk halaman jadwal ujian)
-========================================================= */
-function editData(id, mk, tanggal, waktu, ruang, dosen) {
-    document.getElementById("edit_id").value = id;
-    document.getElementById("edit_mk").value = mk;
-    document.getElementById("edit_tanggal").value = tanggal;
-    document.getElementById("edit_waktu").value = waktu;
-    document.getElementById("edit_ruang").value = ruang;
-    document.getElementById("edit_dosen").value = dosen;
-}
-
-
-/* =========================================================
-   ANIMASI ANGKA (COUNT-UP)
-========================================================= */
-function animateNumbers() {
-    document.querySelectorAll(".count").forEach(el => {
-        let target = parseInt(el.getAttribute("data-value"));
-        let start = 0;
-        let duration = 1200;
-
-        // Jika target 0 → tidak perlu animasi
-        if (target === 0) return;
-
-        let step = Math.max(20, Math.floor(duration / target));
-
-        let interval = setInterval(() => {
-            start++;
-            el.textContent = start;
-
-            if (start >= target) clearInterval(interval);
-        }, step);
+    window.addEventListener("click", (e) => {
+        if (!profileIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove("show");
+        }
     });
 }
 
+
+/* =========================================================
+   ANIMASI ANGKA
+========================================================= */
+function animateNumbers() {
+    document.querySelectorAll(".count").forEach(el => {
+        const target = parseInt(el.dataset.value);
+        if (!target) return;
+
+        let current = 0;
+        const step = Math.max(1, Math.floor(1200 / target));
+
+        const interval = setInterval(() => {
+            current++;
+            el.textContent = current;
+            if (current >= target) clearInterval(interval);
+        }, step);
+    });
+}
 animateNumbers();
 
 
 /* =========================================================
-   ANIMASI FADE-IN KONTEN
+   FADE IN
 ========================================================= */
 window.addEventListener("load", () => {
     document.querySelectorAll(".fade-in").forEach((el, i) => {
@@ -82,64 +67,169 @@ window.addEventListener("load", () => {
 });
 
 
-/* =========================================================
-   CHART.JS — GRAFIK 1: Pengumuman
-========================================================= */
-const ctx1 = document.getElementById("chartPengumuman");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (ctx1) {
-    new Chart(ctx1, {
-        type: "bar",
-        data: {
-            labels: ["Ujian", "Perkuliahan", "Perubahan Kelas", "Beasiswa"],
-            datasets: [{
-                label: "Jumlah Pengumuman",
-                data: [12, 7, 5, 10], // bisa dibuat dinamis dari database
-                backgroundColor: "#1E3A8A",
-            }]
-        },
-        options: {
-            responsive: true,
-            animation: {
-                duration: 2000,
-                easing: "easeOutBounce",
-            }
-        }
-    });
-}
+    const canvas = document.getElementById("chartPengumuman");
+    if (!canvas || typeof trendLabels === "undefined") return;
 
+    const ctx = canvas.getContext("2d");
 
-/* =========================================================
-   CHART.JS — GRAFIK 2: Mahasiswa Aktif
-========================================================= */
-const ctx2 = document.getElementById("chartMahasiswa");
+    const gradient = ctx.createLinearGradient(0, 0, 0, 320);
+    gradient.addColorStop(0, "rgba(37, 99, 235, 0.35)");
+    gradient.addColorStop(1, "rgba(37, 99, 235, 0.05)");
 
-if (ctx2) {
-    new Chart(ctx2, {
+    new Chart(ctx, {
         type: "line",
         data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun"],
+            labels: trendLabels,
             datasets: [{
-                label: "Mahasiswa Aktif",
-                data: [420, 430, 450, 470, 480, 523], // bisa dibuat dinamis
-                borderColor: "#3B82F6",
+                label: "Jumlah Pengumuman",
+                data: trendData,
+                fill: true,
+                backgroundColor: gradient,
+                borderColor: "#2563eb",
                 borderWidth: 3,
-                tension: 0.35
+                tension: 0.45,
+                pointRadius: 6,
+                pointBackgroundColor: "#2563eb",
+                pointBorderColor: "#fff",
+                pointBorderWidth: 2,
+                pointHoverRadius: 8
             }]
         },
         options: {
             responsive: true,
-            animation: {
-                duration: 1800,
-                easing: "easeOutQuart",
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { precision: 0 },
+                    grid: { color: "#e5e7eb" }
+                },
+                x: {
+                    grid: { display: false }
+                }
             }
+        }
+    });
+
+});
+
+
+/* =========================================================
+   NOTIFIKASI
+========================================================= */
+const notifBtn = document.getElementById("notifBtn");
+const notifDropdown = document.getElementById("notifDropdown");
+
+if (notifBtn && notifDropdown) {
+    notifBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        notifDropdown.classList.toggle("show");
+        fetch("../admin/notif_read.php");
+    });
+
+    window.addEventListener("click", e => {
+        if (!notifBtn.contains(e.target) && !notifDropdown.contains(e.target)) {
+            notifDropdown.classList.remove("show");
         }
     });
 }
 
-document.querySelectorAll('.menu-link').forEach(menu => {
-    menu.addEventListener('click', () => {
-        menu.parentElement.classList.toggle('active');
+
+/* =========================================================
+   MENU USER
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleUser = document.getElementById("toggleUser");
+    if (!toggleUser) return;
+
+    const menuGroup = toggleUser.closest(".menu-group");
+    toggleUser.addEventListener("click", () => {
+        menuGroup.classList.toggle("active");
     });
 });
+function openDetail(nama, deskripsi, syarat, periode, buka, tutup, status) {
+    document.getElementById('detailNama').innerHTML = nama;
+    document.getElementById('detailDeskripsi').innerHTML = deskripsi;
+    document.getElementById('detailSyarat').innerHTML = syarat;
+    document.getElementById('detailPeriode').innerHTML = periode || '-';
+    document.getElementById('detailTanggal').innerHTML = buka + ' - ' + tutup;
+    document.getElementById('detailStatus').innerHTML = status;
+    document.getElementById('modalDetail').classList.add('show');
+}
+
+function closeDetail() {
+    document.getElementById('modalDetail').classList.remove('show');
+}
+const filterProdi   = document.getElementById("filterProdi");
+const filterJurusan = document.getElementById("filterJurusan");
+const filterKelas   = document.getElementById("filterKelas");
+const searchData    = document.getElementById("searchData");
+const jumlahData    = document.getElementById("jumlahData");
+
+function text(el) {
+    return el.innerText.toLowerCase().trim();
+}
+
+function filterMahasiswa() {
+    const rows = document.querySelectorAll("#tabelMahasiswa tbody tr");
+    let tampil = 0;
+
+    rows.forEach(row => {
+        // AMBIL DATA DARI KOLOM (AMAN)
+        const nim     = text(row.cells[1]);
+        const nama    = text(row.cells[2]);
+        const prodi   = text(row.cells[3]);
+        const jurusan = text(row.cells[4]);
+        const kelas   = text(row.cells[5]); // bisa: "E Malam", "Malam E"
+
+        // VALUE FILTER
+        const fProdi   = filterProdi.value.toLowerCase().trim();
+        const fJurusan = filterJurusan.value.toLowerCase().trim();
+        const fKelas   = filterKelas.value.toLowerCase().trim();
+        const fSearch  = searchData.value.toLowerCase().trim();
+
+        // LOGIKA FILTER (FLEKSIBEL)
+        const cocokProdi   = fProdi === ""   || prodi.includes(fProdi);
+        const cocokJurusan = fJurusan === "" || jurusan.includes(fJurusan);
+        const cocokKelas   = fKelas === ""   || kelas.includes(fKelas);
+        const cocokCari    = fSearch === ""  || nim.includes(fSearch) || nama.includes(fSearch);
+
+        if (cocokProdi && cocokJurusan && cocokKelas && cocokCari) {
+            row.style.display = "";
+            tampil++;
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+    jumlahData.innerText = `Menampilkan ${tampil} data mahasiswa`;
+}
+
+// EVENT
+filterProdi.addEventListener("change", filterMahasiswa);
+filterJurusan.addEventListener("change", filterMahasiswa);
+filterKelas.addEventListener("change", filterMahasiswa);
+searchData.addEventListener("keyup", filterMahasiswa);
+
+// LOAD AWAL
+filterMahasiswa();
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleUser = document.getElementById('toggleUser');
+    const menuGroup  = toggleUser.closest('.menu-group');
+
+    toggleUser.addEventListener('click', function () {
+        menuGroup.classList.toggle('active');
+    });
+});
+
+document.getElementById('menu-toggle').onclick = function () {
+    document.querySelector('.sidebar').classList.toggle('collapsed');
+    document.querySelector('.main-content').classList.toggle('collapsed');
+    document.querySelector('.topbar').classList.toggle('collapsed');
+};
 

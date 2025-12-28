@@ -1,84 +1,207 @@
 <?php
-require_once "../config/auth.php";
+require_once "../config/auth_mahasiswa.php";
 require_once "../config/koneksi.php";
+
+$kelas = $_SESSION['kelas'] ?? '';
+$shift = $_SESSION['shift'] ?? '';
+$prodi = $_SESSION['prodi'] ?? '';
+
+// kelas + shift untuk tampilan
+$kelasTampil = trim($kelas . ' ' . strtoupper($shift));
+if ($kelasTampil === '') {
+    $kelasTampil = '-';
+}
 ?>
-
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Ujian - Mahasiswa</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perubahan Kelas - Mahasiswa</title>
 
-    <link rel="stylesheet" href="../assets/css/style3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link rel="stylesheet" href="../assets/css/style4.css">
+<link rel="stylesheet" href="../assets/css/sidebar.css">
+<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+/* ===== HEADER SAMA DENGAN JADWAL UJIAN ===== */
+        .info-text {
+            margin: 6px 0 14px;
+            font-size: 13px;
+            color: #555;
+        }
+        .today-row {
+            background-color: #f0f8ff;
+        }
+.page-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #111827;
+        margin-left: 0 !important;
+}
+
+/* baris kelas & prodi */
+.header-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+    color: #374151;
+    margin-bottom: 4px;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.meta-item i {
+    color: #1e40af;
+    font-size: 14px;
+}
+
+.meta-item strong {
+    font-weight: 600;
+    color: #111827;
+}
+
+.separator {
+    color: #9ca3af;
+}
+
+/* keterangan */
+.header-desc {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 4px 0 14px;
+}
+
+/* pemisah header */
+.header-section {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    .header-meta {
+        flex-wrap: wrap;
+    }
+}
+</style>
 </head>
 
 <body>
+<div class="main-wrapper">
 
-    <!-- ================== WRAPPER ================== -->
-    <div class="main-wrapper">  
+<?php include "../components_mahasiswa/sidebar.php"; ?>
+<?php include "../components_mahasiswa/topbar.php"; ?>
 
-        <?php include "../components_mahasiswa/sidebar.php"; ?>
-        <?php include "../components_mahasiswa/topbar.php"; ?>
+<div class="main-content">
+<div class="content-container">
 
-        <div class="main-content">
+<!-- ===== HEADER ===== -->
+<div class="header-section">
+    <h3 class="page-title">Perubahan Kelas</h3>
 
-            <div class="content-container">
+    <div class="header-meta">
+        <span class="meta-item">
+            <i class="fa-solid fa-users"></i>
+            <span>Kelas:</span>
+            <strong><?= htmlspecialchars($kelasTampil); ?></strong>
+        </span>
 
-                <div class="header-section">
-                    <h3>IF MALAM 1E</h3>
-                </div>
+        <span class="separator">|</span>
 
-                <div class="table-wrapper">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>Tanggal</th>
-                                <th>Mata Kuliah</th>
-                                <th>Kelas Asal</th>
-                                <th>Kelas Baru</th>
-                                <th>Dosen</th>
-                            </tr>
-                        </thead>
+        <span class="meta-item">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Prodi:</span>
+            <strong><?= htmlspecialchars($prodi ?: '-'); ?></strong>
+        </span>
+    </div>
 
-                        <tbody>
-                            <?php 
-                        $data = mysqli_query($koneksi, 
-                        "SELECT * FROM perubahan_kelas ORDER BY tanggal_perubahan DESC"
-                        );
+    <p class="header-desc">
+        Menampilkan informasi perubahan kelas terbaru.
+    </p>
+</div>
 
-                        if (mysqli_num_rows($data) === 0) {
-                        echo "<tr><td colspan='6' style='text-align:center;'>Belum ada data.</td></tr>";
-                        }
+<!-- ===== TABEL ===== -->
+<div class="table-wrapper">
+<table class="admin-table">
+<thead>
+<tr>
+    <th>No</th>
+    <th>Tanggal</th>
+    <th>Mata Kuliah</th>
+    <th>Kelas Asal</th>
+    <th>Kelas Baru</th>
+    <th>Dosen</th>
+</tr>
+</thead>
+<tbody>
 
-                        while ($row = mysqli_fetch_assoc($data)) { ?>
-                            <tr>
-                                <td><?= date("d M Y", strtotime($row['tanggal_perubahan'])); ?></td>
-                                <td><?= $row['mata_kuliah']; ?></td>
-                                <td><?= $row['kelas_asal']; ?></td>
-                                <td><?= $row['kelas_baru']; ?></td>
-                                <td><?= $row['dosen']; ?></td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
+<?php
+// filter kelas + shift (jika ada)
+$query = mysqli_query($koneksi, "
+    SELECT * FROM perubahan_kelas
+    WHERE kelas='$kelas'
+    ORDER BY tanggal_perubahan DESC
+");
 
-                    </table>
-                </div>
+// fallback prodi
+if (mysqli_num_rows($query) === 0 && $prodi !== '') {
+    $query = mysqli_query($koneksi, "
+        SELECT * FROM perubahan_kelas
+        WHERE prodi='$prodi'
+        ORDER BY tanggal_perubahan DESC
+    ");
+}
 
-            </div> <!-- end content-container -->
+// fallback semua
+if (mysqli_num_rows($query) === 0) {
+    $query = mysqli_query($koneksi, "
+        SELECT * FROM perubahan_kelas
+        ORDER BY tanggal_perubahan DESC
+    ");
+}
 
-        </div> <!-- end main-content -->
+if (!$query || mysqli_num_rows($query) === 0) {
+    echo "<tr><td colspan='6' style='text-align:center;'>Belum ada data perubahan kelas</td></tr>";
+}
 
-    </div> <!-- end wrapper -->
+$no = 1;
+while ($row = mysqli_fetch_assoc($query)) {
+?>
+<tr>
+    <td><?= $no++; ?></td>
+    <td><?= date("d M Y", strtotime($row['tanggal_perubahan'])); ?></td>
+    <td><?= htmlspecialchars($row['mata_kuliah']); ?></td>
+    <td><?= htmlspecialchars($row['kelas_asal']); ?></td>
+    <td><?= htmlspecialchars($row['kelas_baru']); ?></td>
+    <td><?= htmlspecialchars($row['dosen']); ?></td>
+</tr>
+<?php } ?>
 
-    <footer>
-        © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
-    </footer>
+</tbody>
+</table>
+</div>
 
-    <script src="../assets/js/script3.js"></script>
+</div>
+</div>
+</div>
+
+<footer>
+© 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+</footer>
+
+<script src="../assets/js/script3.js"></script>
 </body>
-
 </html>

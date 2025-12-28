@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth.php";
+require_once "../config/auth_admin.php";
 require_once "../config/koneksi.php";
 
 if (!isset($_SESSION['username'])) {
@@ -12,7 +12,6 @@ $password_lama  = $_POST['password_lama'];
 $password_baru  = $_POST['password_baru'];
 $konfirmasi     = $_POST['konfirmasi'];
 
-// AMBIL DATA PASSWORD DARI DATABASE
 $query = mysqli_query($koneksi, "SELECT password FROM login WHERE username='$username'");
 $data  = mysqli_fetch_assoc($query);
 

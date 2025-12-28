@@ -1,0 +1,126 @@
+.footer-app {
+    background: #163b6d;
+    color: #e6edf7;
+    margin-top: 60px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+/* BRAND */
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* beri jarak dari teks */
+}
+
+.footer-brand img {
+    width: 100px;
+}
+
+.footer-brand strong {
+    font-size: 15px;
+}
+
+.footer-brand p {
+    font-size: 13px;
+    margin-top: 4px;
+    color: #cdd9ec;
+}
+
+/* INFO */
+.footer-info {
+    text-align: right;
+    font-size: 13px;
+}
+
+.footer-info p {
+    margin-bottom: 4px;
+}
+
+/* SOSIAL */
+.footer-social {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.footer-social a {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.footer-social a:hover {
+    background: #fff;
+    color: #163b6d;
+}
+
+/* BOTTOM */
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    padding: 12px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    color: #cdd9ec;
+}
+/* Rapikan jarak kiri */
+.footer-brand {
+    max-width: 480px;
+}
+
+/* Judul lebih tenang */
+.footer-brand strong {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Deskripsi lebih ringan */
+.footer-brand p {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* Sosial media lebih kalem */
+.footer-social a {
+    opacity: 0.85;
+    transform: none;
+}
+
+.footer-social a:hover {
+    opacity: 1;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}

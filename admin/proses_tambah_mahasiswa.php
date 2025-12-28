@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth.php";
+require_once "../config/auth_admin.php";
 require_once "../config/koneksi.php";
 
 $nim = $_POST['nim'];
@@ -9,7 +9,6 @@ $email = $_POST['email'];
 $no_hp = $_POST['no_hp'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-// Upload foto
 $foto = "default.png";
 if ($_FILES['foto']['name'] != "") {
     $foto = time() . "_" . $_FILES['foto']['name'];
