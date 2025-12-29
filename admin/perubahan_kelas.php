@@ -1,5 +1,12 @@
 <?php
 require_once "../config/auth_admin.php";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+require_once "../config/auth_admin.php";
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 require_once "../config/koneksi.php";
 
 /* ======================
@@ -47,6 +54,7 @@ if ($isFiltered) {
 <head>
 <meta charset="UTF-8">
 <title>Perubahan Kelas - Admin</title>
+<<<<<<< HEAD
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
          <link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
@@ -54,14 +62,31 @@ if ($isFiltered) {
 <link rel="stylesheet" href="../assets/css/style4.css">
 <link rel="stylesheet" href="../assets/css/sidebar.css">
 <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+=======
+
+<link rel="stylesheet" href="../assets/css/style4.css">
+<link rel="stylesheet" href="../assets/css/sidebar.css">
+<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 </head>
 
 <body>
 
 <div class="main-wrapper">
 
+<<<<<<< HEAD
 <?php include "../components_admin/sidebar.php"; ?>
 <?php include "../components_admin/topbar.php"; ?>
+=======
+<<<<<<< HEAD
+<?php include "../components_admin/sidebar.php"; ?>
+<?php include "../components_admin/topbar.php"; ?>
+=======
+    <?php include "../components_admin/sidebar.php"; ?>
+    <?php include "../components_admin/topbar.php"; ?>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
 <div class="main-content">
 <div class="content-container">
@@ -74,12 +99,35 @@ if ($isFiltered) {
 
 <form method="GET" class="form-grid">
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 <div class="search-wrapper">
     <i class="fa fa-search"></i>
     <input type="text" name="search"
         placeholder="Cari mata kuliah / dosen"
         value="<?= htmlspecialchars($search); ?>">
 </div>
+<<<<<<< HEAD
+=======
+=======
+            <!-- ===== TABEL ===== -->
+            <div class="table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Mata Kuliah</th>
+                            <th>Kelas Asal</th>
+                            <th>Kelas Baru</th>
+                            <th>Dosen</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
 <select name="jurusan">
 <option value="">Semua Jurusan</option>
@@ -129,9 +177,21 @@ foreach ($prodiList as $p):
 </form>
 </div>
 
+<<<<<<< HEAD
 <!-- ===== HEADER (SAMA DENGAN JADWAL UJIAN) ===== -->
 <div class="header-admin">
 <h3>Data Perubahan Kelas</h3>
+=======
+<<<<<<< HEAD
+<!-- ===== HEADER (SAMA DENGAN JADWAL UJIAN) ===== -->
+<div class="header-admin">
+<h3>Data Perubahan Kelas</h3>
+=======
+<footer>
+    © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+</footer>
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
 <a href="tambah_perubahan_kelas.php" class="btn-add">
 <i class="fa fa-plus"></i> Tambah Perubahan Kelas

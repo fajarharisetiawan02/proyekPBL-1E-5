@@ -6,6 +6,10 @@ require_once "../admin/kirim_notifikasi_beasiswa.php";
 
 if (isset($_POST['simpan'])) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
     $nama_beasiswa = mysqli_real_escape_string($koneksi, $_POST['nama_beasiswa']);
     $deskripsi     = mysqli_real_escape_string($koneksi, $_POST['deskripsi']);
     $syarat        = mysqli_real_escape_string($koneksi, $_POST['syarat']);
@@ -36,6 +40,27 @@ if (isset($_POST['simpan'])) {
         WHERE email IS NOT NULL
           AND email != ''
           AND email LIKE '%@%'
+<<<<<<< HEAD
+=======
+=======
+    $nama_beasiswa = $_POST['nama_beasiswa'];
+    $deskripsi     = $_POST['deskripsi'];
+    $syarat        = $_POST['syarat'];
+    $periode       = $_POST['periode'];
+    $tanggal_buka  = $_POST['tanggal_buka'];
+    $tanggal_tutup = $_POST['tanggal_tutup'];
+    $status        = $_POST['status'];
+
+    $gambar = null;
+
+    mysqli_query($koneksi, "
+        INSERT INTO beasiswa 
+        (nama_beasiswa, deskripsi, syarat, periode, tanggal_buka, tanggal_tutup, gambar, status)
+        VALUES 
+        ('$nama_beasiswa','$deskripsi','$syarat','$periode',
+         '$tanggal_buka','$tanggal_tutup','$gambar','$status')
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
     ");
 
     /* ===============================
@@ -78,11 +103,22 @@ if (isset($_POST['simpan'])) {
     <title>Tambah Beasiswa</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<<<<<<< HEAD
          <link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style5.css">
         <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+=======
+<<<<<<< HEAD
+    <link rel="stylesheet" href="../assets/css/style5.css">
+=======
+    <link rel="stylesheet" href="../assets/css/style4.css">
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+        <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 </head>
 
 <body>
@@ -175,6 +211,5 @@ if (isset($_POST['simpan'])) {
 © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
 </footer>
 
-<script src="../assets/js/script3.js"></script>
 </body>
 </html>

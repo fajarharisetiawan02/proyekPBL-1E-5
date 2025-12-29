@@ -1,10 +1,20 @@
 <?php
 session_start();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 require_once "koneksi.php";
 
 /* =========================
    CEK LOGIN MAHASISWA
    ========================= */
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 if (
     !isset($_SESSION['id_login']) ||
     !isset($_SESSION['role']) ||
@@ -13,6 +23,10 @@ if (
     header("Location: ../login.php");
     exit;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
 /* =========================
    AMBIL DATA MAHASISWA
@@ -44,3 +58,8 @@ if ($data) {
     $_SESSION['shift'] = $data['shift'];
     $_SESSION['prodi'] = $data['prodi'];
 }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e

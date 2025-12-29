@@ -69,6 +69,7 @@ $inisial = strtoupper(substr($mhs['nama'],0,1));
 <head>
 <meta charset="UTF-8">
 <title>Edit Profil Mahasiswa</title>
+<<<<<<< HEAD
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
@@ -76,6 +77,13 @@ $inisial = strtoupper(substr($mhs['nama'],0,1));
 <link rel="stylesheet" href="../assets/css/sidebar.css">
 <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
 <link rel="stylesheet" href="../assets/css/profil-mahasiswa.css">
+=======
+
+<link rel="stylesheet" href="../assets/css/sidebar.css">
+<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+<link rel="stylesheet" href="../assets/css/profil-mahasiswa.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 </head>
 
 <body>

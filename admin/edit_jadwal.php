@@ -59,7 +59,16 @@ if (isset($_POST['update'])) {
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style3.css">
     <link rel="stylesheet" href="../assets/css/sidebar.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+=======
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 </head>
 
 <body>

@@ -27,9 +27,11 @@ $notifikasi = mysqli_query($koneksi, "
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 <meta charset="UTF-8">
 <title>Semua Notifikasi</title>
+<<<<<<< HEAD
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
          <link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
@@ -37,6 +39,13 @@ $notifikasi = mysqli_query($koneksi, "
 <link rel="stylesheet" href="../assets/css/sidebar.css">
 <link rel="stylesheet" href="../assets/css/style3.css">
 <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+=======
+
+<link rel="stylesheet" href="../assets/css/sidebar.css">
+<link rel="stylesheet" href="../assets/css/style3.css">
+<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
 <style>
 /* ===== NOTIFIKASI TIMELINE ===== */
@@ -157,4 +166,5 @@ $notifikasi = mysqli_query($koneksi, "
 
 <script src="../assets/js/script3.js"></script>
 </body>
+
 </html>

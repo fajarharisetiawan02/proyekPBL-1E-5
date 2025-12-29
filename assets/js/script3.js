@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+<<<<<<< HEAD
     /* =========================================================
        TOGGLE SIDEBAR (DESKTOP & MOBILE)
     ========================================================= */
@@ -7,6 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebar     = document.querySelector(".sidebar");
     const mainContent = document.querySelector(".main-content");
     const topbar      = document.querySelector(".topbar");
+=======
+if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("collapsed");
+        mainContent.classList.toggle("collapsed");
+        topbar.classList.toggle("collapsed");
+    });
+}
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
     if (menuToggle && sidebar) {
         menuToggle.addEventListener("click", () => {
@@ -17,12 +27,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
+<<<<<<< HEAD
             // DESKTOP
             sidebar.classList.toggle("collapsed");
             mainContent?.classList.toggle("collapsed");
             topbar?.classList.toggle("collapsed");
         });
     }
+=======
+if (profileIcon && dropdownMenu) {
+    profileIcon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle("show");
+    });
+
+<<<<<<< HEAD
+=======
+    // Tutup dropdown ketika klik di luar menu
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+    window.addEventListener("click", (e) => {
+        if (!profileIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove("show");
+        }
+<<<<<<< HEAD
+=======
+    });
+}
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
 
     /* =========================================================
@@ -101,15 +132,301 @@ document.addEventListener("DOMContentLoaded", () => {
             el.textContent = current;
             if (current >= target) clearInterval(interval);
         }, step);
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
     });
+<<<<<<< HEAD
 
 
     /* =========================================================
        FADE IN
     ========================================================= */
+=======
+}
+
+
+/* =========================================================
+   ANIMASI ANGKA
+========================================================= */
+function animateNumbers() {
+    document.querySelectorAll(".count").forEach(el => {
+        const target = parseInt(el.dataset.value);
+        if (!target) return;
+
+        let current = 0;
+        const step = Math.max(1, Math.floor(1200 / target));
+
+        const interval = setInterval(() => {
+            current++;
+            el.textContent = current;
+            if (current >= target) clearInterval(interval);
+        }, step);
+    });
+}
+animateNumbers();
+
+
+/* =========================================================
+   FADE IN
+========================================================= */
+window.addEventListener("load", () => {
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
     document.querySelectorAll(".fade-in").forEach((el, i) => {
         el.style.animationDelay = `${i * 0.15}s`;
         el.classList.add("show");
     });
 
 });
+<<<<<<< HEAD
+=======
+
+
+<<<<<<< HEAD
+document.addEventListener("DOMContentLoaded", () => {
+
+    const canvas = document.getElementById("chartPengumuman");
+    if (!canvas || typeof trendLabels === "undefined") return;
+=======
+/* =========================================================
+   CHART.JS — GRAFIK 1: Pengumuman
+========================================================= */
+const canvas = document.getElementById('chartPengumuman');
+
+if (canvas && typeof grafikLabels !== 'undefined' && typeof grafikData !== 'undefined') {
+    new Chart(canvas, {
+        type: 'bar',
+        data: {
+            labels: grafikLabels,
+            datasets: [{
+                label: 'Jumlah Pengumuman',
+                data: grafikData,
+                backgroundColor: '#1e3a8a',
+                borderRadius: 10,
+                barThickness: 22
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: ctx => `${ctx.raw} pengumuman`
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0,
+                        stepSize: 1
+                    },
+                    grid: { display: false }
+                },
+                y: {
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+}
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+
+    const ctx = canvas.getContext("2d");
+
+    const gradient = ctx.createLinearGradient(0, 0, 0, 320);
+    gradient.addColorStop(0, "rgba(37, 99, 235, 0.35)");
+    gradient.addColorStop(1, "rgba(37, 99, 235, 0.05)");
+
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: trendLabels,
+            datasets: [{
+                label: "Jumlah Pengumuman",
+                data: trendData,
+                fill: true,
+                backgroundColor: gradient,
+                borderColor: "#2563eb",
+                borderWidth: 3,
+                tension: 0.45,
+                pointRadius: 6,
+                pointBackgroundColor: "#2563eb",
+                pointBorderColor: "#fff",
+                pointBorderWidth: 2,
+                pointHoverRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { precision: 0 },
+                    grid: { color: "#e5e7eb" }
+                },
+                x: {
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+
+});
+
+
+/* =========================================================
+   NOTIFIKASI
+========================================================= */
+const notifBtn = document.getElementById("notifBtn");
+const notifDropdown = document.getElementById("notifDropdown");
+
+if (notifBtn && notifDropdown) {
+    notifBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        notifDropdown.classList.toggle("show");
+        fetch("../admin/notif_read.php");
+    });
+
+    window.addEventListener("click", e => {
+        if (!notifBtn.contains(e.target) && !notifDropdown.contains(e.target)) {
+            notifDropdown.classList.remove("show");
+        }
+    });
+}
+
+
+<<<<<<< HEAD
+/* =========================================================
+   MENU USER
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleUser = document.getElementById("toggleUser");
+    if (!toggleUser) return;
+
+    const menuGroup = toggleUser.closest(".menu-group");
+    toggleUser.addEventListener("click", () => {
+        menuGroup.classList.toggle("active");
+    });
+});
+function openDetail(nama, deskripsi, syarat, periode, buka, tutup, status) {
+    document.getElementById('detailNama').innerHTML = nama;
+    document.getElementById('detailDeskripsi').innerHTML = deskripsi;
+    document.getElementById('detailSyarat').innerHTML = syarat;
+    document.getElementById('detailPeriode').innerHTML = periode || '-';
+    document.getElementById('detailTanggal').innerHTML = buka + ' - ' + tutup;
+    document.getElementById('detailStatus').innerHTML = status;
+    document.getElementById('modalDetail').classList.add('show');
+}
+
+function closeDetail() {
+    document.getElementById('modalDetail').classList.remove('show');
+}
+const filterProdi   = document.getElementById("filterProdi");
+const filterJurusan = document.getElementById("filterJurusan");
+const filterKelas   = document.getElementById("filterKelas");
+const searchData    = document.getElementById("searchData");
+const jumlahData    = document.getElementById("jumlahData");
+
+function text(el) {
+    return el.innerText.toLowerCase().trim();
+}
+
+function filterMahasiswa() {
+    const rows = document.querySelectorAll("#tabelMahasiswa tbody tr");
+    let tampil = 0;
+
+    rows.forEach(row => {
+        // AMBIL DATA DARI KOLOM (AMAN)
+        const nim     = text(row.cells[1]);
+        const nama    = text(row.cells[2]);
+        const prodi   = text(row.cells[3]);
+        const jurusan = text(row.cells[4]);
+        const kelas   = text(row.cells[5]); // bisa: "E Malam", "Malam E"
+
+        // VALUE FILTER
+        const fProdi   = filterProdi.value.toLowerCase().trim();
+        const fJurusan = filterJurusan.value.toLowerCase().trim();
+        const fKelas   = filterKelas.value.toLowerCase().trim();
+        const fSearch  = searchData.value.toLowerCase().trim();
+
+        // LOGIKA FILTER (FLEKSIBEL)
+        const cocokProdi   = fProdi === ""   || prodi.includes(fProdi);
+        const cocokJurusan = fJurusan === "" || jurusan.includes(fJurusan);
+        const cocokKelas   = fKelas === ""   || kelas.includes(fKelas);
+        const cocokCari    = fSearch === ""  || nim.includes(fSearch) || nama.includes(fSearch);
+
+        if (cocokProdi && cocokJurusan && cocokKelas && cocokCari) {
+            row.style.display = "";
+            tampil++;
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+    jumlahData.innerText = `Menampilkan ${tampil} data mahasiswa`;
+}
+
+// EVENT
+filterProdi.addEventListener("change", filterMahasiswa);
+filterJurusan.addEventListener("change", filterMahasiswa);
+filterKelas.addEventListener("change", filterMahasiswa);
+searchData.addEventListener("keyup", filterMahasiswa);
+
+// LOAD AWAL
+filterMahasiswa();
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleUser = document.getElementById('toggleUser');
+    const menuGroup  = toggleUser.closest('.menu-group');
+
+    toggleUser.addEventListener('click', function () {
+        menuGroup.classList.toggle('active');
+=======
+document.querySelectorAll('.menu-link').forEach(menu => {
+    menu.addEventListener('click', () => {
+        menu.parentElement.classList.toggle('active');
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+    });
+});
+/* =========================================================
+   NOTIFICATIONS
+========================================================= */
+const notifBtn = document.getElementById("notifBtn");
+const notifDropdown = document.getElementById("notifDropdown");
+
+if (notifBtn && notifDropdown) {
+    notifBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        notifDropdown.classList.toggle("show");
+        // Mark notifications as read
+        fetch("../admin/notif_read.php");
+    });
+
+    window.addEventListener("click", function (e) {
+        if (!notifBtn.contains(e.target) && !notifDropdown.contains(e.target)) {
+            notifDropdown.classList.remove("show");
+        }
+    });
+}
+
+    const toggleUser = document.getElementById('toggleUser');
+    const menuGroup = toggleUser.parentElement;
+
+    toggleUser.addEventListener('click', () => {
+        menuGroup.classList.toggle('active');
+    });
+
+
+
+document.getElementById('menu-toggle').onclick = function () {
+    document.querySelector('.sidebar').classList.toggle('collapsed');
+    document.querySelector('.main-content').classList.toggle('collapsed');
+    document.querySelector('.topbar').classList.toggle('collapsed');
+};
+
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e

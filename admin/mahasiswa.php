@@ -11,13 +11,28 @@ $query = mysqli_query($koneksi, "
         m.prodi,
         m.jurusan,
         m.kelas,
+<<<<<<< HEAD
         m.shift,
         m.semester,
+=======
+<<<<<<< HEAD
+        m.shift,
+        m.semester,
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
         m.email
     FROM mahasiswa m
     ORDER BY m.nama ASC
 ");
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +40,7 @@ $query = mysqli_query($koneksi, "
 <head>
     <meta charset="UTF-8">
     <title>Data Mahasiswa</title>
+<<<<<<< HEAD
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
          <link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
@@ -32,6 +48,13 @@ $query = mysqli_query($koneksi, "
     <link rel="stylesheet" href="../assets/css/mahasiswa.css">
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+=======
+
+    <link rel="stylesheet" href="../assets/css/mahasiswa.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
     <style>
         .action-bar {
@@ -143,13 +166,29 @@ $query = mysqli_query($koneksi, "
 
             <!-- ===== FILTER ===== -->
             <div class="filter-bar">
+<<<<<<< HEAD
                 
+=======
+<<<<<<< HEAD
+                
+=======
+                <select id="filterJurusan">
+                    <option value="">Semua Jurusan</option>
+                    <option value="Teknik Informatika">Teknik Informatika</option>
+                </select>
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
                 <select id="filterProdi">
                     <option value="">Semua Prodi</option>
                     <option value="Teknik Informatika">Teknik Informatika</option>
                     <option value="Teknik Multimedia">Teknik Multimedia</option>
                 </select>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
                 <select id="filterJurusan">
                     <option value="">Semua Jurusan</option>
                     <option value="Teknik Informatika">Teknik Informatika</option>
@@ -174,6 +213,17 @@ $query = mysqli_query($koneksi, "
                         <option value="<?= $i ?>"><?= $i ?></option>
                     <?php endfor; ?>
                 </select>
+<<<<<<< HEAD
+=======
+=======
+                <select id="filterKelas">
+                    <option value="">Semua Kelas</option>
+                    <option value="Malam E">Malam E</option>
+                    <option value="MALAME">MALAME</option>
+                </select>
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
                 <input type="text" id="searchData" placeholder="Cari Nama / NIM...">
             </div>
 
@@ -190,8 +240,16 @@ $query = mysqli_query($koneksi, "
                             <th>Program Studi</th>
                             <th>Jurusan</th>
                             <th>Kelas</th>
+<<<<<<< HEAD
                             <th>Shift</th>
                             <th>Semester</th>
+=======
+<<<<<<< HEAD
+                            <th>Shift</th>
+                            <th>Semester</th>
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
                             <th>Email</th>
                             <th>Aksi</th>
                         </tr>
@@ -205,8 +263,16 @@ $query = mysqli_query($koneksi, "
                             <td><?= $row['prodi']; ?></td>
                             <td><?= $row['jurusan']; ?></td>
                             <td><?= $row['kelas']; ?></td>
+<<<<<<< HEAD
                             <td><?= $row['shift']; ?></td>
                             <td><?= $row['semester']; ?></td>
+=======
+<<<<<<< HEAD
+                            <td><?= $row['shift']; ?></td>
+                            <td><?= $row['semester']; ?></td>
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
                             <td><?= $row['email']; ?></td>
                             <td class="aksi">
                                 <a href="edit_mahasiswa.php?id=<?= $row['id_mahasiswa']; ?>" class="btn-edit">Edit</a>
@@ -226,9 +292,64 @@ $query = mysqli_query($koneksi, "
 </div>
 
 <footer>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
 </footer>
 
 <script src="../assets/js/script3.js"></script>
+<<<<<<< HEAD
+=======
+=======
+    © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+</footer>
+
+<script>
+const filterProdi   = document.getElementById("filterProdi");
+const filterJurusan = document.getElementById("filterJurusan");
+const filterKelas   = document.getElementById("filterKelas");
+const searchData    = document.getElementById("searchData");
+const jumlahData    = document.getElementById("jumlahData");
+
+function filterMahasiswa() {
+    const rows = document.querySelectorAll("#tabelMahasiswa tbody tr");
+    let tampil = 0;
+
+    rows.forEach(row => {
+        const nim     = row.children[1].innerText.toLowerCase();
+        const nama    = row.children[2].innerText.toLowerCase();
+        const prodi   = row.children[3].innerText;
+        const jurusan = row.children[4].innerText;
+        const kelas   = row.children[5].innerText;
+
+        const cocokProdi   = filterProdi.value === "" || prodi === filterProdi.value;
+        const cocokJurusan = filterJurusan.value === "" || jurusan === filterJurusan.value;
+        const cocokKelas   = filterKelas.value === "" || kelas === filterKelas.value;
+        const cocokCari    = nim.includes(searchData.value.toLowerCase()) ||
+                              nama.includes(searchData.value.toLowerCase());
+
+        if (cocokProdi && cocokJurusan && cocokKelas && cocokCari) {
+            row.style.display = "";
+            tampil++;
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+    jumlahData.innerText = "Menampilkan " + tampil + " data mahasiswa";
+}
+
+filterProdi.addEventListener("change", filterMahasiswa);
+filterJurusan.addEventListener("change", filterMahasiswa);
+filterKelas.addEventListener("change", filterMahasiswa);
+searchData.addEventListener("keyup", filterMahasiswa);
+
+filterMahasiswa();
+</script>
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 </body>
 </html>

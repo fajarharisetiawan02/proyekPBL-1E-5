@@ -1,10 +1,25 @@
 <?php
 require_once "../config/auth_admin.php";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 require_once "../config/koneksi.php";
 
 /* ===============================
    CEK ID
 ================================ */
+<<<<<<< HEAD
+=======
+=======
+require_once "../config/auth_admin.php";
+require_once "../config/koneksi.php";
+
+// ===============================
+// CEK ID
+// ===============================
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 if (!isset($_GET['id'])) {
     header("Location: mahasiswa.php");
     exit;
@@ -12,6 +27,10 @@ if (!isset($_GET['id'])) {
 
 $id = mysqli_real_escape_string($koneksi, $_GET['id']);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 /* ===============================
    AMBIL DATA MAHASISWA
 ================================ */
@@ -46,6 +65,37 @@ if (isset($_POST['update'])) {
     $shift    = mysqli_real_escape_string($koneksi, $_POST['shift']);
     $semester = (int) $_POST['semester'];
     $email    = mysqli_real_escape_string($koneksi, $_POST['email']);
+<<<<<<< HEAD
+=======
+=======
+// ===============================
+// AMBIL DATA MAHASISWA
+// ===============================
+$query = mysqli_query($koneksi, "
+    SELECT * FROM mahasiswa 
+    WHERE id_mahasiswa = '$id'
+");
+
+$data = mysqli_fetch_assoc($query);
+
+if (!$data) {
+    echo "<h3>Data mahasiswa tidak ditemukan</h3>";
+    exit;
+}
+
+// ===============================
+// PROSES UPDATE
+// ===============================
+if (isset($_POST['update'])) {
+
+    $nim     = mysqli_real_escape_string($koneksi, $_POST['nim']);
+    $nama    = mysqli_real_escape_string($koneksi, $_POST['nama']);
+    $prodi   = mysqli_real_escape_string($koneksi, $_POST['prodi']);
+    $jurusan = mysqli_real_escape_string($koneksi, $_POST['jurusan']);
+    $kelas   = mysqli_real_escape_string($koneksi, $_POST['kelas']);
+    $email   = mysqli_real_escape_string($koneksi, $_POST['email']);
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
     mysqli_query($koneksi, "
         UPDATE mahasiswa SET
@@ -54,8 +104,16 @@ if (isset($_POST['update'])) {
             prodi='$prodi',
             jurusan='$jurusan',
             kelas='$kelas',
+<<<<<<< HEAD
             shift='$shift',
             semester='$semester',
+=======
+<<<<<<< HEAD
+            shift='$shift',
+            semester='$semester',
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
             email='$email'
         WHERE id_mahasiswa='$id'
     ");
@@ -70,6 +128,7 @@ if (isset($_POST['update'])) {
 <head>
     <meta charset="UTF-8">
     <title>Edit Mahasiswa</title>
+<<<<<<< HEAD
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
@@ -77,6 +136,13 @@ if (isset($_POST['update'])) {
     <link rel="stylesheet" href="../assets/css/mahasiswa.css">
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+=======
+
+        <link rel="stylesheet" href="../assets/css/mahasiswa.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
     <style>
         .form-box {

@@ -18,6 +18,10 @@ $q = mysqli_query($koneksi, "SELECT * FROM mahasiswa ORDER BY id_mahasiswa ASC")
     <link rel="stylesheet" href="../assets/css/style7.css">
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 
     <style>
         table {

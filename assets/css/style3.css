@@ -5,6 +5,7 @@
     --sidebar-width: 260px;
     --topbar-height: 70px;
     --primary: #1e40af;
+<<<<<<< HEAD
 }
 
 /* =====================
@@ -20,6 +21,35 @@
 html, body {
     width: 100%;
     background: #f5f6fa;
+=======
+}
+
+/* =====================
+   RESET
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+<<<<<<< HEAD
+html, body {
+    width: 100%;
+    background: #f5f6fa;
+=======
+html,
+body {
+    height: 100%;
+    background: #eef3f9;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-x: hidden;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 }
 
 /* =====================================================
@@ -31,11 +61,33 @@ html, body {
     padding: 0 !important;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+.main-content {
+    margin-left: 260px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    transition: margin-left 0.35s ease-in-out, width 0.35s ease-in-out;
+    padding: 40px 60px 20px;
+    padding-left: 0;
+    padding-right: 0;
+    width: calc(100% - 260px);
+    flex: 1;
+}
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 .main-wrapper {
     flex: 1;
     display: flex;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 .main-content {
     margin-left: 260px;
     width: calc(100% - 260px);
@@ -63,6 +115,11 @@ html, body {
 /* =====================
    TOPBAR
 ===================== */
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 .topbar {
     position: fixed;
     top: 0;
@@ -88,10 +145,85 @@ html, body {
     color: #1E3A8A;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 /* =====================================================
    HEADER ADMIN
 ===================================================== */
 .header-admin {
+<<<<<<< HEAD
+=======
+=======
+.search-box {
+    width: 320px;
+    position: relative;
+}
+
+.search-box input {
+    width: 50%;
+    padding: 10px 40px 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.search-box i {
+    position: absolute;
+    right: 36%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #444;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background: #c7e3f5;
+    padding: 10px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.admin-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-table td:first-child {
+    text-align: left;
+}
+
+.btn-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    margin-top: 15px !important;
+    margin-left: 5%;
+}
+
+.content-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    box-sizing: border-box;
+}
+
+.header-section {
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -275,8 +407,188 @@ html, body {
     margin-bottom: 6px;
 }
 
+<<<<<<< HEAD
 .form-group input,
 .form-group select {
+=======
+<<<<<<< HEAD
+.form-group input,
+.form-group select {
+=======
+.form-box input {
+    width: 98%;
+    padding: 10px;
+    border: 1px solid #d4d4d4;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.btn-area {
+    margin-top: 10px;
+    display: flex;
+    gap: 12px;
+}
+
+.btn-add {
+    padding: 10px 18px;
+    background: #1E3A8A;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    padding: 10px 18px;
+    background: #d32f2f;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+}
+/* FOOTER */
+
+footer {
+    background: #1a1a2e;
+    padding: 22px;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    border-radius: 0px;
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 48px;
+    right: -5px;
+    background: #ffffff;
+    padding: 12px 14px;
+    border-radius: 14px;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    width: 180px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    animation: fadeDropdown 0.25s ease-out;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    background: #3f51b5; /* warna kampus */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    padding-right: 40px;
+    font-size: initial;
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.profile-avatar {
+    width: 35px;
+    height: 35px;
+    background-color: #000;   
+    color: #fff;            
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    flex-shrink: 0;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+    transition: 
+        background-color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.profile-avatar:hover {
+    background-color: #1E3A8A;
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(30,58,138,0.45);
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.profile-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+}
+
+.profile-nim {
+    font-size: 11px;    
+    color: #9ca3af;     
+}
+
+@keyframes fadeDropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
     padding: 10px 12px;
     border-radius: 8px;
     border: 1px solid #ddd;
@@ -432,6 +744,7 @@ footer {
     }
 }
 
+<<<<<<< HEAD
 @media (max-width: 768px) {
 
     /* SIDEBAR SEMBUNYI */
@@ -484,6 +797,8 @@ footer {
     }
 }
 
+=======
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 /* =====================================================
    ANIMATION
 ===================================================== */

@@ -24,6 +24,11 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" href="../assets/css/ubah sandi.css">
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 </head>
 
 <body>
@@ -74,10 +79,26 @@ $username = $_SESSION['username'];
 
     </div>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 <footer>
 © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
 </footer>
 
 <script src="../assets/js/script3.js"></script>
+<<<<<<< HEAD
+=======
+=======
+    <footer>
+        © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+    </footer>
+
+    <script src="../assets/js/ubah sandi.js"></script>
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
 </body>
+
 </html>
