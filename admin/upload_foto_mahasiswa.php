@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth.php";
+require_once "../config/auth_admin.php";
 require_once "../config/koneksi.php";
 
 $id = $_POST['id_mahasiswa'];
@@ -16,10 +16,8 @@ $ext = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
 $filename = "mhs_" . $id . "_" . time() . "." . $ext;
 $path = $folder . $filename;
 
-// Simpan file
 if (move_uploaded_file($_FILES['foto']['tmp_name'], $path)) {
 
-    // Simpan ke database
     mysqli_query($koneksi, "UPDATE mahasiswa SET foto='$filename' WHERE id_mahasiswa='$id'");
 
     echo json_encode([

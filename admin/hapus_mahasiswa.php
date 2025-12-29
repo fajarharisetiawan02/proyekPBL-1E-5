@@ -1,20 +1,11 @@
 <?php
-require_once "../config/auth.php";
+require_once "../config/auth_admin.php";
 require_once "../config/koneksi.php";
 
+$id = $_GET['id'];
 
-$id = $_POST['id_mahasiswa'];
+mysqli_query($koneksi, "DELETE FROM login WHERE id_mahasiswa='$id'");
+mysqli_query($koneksi, "DELETE FROM mahasiswa WHERE id_mahasiswa='$id'");
 
-$get = mysqli_query($koneksi, "SELECT foto FROM mahasiswa WHERE id_mahasiswa='$id'");
-$data = mysqli_fetch_assoc($get);
-
-if ($data['foto'] != "default.png") {
-    if (file_exists("../uploads/" . $data['foto'])) {
-        unlink("../uploads/" . $data['foto']);
-    }
-}
-
-mysqli_query($koneksi, "UPDATE mahasiswa SET foto='default.png' WHERE id_mahasiswa='$id'");
-
-echo "success";
-?>
+header("Location: mahasiswa.php");
+exit;

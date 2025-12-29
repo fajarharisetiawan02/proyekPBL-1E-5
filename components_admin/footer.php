@@ -1,44 +1,35 @@
-<footer class="footer-kampus-full">
-    <div class="footer-content">
+<footer class="footer-app">
+    <div class="footer-inner">
 
-        <!-- DESKRIPSI APLIKASI -->
-        <div class="footer-left">
-            <h3>Pengumuman Akademik Online</h3>
-            <p>
-                Sistem informasi akademik berbasis web untuk mendukung
-                kegiatan perkuliahan dan Project Based Learning (PBL).
-            </p>
-
-            <!-- SOSIAL MEDIA -->
-            <div class="footer-social">
-                <a href="#" class="ig" title="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="#" class="fb" title="Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="#" class="yt" title="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-                <a href="#" class="tw" title="Twitter / X">
-                    <i class="fa-brands fa-x-twitter"></i>
-                </a>
+        <!-- KIRI -->
+        <div class="footer-brand">
+            <img src="/proyekPBL-1E-5/assets/img/Logo Politeknik.png" alt="Polibatam">
+            <div>
+                <strong>Aplikasi Pengumuman Akademik Online</strong>
+                <p>
+                    Sistem resmi penyampaian informasi akademik
+                    Politeknik Negeri Batam.
+                </p>
             </div>
         </div>
 
-        <!-- KONTAK KAMPUS -->
-        <div class="footer-right">
-            <h4>Kontak Kampus</h4>
-            <p><i class="fa-solid fa-location-dot"></i> Politeknik Negeri Batam</p>
-            <p><i class="fa-solid fa-envelope"></i> akademik@kampus.ac.id</p>
-            <p><i class="fa-solid fa-phone"></i> (0778) 123456</p>
+        <!-- KANAN -->
+        <div class="footer-info">
+            <p><strong>Politeknik Negeri Batam</strong></p>
+            <p>Jl. Ahmad Yani, Batam Kota</p>
+            <p>Email: info@polibatam.ac.id</p>
+
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+            </div>
         </div>
 
     </div>
 
-    <!-- COPYRIGHT -->
     <div class="footer-bottom">
-        © <span id="tahun"></span> Pengumuman Akademik Online  
-        <span class="footer-sep">|</span> Project Based Learning (PBL)
+        © <?= date('Y'); ?> Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
     </div>
 </footer>

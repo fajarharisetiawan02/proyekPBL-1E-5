@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth.php";
+require_once "../config/auth_mahasiswa.php";
 require_once "../config/koneksi.php";
 ?>
 
@@ -9,16 +9,18 @@ require_once "../config/koneksi.php";
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Ujian - Mahasiswa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
+<link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style4.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
 </head>
 
 <body>
 
-    <!-- ================== WRAPPER ================== -->
     <div class="main-wrapper">
 
         <?php include "../components_mahasiswa/sidebar.php"; ?>
@@ -66,11 +68,11 @@ require_once "../config/koneksi.php";
                     </table>
                 </div>
 
-            </div> <!-- end content-container -->
+            </div>
 
-        </div> <!-- end main-content -->
+        </div>
 
-    </div> <!-- end wrapper -->
+    </div>
 
     <footer>
         © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
