@@ -6,6 +6,7 @@ $pesan = "";
 
 if (isset($_POST['simpan'])) {
 
+<<<<<<< HEAD
     $nidn    = mysqli_real_escape_string($koneksi, $_POST['nidn']);
     $nama    = mysqli_real_escape_string($koneksi, $_POST['nama']);
     $prodi   = mysqli_real_escape_string($koneksi, $_POST['prodi']);
@@ -27,10 +28,27 @@ if (isset($_POST['simpan'])) {
 
     // CEK NIDN
     $cek = mysqli_query($koneksi, "SELECT id_admin FROM admin WHERE nidn='$nidn'");
+=======
+    $nidn     = mysqli_real_escape_string($koneksi, $_POST['nidn']);
+    $nama     = mysqli_real_escape_string($koneksi, $_POST['nama_dosen']);
+    $email    = mysqli_real_escape_string($koneksi, $_POST['email']);
+    $no_hp    = mysqli_real_escape_string($koneksi, $_POST['no_hp']);
+    $fakultas = mysqli_real_escape_string($koneksi, $_POST['fakultas']);
+    $prodi    = mysqli_real_escape_string($koneksi, $_POST['prodi']);
+
+    // CEK NIDN
+    $cek = mysqli_query($koneksi, "
+        SELECT id_dosen 
+        FROM dosen 
+        WHERE nidn='$nidn'
+    ");
+
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     if (mysqli_num_rows($cek) > 0) {
         $pesan = "<div class='alert error'>NIDN sudah terdaftar</div>";
     } else {
 
+<<<<<<< HEAD
         // PASSWORD DEFAULT = NIDN
         $password = password_hash($nidn, PASSWORD_DEFAULT);
 
@@ -52,6 +70,25 @@ if (isset($_POST['simpan'])) {
         mysqli_query($koneksi, "
             INSERT INTO login (username, password, nama, email, id_admin, role)
             VALUES ('$nidn','$password','$nama','$email','$id_admin','dosen')
+=======
+        // SIMPAN DATA DOSEN
+        mysqli_query($koneksi, "
+            INSERT INTO dosen 
+            (nidn, nama_dosen, email, no_hp, fakultas, prodi)
+            VALUES 
+            ('$nidn', '$nama', '$email', '$no_hp', '$fakultas', '$prodi')
+        ");
+
+        // PASSWORD AWAL = NIDN
+        $password = password_hash($nidn, PASSWORD_DEFAULT);
+
+        // SIMPAN AKUN LOGIN (ADMIN DOSEN)
+        mysqli_query($koneksi, "
+            INSERT INTO login
+            (username, password, nama, email, role)
+            VALUES
+            ('$nidn', '$password', '$nama', '$email', 'admin_dosen')
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
         ");
 
         header("Location: dosen.php?success=1");
@@ -86,17 +123,26 @@ if (isset($_POST['simpan'])) {
 
 <h2>Tambah Data Dosen</h2>
 <p class="page-desc">
+<<<<<<< HEAD
     Lengkapi data dosen. Akun login dibuat otomatis.
+=======
+    Silakan lengkapi data dosen. Akun login admin dibuat otomatis.
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 </p>
 
 <?= $pesan; ?>
 
+<<<<<<< HEAD
 <form method="POST" enctype="multipart/form-data" class="form-box">
+=======
+<form method="POST" class="form-box">
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 
     <label>NIDN</label>
     <input type="text" name="nidn" required>
 
     <label>Nama Lengkap</label>
+<<<<<<< HEAD
     <input type="text" name="nama" required>
 
     <hr>
@@ -115,12 +161,27 @@ if (isset($_POST['simpan'])) {
 
     <label>Jabatan</label>
     <input type="text" name="jabatan" placeholder="Contoh: Dosen Tetap" required>
+=======
+    <input type="text" name="nama_dosen" required>
+
+    <hr>
+
+    <label>Fakultas</label>
+    <input type="text" name="fakultas" required>
+
+    <label>Program Studi</label>
+    <input type="text" name="prodi" required>
+
+    <label>No HP</label>
+    <input type="text" name="no_hp">
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 
     <hr>
 
     <label>Email</label>
     <input type="email" name="email" required>
 
+<<<<<<< HEAD
     <!-- FOTO OPSIONAL -->
     <label>Foto Dosen <small>(Opsional)</small></label>
     <input type="file" name="foto" accept="image/*">
@@ -128,13 +189,21 @@ if (isset($_POST['simpan'])) {
 
     <small class="hint">
         Password awal dosen = <b>NIDN</b>
+=======
+    <small class="hint">
+        Username & Password awal dosen = <b>NIDN</b>
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     </small>
 
     <div class="form-action">
         <button type="submit" name="simpan">
             <i class="fa fa-save"></i> Simpan Data
         </button>
+<<<<<<< HEAD
         <a href="dosen.php" class="btn-cancel">Kembali</a>
+=======
+        <a href="data_dosen.php" class="btn-cancel">Kembali</a>
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     </div>
 
 </form>
@@ -147,6 +216,9 @@ if (isset($_POST['simpan'])) {
 © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
 </footer>
 
+<<<<<<< HEAD
 <script src="../assets/js/script3.js"></script>
+=======
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 </body>
 </html>

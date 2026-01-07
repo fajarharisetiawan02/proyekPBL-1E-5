@@ -53,10 +53,21 @@ html, body {
     padding: 0 20px;
     box-sizing: border-box;
 }
+<<<<<<< HEAD
 
 /* =====================================================
    TOPBAR
 ===================================================== */
+=======
+.topbar .search-box,
+.topbar input[placeholder="Search"],
+.topbar i.fa-search {
+    display: none;
+}
+/* =====================
+   TOPBAR
+===================== */
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 .topbar {
     position: fixed;
     top: 0;
@@ -82,12 +93,15 @@ html, body {
     color: #1E3A8A;
 }
 
+<<<<<<< HEAD
 .topbar .search-box,
 .topbar input[placeholder="Search"],
 .topbar i.fa-search {
     display: none;
 }
 
+=======
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 /* =====================================================
    HEADER ADMIN
 ===================================================== */
@@ -103,11 +117,51 @@ html, body {
     font-weight: 700;
 }
 
+<<<<<<< HEAD
 .page-desc {
     margin-top: 6px;
     margin-bottom: 18px;
     font-size: 14px;
     color: #6b7280;
+=======
+/* =====================================================
+   TABLE
+===================================================== */
+.table-wrapper {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 10px 14px;
+    font-size: 14px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+.admin-table th {
+    background: #c7e3f5;
+    font-weight: 600;
+}
+
+.admin-table tbody tr:hover {
+    background: #f9fbfd;
+}
+
+/* EMPTY */
+.empty-table {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 }
 
 /* =====================================================
@@ -145,6 +199,7 @@ html, body {
 }
 
 /* =====================================================
+<<<<<<< HEAD
    TABLE
 ===================================================== */
 .table-wrapper {
@@ -184,6 +239,9 @@ html, body {
 
 /* =====================================================
    FILTER / FORM CARD
+=======
+   FILTER PENGUMUMAN (FINAL – STABIL)
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 ===================================================== */
 .form-card {
     background: #fff;
@@ -241,6 +299,7 @@ html, body {
     appearance: none;
 }
 
+<<<<<<< HEAD
 .form-grid select {
     appearance: auto;
     -webkit-appearance: menulist;
@@ -502,6 +561,11 @@ html, body {
 
 /* =====================================================
    FOOTER
+=======
+
+/* =====================================================
+   FOOTER PAGE
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 ===================================================== */
 footer {
     background: #1a1a2e;
@@ -517,7 +581,10 @@ footer {
    RESPONSIVE
 ===================================================== */
 @media (max-width: 768px) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     .form-grid {
         flex-direction: column;
         align-items: stretch;
@@ -527,21 +594,45 @@ footer {
     .btn-primary {
         width: 100%;
     }
+<<<<<<< HEAD
 
+=======
+}
+
+<<<<<<< HEAD
+@media (max-width: 768px) {
+
+    /* MAIN CONTENT FULL */
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     .main-content {
         margin-left: 0 !important;
         width: 100% !important;
         padding-top: 70px;
     }
 
+<<<<<<< HEAD
+=======
+    /* TOPBAR FULL */
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     .topbar {
         left: 0 !important;
         width: 100% !important;
     }
 
+<<<<<<< HEAD
+=======
+    /* FOOTER FULL */
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     footer {
         margin-left: 0 !important;
         width: 100% !important;
         text-align: center;
     }
 }
+<<<<<<< HEAD
+=======
+
+=======
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717

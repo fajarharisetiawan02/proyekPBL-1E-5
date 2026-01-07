@@ -2,6 +2,7 @@
 require_once "../config/auth_mahasiswa.php";
 require_once "../config/koneksi.php";
 
+<<<<<<< HEAD
 $jurusan  = $_SESSION['jurusan'];
 $prodi    = $_SESSION['prodi'];
 $kelas    = $_SESSION['kelas'];
@@ -65,16 +66,108 @@ function human_time_diff($t){
 <head>
 <meta charset="UTF-8">
 <title>Notifikasi Mahasiswa</title>
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+/* ===== DATA MAHASISWA DARI SESSION ===== */
+$prodi = $_SESSION['prodi'];
+$kelas = $_SESSION['kelas'];
+$shift = $_SESSION['shift'];
+
+/* ===== TANDAI SUDAH DIBACA ===== */
+if (isset($_GET['read'])) {
+    $id = (int) $_GET['read'];
+    mysqli_query($koneksi, "
+        UPDATE notifikasi 
+        SET is_read = 1
+        WHERE id_notifikasi = '$id'
+    ");
+    header("Location: notifikasi.php");
+    exit;
+}
+
+/* ===== AMBIL NOTIFIKASI (FILTERED) ===== */
+<<<<<<< HEAD
+=======
+=======
+$id_login = $_SESSION['id_login'];
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+$notifikasi = mysqli_query($koneksi, "
+    SELECT *
+    FROM notifikasi
+    WHERE role = 'mahasiswa'
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+      AND status = 'aktif'
+      AND prodi = '$prodi'
+      AND kelas = '$kelas'
+      AND shift = '$shift'
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+    ORDER BY tanggal DESC
+");
+
+if (!$notifikasi) {
+    die("Query error: " . mysqli_error($koneksi));
+}
+
+$jumlah = mysqli_num_rows($notifikasi);
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<<<<<<< HEAD
+<head>
+    <meta charset="UTF-8">
+    <title>Semua Notifikasi</title>
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
 <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+<<<<<<< HEAD
 <link rel="stylesheet" href="../assets/css/sidebar.css">
 <link rel="stylesheet" href="../assets/css/style3.css">
 <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
 </head>
 
 <body>
+=======
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/style3.css">
+    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+<head>
+    <meta charset="UTF-8">
+    <title>Semua Notifikasi</title>
+
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/style3.css">
+    <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+</head>
+
+<body>
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 <div class="main-wrapper">
 
 <?php include "../components_mahasiswa/sidebar.php"; ?>
@@ -83,6 +176,7 @@ function human_time_diff($t){
 <div class="main-content">
 <div class="content-container">
 
+<<<<<<< HEAD
 <div class="notif-hero">
     <div class="notif-hero-left">
         <div class="notif-hero-icon">
@@ -153,6 +247,74 @@ function human_time_diff($t){
     <?php endif; ?>
 </div>
 <?php endif; ?>
+=======
+    <!-- HERO -->
+    <div class="notif-hero">
+        <div class="notif-hero-left">
+            <div class="notif-hero-icon">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+            <div class="notif-hero-text">
+                <h2>Notifikasi</h2>
+                <p>
+                    <?= htmlspecialchars($prodi); ?> ·
+                    Kelas <?= htmlspecialchars($kelas); ?> ·
+                    <?= htmlspecialchars($shift); ?>
+                </p>
+            </div>
+        </div>
+
+        <div class="notif-hero-right">
+            <span class="notif-count">
+                <?= $jumlah; ?> Notifikasi
+            </span>
+        </div>
+    </div>
+
+    <!-- LIST -->
+    <div class="notif-list">
+
+    <?php if ($jumlah > 0): ?>
+        <?php while ($n = mysqli_fetch_assoc($notifikasi)): ?>
+        <a href="?read=<?= $n['id_notifikasi']; ?>" class="notif-link">
+
+        <div class="notif-card <?= $n['is_read'] == 0 ? 'unread' : 'read'; ?>">
+
+            <div class="notif-icon">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <div class="notif-content">
+                <h4>
+                    <?= htmlspecialchars($n['judul']); ?>
+                    <?php if ($n['is_read'] == 0): ?>
+                        <span class="badge-new">BARU</span>
+                    <?php endif; ?>
+                </h4>
+
+                <p><?= nl2br(htmlspecialchars($n['isi'])); ?></p>
+
+                <div class="notif-meta">
+                    <span>
+                        <i class="fa-regular fa-clock"></i>
+                        <?= date('d M Y · H:i', strtotime($n['tanggal'])); ?>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        </a>
+        <?php endwhile; ?>
+
+    <?php else: ?>
+        <div class="notif-empty">
+            <i class="fa-regular fa-bell-slash"></i>
+            <p>Tidak ada notifikasi</p>
+        </div>
+    <?php endif; ?>
+
+    </div>
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 
 </div>
 </div>
@@ -162,6 +324,7 @@ function human_time_diff($t){
 © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
 </footer>
 
+<<<<<<< HEAD
 <script>
 function readOneMhs(el) {
     if (!el.classList.contains('unread')) return;
@@ -205,4 +368,86 @@ function readAllMhs() {
 </script>
 <script src="../assets/js/script3.js"></script>
 </body>
+=======
+</body>
+<<<<<<< HEAD
+=======
+=======
+    <div class="main-wrapper">
+
+        <?php include "../components_mahasiswa/sidebar.php"; ?>
+        <?php include "../components_mahasiswa/topbar.php"; ?>
+
+        <div class="main-content">
+            <div class="content-container">
+
+                <div class="notif-hero">
+                    <div class="notif-hero-left">
+                        <div class="notif-hero-icon">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <div class="notif-hero-text">
+                            <h2>Semua Notifikasi</h2>
+                            <p>Riwayat aktivitas akademik terbaru</p>
+                        </div>
+                    </div>
+
+                    <div class="notif-hero-right">
+                        <span class="notif-count">
+                            <?= mysqli_num_rows($notifikasi); ?> Notifikasi
+                        </span>
+                    </div>
+                </div>
+
+                <div class="notif-list">
+
+                    <?php if (mysqli_num_rows($notifikasi) > 0): ?>
+                    <?php while ($n = mysqli_fetch_assoc($notifikasi)): ?>
+                    <div class="notif-card <?= $n['status'] === 'aktif' ? 'unread' : 'read'; ?>">
+
+                        <div class="notif-icon">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+
+                        <div class="notif-content">
+                            <h4><?= htmlspecialchars($n['judul']); ?></h4>
+                            <p><?= htmlspecialchars($n['isi']); ?></p>
+
+                            <div class="notif-meta">
+                                <span>
+                                    <i class="fa-regular fa-clock"></i>
+                                    <?= date('d M Y · H:i', strtotime($n['tanggal'])); ?>
+                                </span>
+
+                                <?php if ($n['status'] === 'aktif'): ?>
+                                <span class="badge-new">BARU</span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                    </div>
+                    <?php endwhile; ?>
+                    <?php else: ?>
+                    <div class="notif-empty">
+                        <i class="fa-regular fa-bell-slash"></i>
+                        <p>Tidak ada notifikasi</p>
+                    </div>
+                    <?php endif; ?>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+    </footer>
+
+</body>
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 </html>

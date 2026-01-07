@@ -3,16 +3,24 @@ require_once "../config/auth_admin.php";
 require_once "../config/koneksi.php";
 require_once "../config/email_helper.php";
 
+<<<<<<< HEAD
 date_default_timezone_set('Asia/Jakarta');
 
 /* ===============================
    VALIDASI PRODI (WAJIB)
 ================================ */
 $prodi = trim($_GET['prodi'] ?? '');
+=======
+/* ===============================
+   1. FILTER (HANYA PRODI)
+================================ */
+$prodi = $_GET['prodi'] ?? '';
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 if ($prodi === '') {
     die("ERROR: Prodi wajib dipilih.");
 }
 
+<<<<<<< HEAD
 $prodi_sql = mysqli_real_escape_string($koneksi, $prodi);
 $tahun = date('Y');
 
@@ -23,6 +31,14 @@ $cek = mysqli_query($koneksi, "
     SELECT 1 
     FROM jadwal_ujian
     WHERE TRIM(LOWER(prodi)) = TRIM(LOWER('$prodi_sql'))
+=======
+/* ===============================
+   2. CEK JADWAL ADA
+================================ */
+$cek = mysqli_query($koneksi, "
+    SELECT 1 FROM jadwal_ujian
+    WHERE prodi = '$prodi'
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     LIMIT 1
 ");
 
@@ -31,6 +47,7 @@ if (mysqli_num_rows($cek) === 0) {
 }
 
 /* ===============================
+<<<<<<< HEAD
    🔔 NOTIFIKASI MAHASISWA
 ================================ */
 $judulMhs = "Jadwal Ujian Telah Dipublikasikan";
@@ -89,6 +106,72 @@ FROM mahasiswa
 WHERE TRIM(LOWER(prodi)) = TRIM(LOWER('$prodi_sql'))
 AND email IS NOT NULL
 AND email != ''
+=======
+   NOTIFIKASI WEB
+   (ISI TIDAK DIUBAH)
+================================ */
+$judul_notif = "Pemberitahuan Jadwal Ujian $prodi";
+
+$isi_notif = "
+<div style='border:1px solid #e5e7eb;border-radius:12px;padding:14px'>
+  <div style='display:flex;gap:10px;align-items:center;margin-bottom:10px'>
+    <div style='width:36px;height:36px;border-radius:8px;background:#eef2ff;
+                display:flex;align-items:center;justify-content:center;
+                color:#1e3a8a;font-weight:700'>UJ</div>
+    <div>
+      <div style='font-weight:700;color:#111827'>Jadwal Ujian Dipublikasikan</div>
+      <div style='font-size:12px;color:#6b7280'>Program Studi $prodi</div>
+    </div>
+  </div>
+
+  <table style='width:100%;border-collapse:collapse;font-size:14px'>
+    <tr><td style='padding:8px;border:1px solid #e5e7eb;font-weight:600'>Jurusan</td><td style='padding:8px;border:1px solid #e5e7eb'>$jurusan</td></tr>
+    <tr><td style='padding:8px;border:1px solid #e5e7eb;font-weight:600'>Program Studi</td><td style='padding:8px;border:1px solid #e5e7eb'>$prodi</td></tr>
+    <tr><td style='padding:8px;border:1px solid #e5e7eb;font-weight:600'>Kelas</td><td style='padding:8px;border:1px solid #e5e7eb'>$kelas</td></tr>
+    <tr><td style='padding:8px;border:1px solid #e5e7eb;font-weight:600'>Shift</td><td style='padding:8px;border:1px solid #e5e7eb'>$shift</td></tr>
+    <tr><td style='padding:8px;border:1px solid #e5e7eb;font-weight:600'>Semester</td><td style='padding:8px;border:1px solid #e5e7eb'>$semester</td></tr>
+
+  </table>
+
+  <p style='margin:12px 0 10px 0;color:#374151'>
+    Silakan akses sistem untuk melihat detail jadwal ujian secara lengkap.
+  </p>
+
+  <a href='../mahasiswa/jadwal_ujian.php'
+     style='display:inline-block;padding:9px 14px;background:#1e3a8a;color:#fff;
+            text-decoration:none;border-radius:8px;font-size:13px;font-weight:700'>
+     Lihat Jadwal Ujian
+  </a>
+</div>
+";
+
+mysqli_query($koneksi, "
+    INSERT INTO notifikasi (judul, isi, role, status)
+    VALUES (
+        '$judul_notif',
+        '".mysqli_real_escape_string($koneksi, $isi_notif)."',
+        'mahasiswa',
+        'aktif'
+    )
+");
+
+/* ===============================
+   4. AMBIL MAHASISWA (DATA LENGKAP)
+================================ */
+$q_mhs = mysqli_query($koneksi, "
+    SELECT 
+        nama,
+        email,
+        jurusan,
+        prodi,
+        kelas,
+        shift,
+        semester
+    FROM mahasiswa
+    WHERE prodi = '$prodi'
+      AND email IS NOT NULL
+      AND email != ''
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 ");
 
 /* ===============================
@@ -128,8 +211,13 @@ $body = "
              style='border-collapse:collapse;font-size:14px;margin:14px 0'>
         <tr><td style='border:1px solid #e5e7eb;font-weight:700'>Jurusan</td><td style='border:1px solid #e5e7eb'>$jurusan</td></tr>
         <tr><td style='border:1px solid #e5e7eb;font-weight:700'>Program Studi</td><td style='border:1px solid #e5e7eb'>$prodi</td></tr>
+<<<<<<< HEAD
         <tr><td style='border:1px solid #e5e7eb;font-weight:700'>Kelas</td> 
        <td style='border:1px solid #e5e7eb'>{$m['kelas']} ({$m['shift']})</td></tr>
+=======
+        <tr><td style='border:1px solid #e5e7eb;font-weight:700'>Kelas</td><td style='border:1px solid #e5e7eb'>$kelas</td></tr>
+        <tr><td style='border:1px solid #e5e7eb;font-weight:700'>Shift</td><td style='border:1px solid #e5e7eb'>$shift</td></tr>
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
         <tr><td style='border:1px solid #e5e7eb;font-weight:700'>Semester</td><td style='border:1px solid #e5e7eb'>$semester</td></tr>
         <tr>
                    <td style='border:1px solid #e5e7eb;font-weight:700'>Status</td>

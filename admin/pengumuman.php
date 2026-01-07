@@ -12,9 +12,16 @@ $isFiltered = ($kategori || $search);
 $data = false;
 
 /* ======================
+<<<<<<< HEAD
    QUERY DATA (TIDAK DIUBAH)
 ====================== */
 if ($isFiltered) {
+=======
+   QUERY DATA
+====================== */
+if ($isFiltered) {
+
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     $where = [];
 
     if ($kategori) {
@@ -24,7 +31,14 @@ if ($isFiltered) {
 
     if ($search) {
         $search = mysqli_real_escape_string($koneksi, $search);
+<<<<<<< HEAD
         $where[] = "(judul LIKE '%$search%' OR isi LIKE '%$search%')";
+=======
+        $where[] = "(
+            judul LIKE '%$search%' OR
+            isi LIKE '%$search%'
+        )";
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     }
 
     $sql = "SELECT * FROM pengumuman";
@@ -42,6 +56,7 @@ if ($isFiltered) {
 <head>
 <meta charset="UTF-8">
 <title>Pengumuman - Admin</title>
+<<<<<<< HEAD
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" href="../assets/img/Logo Politeknik.png">
@@ -50,31 +65,65 @@ if ($isFiltered) {
 <link rel="stylesheet" href="../assets/css/sidebar.css">
 <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
 
+=======
+<<<<<<< HEAD
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+         <link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/pengumuman-admin.css">
+<link rel="stylesheet" href="../assets/css/sidebar.css">
+<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+=======
+
+<link rel="stylesheet" href="../assets/css/pengumuman-admin.css">
+<link rel="stylesheet" href="../assets/css/sidebar.css">
+<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 </head>
 
 <body>
 
 <div class="main-wrapper">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 <?php include "../components_admin/sidebar.php"; ?>
 <?php include "../components_admin/topbar.php"; ?>
 
 <div class="main-content">
 <div class="content-container">
 
+<<<<<<< HEAD
 <!-- ======================
      FILTER (TIDAK DIUBAH)
 ====================== -->
+=======
+<!-- ===== FILTER ===== -->
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 <div class="form-card" style="margin-bottom:20px;">
 <h4 class="form-section-title">
 <i class="fa-solid fa-filter"></i> Filter & Pencarian Pengumuman
 </h4>
 
 <form method="GET" class="form-grid">
+<<<<<<< HEAD
 <div class="search-wrapper">
 <i class="fa fa-search"></i>
 <input type="text" name="search"
 placeholder="Cari judul / isi pengumuman"
 value="<?= htmlspecialchars($search); ?>">
+=======
+
+<div class="search-wrapper">
+    <i class="fa fa-search"></i>
+    <input type="text" name="search"
+        placeholder="Cari judul / isi pengumuman"
+        value="<?= htmlspecialchars($search); ?>">
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 </div>
 
 <select name="kategori">
@@ -87,6 +136,7 @@ value="<?= htmlspecialchars($search); ?>">
 <button class="btn-primary">
 <i class="fa fa-search"></i> Terapkan
 </button>
+<<<<<<< HEAD
 </form>
 </div>
 
@@ -101,17 +151,31 @@ value="<?= htmlspecialchars($search); ?>">
 Kelola, cari, dan pantau seluruh pengumuman akademik & non-akademik
 </small>
 </div>
+=======
+
+</form>
+</div>
+
+<!-- ===== HEADER ===== -->
+<div class="header-admin">
+<h3>Data Pengumuman</h3>
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 
 <a href="tambah_pengumuman.php" class="btn-add">
 <i class="fa fa-plus"></i> Tambah Pengumuman
 </a>
 </div>
 
+<<<<<<< HEAD
 <!-- TABLE (TIDAK DIUBAH) -->
+=======
+<!-- ===== TABLE ===== -->
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 <div class="table-wrapper">
 <table class="admin-table">
 <thead>
 <tr>
+<<<<<<< HEAD
 <th>No</th>
 <th>Judul</th>
 <th>Kategori</th>
@@ -192,6 +256,65 @@ Tutup
 </div>
 </div>
 
+=======
+<th width="50">No</th>
+<th>Judul</th>
+<th>Kategori</th>
+<th>Tanggal</th>
+<th width="120">Aksi</th>
+</tr>
+</thead>
+
+<tbody>
+<?php
+if (!$isFiltered) {
+    echo "<tr>
+        <td colspan='5' class='empty-table'>
+        <i class='fa-solid fa-circle-info'></i><br>
+        Silakan gunakan filter untuk menampilkan pengumuman
+        </td>
+    </tr>";
+}
+elseif ($data && mysqli_num_rows($data) == 0) {
+    echo "<tr>
+        <td colspan='5' class='empty-table'>
+        Data pengumuman tidak ditemukan
+        </td>
+    </tr>";
+}
+else {
+    $no = 1;
+    while ($row = mysqli_fetch_assoc($data)) {
+?>
+<tr>
+<td><?= $no++; ?></td>
+<td>
+<strong><?= $row['judul']; ?></strong><br>
+<small><?= substr(strip_tags($row['isi']), 0, 80); ?>...</small>
+</td>
+<td><?= $row['kategori']; ?></td>
+<td><?= date("d M Y", strtotime($row['dibuat_pada'])); ?></td>
+<td class="text-center">
+
+<a href="detail_pengumuman.php?id=<?= $row['id_pengumuman']; ?>"
+   class="btn-icon btn-detail" title="Detail">
+<i class="fa fa-eye"></i>
+</a>
+
+<a href="edit_pengumuman.php?id=<?= $row['id_pengumuman']; ?>"
+   class="btn-icon btn-edit">
+<i class="fa fa-pen"></i>
+</a>
+
+<a href="hapus_pengumuman.php?id=<?= $row['id_pengumuman']; ?>"
+   class="btn-icon btn-delete"
+   onclick="return confirm('Hapus pengumuman ini?')">
+<i class="fa fa-trash"></i>
+</a>
+
+</td>
+</tr>
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 <?php } } ?>
 </tbody>
 </table>

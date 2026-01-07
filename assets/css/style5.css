@@ -5,6 +5,7 @@
     --sidebar-width: 260px;
     --topbar-height: 70px;
     --primary: #1e40af;
+<<<<<<< HEAD
 }
 
 /* =====================
@@ -22,6 +23,56 @@ html, body {
     background: #f5f6fa;
 }
 
+=======
+<<<<<<< HEAD
+}
+
+/* =====================
+   RESET
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    background: #f5f6fa;
+=======
+}
+
+/* =====================
+   RESET
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+<<<<<<< HEAD
+html, body {
+    width: 100%;
+    background: #f5f6fa;
+=======
+html,
+body {
+    height: 100%;
+    background: #eef3f9;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-x: hidden;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+}
+
+
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 /* =====================================================
    LAYOUT UTAMA
 ===================================================== */
@@ -31,11 +82,37 @@ html, body {
     padding: 0 !important;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+.main-content {
+    margin-left: 260px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    transition: margin-left 0.35s ease-in-out, width 0.35s ease-in-out;
+
+    padding-top: 100px; 
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 20px;
+
+    width: calc(100% - 260px);
+    flex: 1;
+}
+
+
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 .main-wrapper {
     flex: 1;
     display: flex;
 }
 
+<<<<<<< HEAD
 .main-content {
     margin-left: 260px;
     width: calc(100% - 260px);
@@ -43,6 +120,22 @@ html, body {
     background-color: #f5f5f5;
     padding: 80px 0 20px;
     transition: margin-left 0.35s ease-in-out, width 0.35s ease-in-out;
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+.main-content {
+    margin-left: 260px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    transition: margin-left 0.35s ease-in-out, width 0.35s ease-in-out;
+    padding: 20px 60px 20px;
+    padding-left: 0;
+    padding-right: 0;
+    width: calc(100% - 260px);
+    padding-top: 70px;
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     flex: 1;
 }
 
@@ -52,17 +145,28 @@ html, body {
     margin: 0;
     padding: 0 20px;
     box-sizing: border-box;
+<<<<<<< HEAD
 }
 
 .topbar .search-box,
 .topbar input[placeholder="Search"],
 .topbar i.fa-search {
     display: none;
+=======
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 }
 
 /* =====================
    TOPBAR
 ===================== */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 .topbar {
     position: fixed;
     top: 0;
@@ -88,10 +192,13 @@ html, body {
     color: #1E3A8A;
 }
 
+<<<<<<< HEAD
 
 /* =====================
    ALERT
 ===================== */
+=======
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 .alert-box {
     background: #cfeee2;
     padding: 18px 22px;
@@ -99,6 +206,7 @@ html, body {
     border-left: 5px solid #0c8068;
     width: 100%;
     margin: 12px 0 20px;
+<<<<<<< HEAD
 }
 
 /* =====================================================
@@ -111,20 +219,151 @@ html, body {
     position: relative;
 }
 
+=======
+    box-sizing: border-box;
+}
+
+.topbar .search-box,
+.topbar input[placeholder="Search"],
+.topbar i.fa-search {
+    display: none;
+}
+/* =====================================================
+   HEADER HALAMAN BEASISWA
+===================================================== */
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 .header-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
     margin: 0 0 20px;
     padding: 0 5px;
+=======
+    margin: 20px auto 20px auto;
+    padding: 0 5px;
+    margin-top: 0px;
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 }
 
 .header-section h3 {
     font-size: 24px;
     font-weight: 700;
+<<<<<<< HEAD
+=======
+    margin: 0;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.header-beasiswa {
+    margin-top: 0 !important;
+    padding-top: 5px !important;
+}
+
+.header-beasiswa h3 {
+    margin-top: 0 !important;
+}
+
+.header-section .btn-add {
+    padding: 8px 16px;
+    background-color: #1E3A8A;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.header-section .btn-add:hover {
+    background-color: #162e6b;
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+.btn-area {
+    margin-top: 10px;
+    display: flex;
+    gap: 12px;
+}
+
+.btn-add {
+    padding: 10px 18px;
+    background: #1E3A8A;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-add:hover {
+    background: #162e6b;
+}
+
+.btn-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-edit {
+    background: #2563eb;
+    color: #fff;
+}
+
+.btn-delete {
+    background: #dc2626;
+    color: #fff;
+}
+
+.btn-detail {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 8px 16px;
+<<<<<<< HEAD
+    background: #2563eb;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button,
+.btn,
+.btn-detail {
+    border: none;
+    outline: none;
+    box-shadow: none;
+=======
+    background: #6366f1;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+}
+
+.btn-icon i {
+    font-size: 15px;
+    color: white;
+    display: inline-block;
+    visibility: visible;
+}
+
+/* =====================================================
+   TABLE BEASISWA (ADMIN)
+===================================================== */
+.table-wrapper {
+    width: 100%;
+    max-width: none;
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     margin: 0;
 }
 
+<<<<<<< HEAD
 .page-desc {
     font-size: 14px;
     color: #6b7280;
@@ -166,6 +405,40 @@ html, body {
 .summary-item.inactive {
     background: #fef2f2;
     border-color: #fecaca;
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.admin-table th {
+    background-color: #c7e3f5;
+    font-weight: 600;
+}
+
+.admin-table tbody tr:hover {
+    background: #f9fbfd;
+}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 }
 
 /* =====================================================
@@ -196,11 +469,14 @@ html, body {
     background: #162e6b;
 }
 
-.btn-icon {
-    width: 28px;
-    height: 28px;
+.admin-table td:last-child .btn-icon {
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
+    font-size: 14px;
+    line-height: 1;
     display: inline-flex;
+<<<<<<< HEAD
     align-items: center;
     justify-content: center;
 }
@@ -247,6 +523,59 @@ button,
     top: 100%;         
     margin-top: 60px;  
     pointer-events: auto; 
+=======
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+/* EMPTY TABLE */
+.empty-table {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+
+/* =====================================================
+   BADGE STATUS
+===================================================== */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+<<<<<<< HEAD
+=======
+=======
+.content-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    box-sizing: border-box;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto 20px auto;
+    padding: 0 5px;
+    margin-top: 35 !important;
+}
+
+.header-section h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    margin-left: 0 !important;
+    margin-top: 0;
+
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 }
 
 /* =====================================================
@@ -374,6 +703,7 @@ button,
     background: #f9fbff;
 }
 
+<<<<<<< HEAD
 .empty-table {
     text-align: center;
     padding: 30px;
@@ -386,6 +716,199 @@ button,
 .modal {
     position: fixed !important;
     inset: 0 !important;
+=======
+.btn-add:hover {
+    background: #162e6b;
+}
+
+.btn-edit {
+    background: #2563eb;
+    color: #fff;
+}
+
+.btn-delete {
+    background: #dc2626;
+    color: #fff;
+}
+
+.btn-icon i {
+    font-size: 15px !important;
+    color: white !important;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+.form-box {
+    width: 100%;
+    max-width: 1170px;
+    background: #ffffff;
+    padding: 20px 25px;
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-aktif {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-nonaktif {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* =====================================================
+   FORM TAMBAH & EDIT BEASISWA
+===================================================== */
+.page-desc {
+    margin-top: 6px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    color: #6b7280; /* abu-abu elegan */
+}
+.form-header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-top: 15px;
+}
+
+.form-header p {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.form-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+
+.form-section-title {
+    margin: 25px 0 15px;
+    font-size: 16px;
+    color: #1E3A8A;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.form-action {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: #1E3A8A;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+/* =====================================================
+   GRID BEASISWA (MAHASISWA)
+===================================================== */
+.beasiswa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.beasiswa-card {
+    background: #fff;
+    padding: 20px;
+<<<<<<< HEAD
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.10);
+    transition: .2s;
+=======
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.10);
+    transition: .2s;
+=======
+footer {
+    background: #1a1a2e;
+    padding: 22px;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    border-radius: 0px;
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.profile-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 48px;
+    right: -5px;
+    background: #ffffff;
+    padding: 12px 14px;
+    border-radius: 14px;
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     display: none;
     align-items: center !important;
     justify-content: center !important;
@@ -393,6 +916,7 @@ button,
     z-index: 9999;
 }
 
+<<<<<<< HEAD
 /* saat modal aktif */
 .modal.show {
     display: flex !important;
@@ -417,6 +941,241 @@ button,
 footer {
     background: #1a1a2e;
     padding: 22px;
+=======
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    background: #3f51b5; 
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
+    color: #fff;
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    display: flex;
+    justify-content: center;
+<<<<<<< HEAD
+=======
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    padding-right: 40px;
+    font-size: initial;
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+
+<<<<<<< HEAD
+=======
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.profile-avatar {
+    width: 35px;
+    height: 35px;
+    background-color: #000;     
+    color: #fff;             
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    flex-shrink: 0;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+    transition: 
+        background-color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.profile-avatar:hover {
+    background-color: #1E3A8A; 
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(30,58,138,0.45);
+}
+
+.profile-text {
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.beasiswa-card:hover {
+    transform: translateY(-4px);
+}
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+.beasiswa-card p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;           
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+<<<<<<< HEAD
+=======
+=======
+.profile-nim {
+    font-size: 11px;      
+    color: #9ca3af;      
+>>>>>>> 9a567987dd90af1392f8d15dfcbd79423ecb4815
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+}
+
+.beasiswa-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+/* =====================================================
+   MODAL DETAIL BEASISWA (ADMIN)
+===================================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+<<<<<<< HEAD
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 16px; /* penting untuk HP */
+=======
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-box {
+    background: #fff;
+    width: 480px;
+    max-width: 95%;
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.25);
+    animation: adminModalFade .25s ease;
+}
+
+.modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-body {
+    padding: 18px 20px;
+    font-size: 14px;
+}
+
+.modal-body .label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+.modal-text {
+    background: #f9fafb;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    line-height: 1.6;
+    border-left: 4px solid #e5e7eb;
+}
+
+.modal-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    font-size: 13px;
+}
+
+<<<<<<< HEAD
+.modal-body p {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+}
+
+.modal-dialog {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 1rem);
+}
+
+@media (max-width: 576px) {
+    .modal-dialog {
+        min-height: 100vh;
+        margin: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .modal.show {
+        padding-left: 260px;
+        justify-content: flex-start;
+    }
+
+    .modal.show .modal-dialog {
+        margin-left: 180px; 
+    }
+}
+
+=======
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+/* =====================================================
+   FOOTER PAGE
+===================================================== */
+footer {
+    background: #1a1a2e;
+    padding: 22px;
     color: #fff;
     margin-left: 260px;
     width: calc(100% - 260px);
@@ -425,10 +1184,27 @@ footer {
 }
 
 /* =====================================================
+   ANIMATION
+===================================================== */
+@keyframes adminModalFade {
+    from { transform: scale(.95); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+/* =====================================================
    RESPONSIVE
 ===================================================== */
 @media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+<<<<<<< HEAD
+    }
+}
 
+@media (max-width: 768px) {
+
+    /* SIDEBAR DISLIDE */
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     .sidebar {
         position: fixed;
         top: 0;
@@ -436,13 +1212,21 @@ footer {
         width: 260px;
         height: 100vh;
         z-index: 1000;
+<<<<<<< HEAD
         transition: left .3s ease;
+=======
+        transition: left 0.3s ease;
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     }
 
     .sidebar.show {
         left: 0;
     }
 
+<<<<<<< HEAD
+=======
+    /* MAIN CONTENT FULL */
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     .main-content {
         margin-left: 0 !important;
         width: 100% !important;
@@ -453,21 +1237,47 @@ footer {
         padding: 0 14px;
     }
 
+<<<<<<< HEAD
+=======
+    /* TOPBAR FULL */
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     .topbar {
         left: 0 !important;
         width: 100% !important;
         padding: 0 16px;
     }
 
+<<<<<<< HEAD
+=======
+    /* FOOTER FULL */
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     footer {
         margin-left: 0 !important;
         width: 100% !important;
         text-align: center;
     }
 
+<<<<<<< HEAD
     /* BEASISWA SUMMARY MOBILE */
     .beasiswa-summary {
         flex-direction: column;
         gap: 10px;
+=======
+    /* GRID FORM 1 KOLOM */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: span 1;
+    }
+
+    /* GRID BEASISWA */
+    .beasiswa-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+=======
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     }
 }

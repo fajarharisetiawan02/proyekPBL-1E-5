@@ -1804,6 +1804,7 @@ footer {
     font-size: 12px;
     margin-left: auto;    /* paksa ke kanan */
 }
+<<<<<<< HEAD
         table {
             width: 100%;
             border-collapse: collapse;
@@ -1835,3 +1836,5 @@ footer {
         a.hapus {
             background: red;
         }
+=======
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717

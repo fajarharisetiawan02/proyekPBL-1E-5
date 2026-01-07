@@ -1,16 +1,36 @@
 <?php
 require_once "../config/auth_mahasiswa.php";
 require_once "../config/koneksi.php";
+<<<<<<< HEAD
 ?>
+=======
+
+$id_mahasiswa = $_SESSION['id_mahasiswa'];
+
+$pengumuman = mysqli_query($koneksi, "
+    SELECT * FROM pengumuman
+    WHERE untuk_mahasiswa IS NULL 
+       OR untuk_mahasiswa = '$id_mahasiswa'
+    ORDER BY dibuat_pada DESC
+");
+?>
+
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <title>Pengumuman - Mahasiswa</title>
+=======
+<title>Pengumuman Akademik</title>
+<<<<<<< HEAD
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
 <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+<<<<<<< HEAD
 <link rel="stylesheet" href="../assets/css/style5.css">
 <link rel="stylesheet" href="../assets/css/sidebar.css">
 <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
@@ -311,5 +331,67 @@ function closeModal(id){
     document.body.style.overflow='';
 }
 </script>
+=======
+=======
+
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+<link rel="stylesheet" href="../assets/css/pengumuman_mahasiswa.css">
+<link rel="stylesheet" href="../assets/css/style4.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+<<<<<<< HEAD
+=======
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+</head>
+
+<body>
+
+<div class="pengumuman-wrapper">
+
+
+    <?php include "../components_mahasiswa/sidebar.php"; ?>
+    <?php include "../components_mahasiswa/topbar.php"; ?>
+
+    <div class="main-content">
+        <div class="content-container">
+    <h2 class="page-title">
+        <i class="fa-solid fa-bullhorn"></i>
+        Pengumuman Akademik
+    </h2>
+
+    <?php if(mysqli_num_rows($pengumuman) == 0): ?>
+        <div class="empty">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>Belum ada pengumuman</p>
+        </div>
+    <?php endif; ?>
+
+    <?php while($p = mysqli_fetch_assoc($pengumuman)): ?>
+    <div class="pengumuman-card">
+
+        <div class="card-header">
+            <span class="badge <?= strtolower($p['kategori']); ?>">
+                <?= strtoupper($p['kategori']); ?>
+            </span>
+
+            <span class="tanggal">
+                <i class="fa-regular fa-calendar"></i>
+                <?= date("d M Y", strtotime($p['dibuat_pada'])); ?>
+            </span>
+        </div>
+
+        <h3 class="judul"><?= htmlspecialchars($p['judul']); ?></h3>
+
+        <p class="isi">
+            <?= nl2br(htmlspecialchars($p['isi'])); ?>
+        </p>
+
+    </div>
+    <?php endwhile; ?>
+
+</div>
+
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
 </body>
 </html>

@@ -34,10 +34,23 @@ $sks = 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Mahasiswa</title>
+<<<<<<< HEAD
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
 <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+=======
+<<<<<<< HEAD
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
+<link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+=======
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+>>>>>>> 94ff06b9a02f99b55841fa7af5e6d0ecf2af4f4e
+>>>>>>> 53c6f9a8e457679e94882a1fefe69b0301169717
     <link rel="stylesheet" href="../assets/css/style2.css">
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
