@@ -1,145 +1,275 @@
-/* =========================================================
-   TOGGLE SIDEBAR
-========================================================= */
-const menuToggle = document.getElementById("menu-toggle");
-const sidebar = document.querySelector(".sidebar");
-const mainContent = document.querySelector(".main-content");
-const topbar = document.querySelector(".topbar");
+document.addEventListener("DOMContentLoaded", () => {
 
-menuToggle.addEventListener("click", () => {
-    sidebar.classList.toggle("collapsed");
-    mainContent.classList.toggle("collapsed");
-    topbar.classList.toggle("collapsed");
+    /* =========================================================
+       TOGGLE SIDEBAR (DESKTOP & MOBILE)
+    ========================================================= */
+    const menuToggle  = document.getElementById("menu-toggle");
+    const sidebar     = document.querySelector(".sidebar");
+    const mainContent = document.querySelector(".main-content");
+    const topbar      = document.querySelector(".topbar");
+
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener("click", () => {
+
+            // MOBILE
+            if (window.innerWidth <= 768) {
+                sidebar.classList.toggle("show");
+                return;
+            }
+
+            // DESKTOP
+            sidebar.classList.toggle("collapsed");
+            mainContent?.classList.toggle("collapsed");
+            topbar?.classList.toggle("collapsed");
+        });
+    }
+
+    /* =========================================================
+       CLOSE SIDEBAR MOBILE KETIKA KLIK KONTEN
+    ========================================================= */
+    document.addEventListener("click", (e) => {
+        if (
+            window.innerWidth <= 768 &&
+            sidebar?.classList.contains("show")
+        ) {
+            if (
+                !sidebar.contains(e.target) &&
+                !menuToggle.contains(e.target)
+            ) {
+                sidebar.classList.remove("show");
+            }
+        }
+    });
+
+    /* =========================================================
+       PROFILE DROPDOWN
+    ========================================================= */
+    const profileIcon  = document.getElementById("profileIcon");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    if (profileIcon && dropdownMenu) {
+        profileIcon.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle("show");
+        });
+
+        document.addEventListener("click", () => {
+            dropdownMenu.classList.remove("show");
+        });
+    }
+
+    /* =========================================================
+       NOTIFIKASI (DROPDOWN + READ)
+    ========================================================= */
+    const notifBtn       = document.getElementById("notifBtn");
+    const notifDropdown  = document.getElementById("notifDropdown");
+
+    if (notifBtn && notifDropdown) {
+        notifBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            notifDropdown.classList.toggle("show");
+            fetch("../admin/notif_read.php");
+        });
+
+        document.addEventListener("click", () => {
+            notifDropdown.classList.remove("show");
+        });
+    }
+
+    /* =========================================================
+       MENU USER (SIDEBAR)
+    ========================================================= */
+    const toggleUser = document.getElementById("toggleUser");
+
+    if (toggleUser) {
+        const menuGroup = toggleUser.closest(".menu-group");
+        toggleUser.addEventListener("click", () => {
+            menuGroup.classList.toggle("active");
+        });
+    }
+
+    /* =========================================================
+       ANIMASI ANGKA (COUNTER)
+    ========================================================= */
+    document.querySelectorAll(".count").forEach((el) => {
+        const target = parseInt(el.dataset.value);
+        if (!target) return;
+
+        let current = 0;
+        const step = Math.max(1, Math.floor(1200 / target));
+
+        const interval = setInterval(() => {
+            current++;
+            el.textContent = current;
+            if (current >= target) clearInterval(interval);
+        }, step);
+    });
+
+    /* =========================================================
+       FADE IN ANIMATION
+    ========================================================= */
+    document.querySelectorAll(".fade-in").forEach((el, i) => {
+        el.style.animationDelay = `${i * 0.15}s`;
+        el.classList.add("show");
+    });
+
 });
 
+/* =========================================================
+   MODAL DETAIL (GENERIC)
+========================================================= */
+function openDetail(nama, deskripsi, syarat, periode, buka, tutup, status) {
+
+    console.log("Modal dipanggil"); // DEBUG
+
+    const modal = document.getElementById("modalDetail");
+    if (!modal) {
+        console.error("modalDetail tidak ditemukan");
+        return;
+    }
+
+    document.getElementById("detailNama").innerText       = nama;
+    document.getElementById("detailDeskripsi").innerHTML = deskripsi || "-";
+    document.getElementById("detailSyarat").innerHTML    = syarat || "-";
+    document.getElementById("detailPeriode").innerText   = periode || "-";
+    document.getElementById("detailTanggal").innerText   = buka + " - " + tutup;
+    document.getElementById("detailStatus").innerText    = status;
+
+    modal.classList.add("show");
+}
+
+function closeDetail() {
+    document.getElementById("modalDetail").classList.remove("show");
+}
 
 /* =========================================================
-   PROFILE DROPDOWN
+   NOTIFIKASI (VERSI DISPLAY BLOCK)
 ========================================================= */
-const profileIcon = document.getElementById("profileIcon");
-const dropdownMenu = document.getElementById("dropdownMenu");
+const notifBtn = document.getElementById("notifBtn");
+const notifDropdown = document.getElementById("notifDropdown");
 
-profileIcon.addEventListener("click", () => {
-    dropdownMenu.style.display =
-        dropdownMenu.style.display === "flex" ? "none" : "flex";
+if (notifBtn) {
+    notifBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        notifDropdown.style.display =
+            notifDropdown.style.display === "block" ? "none" : "block";
+    });
+
+    window.addEventListener("click", () => {
+        notifDropdown.style.display = "none";
+    });
+}
+
+/* =========================================================
+   MODAL BEASISWA
+========================================================= */
+const modal = document.getElementById("modalBeasiswa");
+
+function openBeasiswa(judul, deskripsi, syarat, periode, tglBuka, tglTutup) {
+    document.getElementById("bJudul").innerText      = judul;
+    document.getElementById("bDeskripsi").innerHTML = deskripsi;
+    document.getElementById("bSyarat").innerHTML    = syarat;
+    document.getElementById("bPeriode").innerText   = periode;
+    document.getElementById("bTanggal").innerText   = tglBuka + " - " + tglTutup;
+
+    modal.classList.add("show");
+    modal.style.display = "block";
+}
+
+/* Tutup hanya via tombol */
+function closeBeasiswa() {
+    modal.classList.remove("show");
+    modal.style.display = "none";
+}
+
+/* ESC boleh nutup */
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("show")) {
+        closeBeasiswa();
+    }
 });
 
-// Tutup dropdown ketika klik di luar menu
-window.addEventListener("click", (e) => {
-    if (!profileIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.style.display = "none";
+/* =========================================================
+   PREVIEW FOTO
+========================================================= */
+function previewFoto(input) {
+    const file    = input.files[0];
+    const preview = document.getElementById("previewImg");
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            if (preview.tagName === "IMG") {
+                preview.src = e.target.result;
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+/* =========================================================
+   MODAL CUSTOM
+========================================================= */
+function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        document
+            .querySelectorAll(".modal-custom.active")
+            .forEach((m) => m.classList.remove("active"));
+
+        document.body.style.overflow = "";
     }
 });
 
 
 /* =========================================================
-   EDIT DATA (untuk halaman jadwal ujian)
+   TOGGLE PASSWORD
 ========================================================= */
-function editData(id, mk, tanggal, waktu, ruang, dosen) {
-    document.getElementById("edit_id").value = id;
-    document.getElementById("edit_mk").value = mk;
-    document.getElementById("edit_tanggal").value = tanggal;
-    document.getElementById("edit_waktu").value = waktu;
-    document.getElementById("edit_ruang").value = ruang;
-    document.getElementById("edit_dosen").value = dosen;
+function togglePassword(icon) {
+    const input = icon.previousElementSibling;
+    input.type = input.type === "password" ? "text" : "password";
+    icon.classList.toggle("fa-eye");
+    icon.classList.toggle("fa-eye-slash");
 }
 
-
 /* =========================================================
-   ANIMASI ANGKA (COUNT-UP)
+   PASSWORD STRENGTH
 ========================================================= */
-function animateNumbers() {
-    document.querySelectorAll(".count").forEach(el => {
-        let target = parseInt(el.getAttribute("data-value"));
-        let start = 0;
-        let duration = 1200;
+function checkStrength(val) {
+    const strength = document.getElementById("strength");
+    const confirm  = document.querySelector('input[name="konfirmasi"]');
 
-        // Jika target 0 → tidak perlu animasi
-        if (target === 0) return;
+    if (val.length < 6) {
+        strength.textContent = "Password lemah";
+        strength.className = "strength weak";
+    } else if (/[0-9]/.test(val) && /[a-zA-Z]/.test(val)) {
+        strength.textContent = "Password kuat";
+        strength.className = "strength strong";
+    } else {
+        strength.textContent = "Password sedang";
+        strength.className = "strength medium";
+    }
 
-        let step = Math.max(20, Math.floor(duration / target));
-
-        let interval = setInterval(() => {
-            start++;
-            el.textContent = start;
-
-            if (start >= target) clearInterval(interval);
-        }, step);
-    });
+    // validasi konfirmasi password (tanpa ubah UI)
+    if (confirm && confirm.value !== "" && confirm.value !== val) {
+        confirm.setCustomValidity("Password tidak cocok");
+    } else if (confirm) {
+        confirm.setCustomValidity("");
+    }
 }
-
-animateNumbers();
-
-
-/* =========================================================
-   ANIMASI FADE-IN KONTEN
-========================================================= */
-window.addEventListener("load", () => {
-    document.querySelectorAll(".fade-in").forEach((el, i) => {
-        el.style.animationDelay = `${i * 0.15}s`;
-        el.classList.add("show");
-    });
-});
-
-
-/* =========================================================
-   CHART.JS — GRAFIK 1: Pengumuman
-========================================================= */
-const ctx1 = document.getElementById("chartPengumuman");
-
-if (ctx1) {
-    new Chart(ctx1, {
-        type: "bar",
-        data: {
-            labels: ["Ujian", "Perkuliahan", "Perubahan Kelas", "Beasiswa"],
-            datasets: [{
-                label: "Jumlah Pengumuman",
-                data: [12, 7, 5, 10], // bisa dibuat dinamis dari database
-                backgroundColor: "#1E3A8A",
-            }]
-        },
-        options: {
-            responsive: true,
-            animation: {
-                duration: 2000,
-                easing: "easeOutBounce",
-            }
-        }
-    });
-}
-
-
-/* =========================================================
-   CHART.JS — GRAFIK 2: Mahasiswa Aktif
-========================================================= */
-const ctx2 = document.getElementById("chartMahasiswa");
-
-if (ctx2) {
-    new Chart(ctx2, {
-        type: "line",
-        data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun"],
-            datasets: [{
-                label: "Mahasiswa Aktif",
-                data: [420, 430, 450, 470, 480, 523], // bisa dibuat dinamis
-                borderColor: "#3B82F6",
-                borderWidth: 3,
-                tension: 0.35
-            }]
-        },
-        options: {
-            responsive: true,
-            animation: {
-                duration: 1800,
-                easing: "easeOutQuart",
-            }
-        }
-    });
-}
-
-document.querySelectorAll('.menu-link').forEach(menu => {
-    menu.addEventListener('click', () => {
-        menu.parentElement.classList.toggle('active');
-    });
-});
 

@@ -1,0 +1,290 @@
+/*-- SIDEBAR ADMIN --*/
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: #1E3A8A;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: width 0.35s ease;
+}
+
+/*-- HEADER --*/
+
+.sidebar .header {
+    padding: 20px;
+    padding-bottom: 12px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+    display: flex;
+    align-items: center;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 48px;
+    height: auto;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/*-- MENU --*/
+
+.menu {
+    flex: 1;
+    padding: 16px 12px;
+    overflow-y: auto;
+}
+
+.menu-title {
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-bottom: 12px;
+}
+
+.menu-item {
+    display: grid;
+    grid-template-columns: 24px 1fr 16px;
+    align-items: center;
+    column-gap: 12px;
+    padding: 12px 20px;
+    margin-bottom: 6px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+.menu-item i {
+    width: 24px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.menu-item span {
+    white-space: nowrap;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, .15);
+}
+
+.menu-item.active {
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+
+/*-- SUBMENU --*/
+
+.menu-group {
+    margin-bottom: 6px;
+}
+
+.menu-parent {
+    cursor: pointer;
+}
+
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    margin-left: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: max-height 0.35s ease;
+}
+
+.menu-group.active .submenu {
+    max-height: 200px;
+}
+
+.menu-parent .arrow {
+    margin-left: auto;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.menu-group.active .arrow {
+    transform: rotate(180deg);
+}
+
+.submenu-item {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #dbeafe;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s ease;
+}
+
+.submenu-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.submenu-item.active {
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+
+/*-- COLLAPSED --*/
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .menu-title,
+.sidebar.collapsed .menu-item span,
+.sidebar.collapsed .submenu,
+.sidebar.collapsed .sidebar-footer {
+    display: none;
+}
+
+.sidebar.collapsed .logo-wrapper {
+    justify-content: center;
+}
+
+.sidebar.collapsed .menu-item {
+    grid-template-columns: 24px;
+    justify-content: center;
+}
+
+.sidebar.collapsed .menu-item i {
+    margin: auto;
+}
+
+/*-- SCROLLBAR --*/
+
+.menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .3);
+    border-radius: 6px;
+}
+
+.menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/*-- SIDEBAR COLLAPSED --*/
+
+.sidebar {
+    width: 260px;
+}
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.topbar {
+    left: 260px;
+    width: calc(100% - 260px);
+}
+
+.topbar.collapsed {
+    left: 70px;
+    width: calc(100% - 70px);
+}
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+}
+
+.main-content.collapsed {
+    margin-left: 70px;
+    width: calc(100% - 70px);
+}
+
+.sidebar,
+.topbar,
+.main-content {
+    transition:
+        width 0.35s ease,
+        left 0.35s ease,
+        margin-left 0.35s ease;
+}
+
+.sidebar.collapsed .logo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar.collapsed .logo-img {
+    margin: 0;
+}
+
+.sidebar.collapsed .logo-text {
+    display: none;
+}
+
+/* =====================================================
+   RESPONSIVE MOBILE SIDEBAR
+===================================================== */
+@media (max-width: 768px) {
+
+    /* SIDEBAR SLIDE */
+    .sidebar {
+        left: -260px;
+        width: 260px;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    /* MATIKAN MODE COLLAPSED DI MOBILE */
+    .sidebar.collapsed {
+        width: 260px;
+    }
+
+    /* TOPBAR FULL */
+    .topbar {
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    /* MAIN CONTENT FULL */
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
+@media (max-width: 768px) {
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    z-index: 999;
+    display: none;
+  }
+
+  .sidebar.show + .sidebar-overlay {
+    display: block;
+  }
+}

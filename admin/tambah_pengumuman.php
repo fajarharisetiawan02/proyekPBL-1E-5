@@ -1,0 +1,148 @@
+<?php
+require_once "../config/auth_admin.php";
+require_once "../config/koneksi.php";
+
+if (isset($_POST['simpan'])) {
+
+    $judul    = trim($_POST['judul']);
+    $isi      = trim($_POST['isi']);
+    $kategori = $_POST['kategori'];
+    $tanggal  = date('Y-m-d');
+
+    /* ======================
+       INSERT PENGUMUMAN
+    ====================== */
+    $stmt = mysqli_prepare(
+        $koneksi,
+        "INSERT INTO pengumuman (judul, isi, kategori, dibuat_pada)
+         VALUES (?, ?, ?, ?)"
+    );
+
+    mysqli_stmt_bind_param($stmt, "ssss", $judul, $isi, $kategori, $tanggal);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    /* ======================
+       SIMPAN AKTIVITAS ADMIN
+    ====================== */
+    $id_login  = $_SESSION['id_login'];
+    $aktivitas = "Menambahkan pengumuman: $judul";
+
+    mysqli_query($koneksi, "
+        INSERT INTO aktivitas_admin (id_login, aktivitas)
+        VALUES ('$id_login', '$aktivitas')
+    ");
+
+    header("Location: pengumuman.php?status=success");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Tambah Pengumuman</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../assets/img/Logo Politeknik.png">
+<link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/pengumuman.css">
+<link rel="stylesheet" href="../assets/css/sidebar.css">
+<link rel="stylesheet" href="../assets/css/notifikasi+profil.css">
+
+<style>
+.required { color:#dc2626; font-weight:600; }
+.form-hint { font-size:13px; color:#6b7280; margin-top:6px; }
+textarea { min-height:160px; resize:vertical; }
+</style>
+</head>
+
+<body>
+
+<div class="main-wrapper">
+
+<?php include "../components_admin/sidebar.php"; ?>
+<?php include "../components_admin/topbar.php"; ?>
+
+<div class="main-content">
+<div class="content-container">
+
+<!-- HEADER -->
+<div class="form-header">
+    <h2>
+        Tambah Pengumuman
+    </h2>
+    <p class="page-desc">
+        Buat pengumuman akademik atau non-akademik yang akan ditampilkan kepada mahasiswa.
+    </p>
+</div>
+
+<!-- FORM -->
+<form method="POST" action="" class="form-box">
+
+    <!-- JUDUL -->
+    <label>
+        Judul Pengumuman <span class="required">*</span>
+    </label>
+    <input type="text"
+           name="judul"
+           placeholder="Contoh: Jadwal UTS Semester Ganjil"
+           required>
+
+    <span class="form-hint">
+        Gunakan judul singkat, jelas, dan mudah dipahami mahasiswa.
+    </span>
+
+    <!-- KATEGORI -->
+    <label style="margin-top:20px;">
+        Kategori <span class="required">*</span>
+    </label>
+    <select name="kategori" required>
+        <option value="">-- Pilih Kategori --</option>
+        <option value="Akademik">Akademik</option>
+        <option value="Beasiswa">Beasiswa</option>
+        <option value="Ujian">Ujian</option>
+        <option value="Informasi">Informasi</option>
+    </select>
+
+    <span class="form-hint">
+        Pilih kategori sesuai jenis informasi yang disampaikan.
+    </span>
+
+    <!-- ISI -->
+    <label style="margin-top:20px;">
+        Isi Pengumuman <span class="required">*</span>
+    </label>
+    <textarea name="isi"
+              placeholder="Tulis detail pengumuman di sini..."
+              required></textarea>
+
+    <span class="form-hint">
+        Pengumuman akan langsung ditampilkan dan dapat dibaca oleh seluruh mahasiswa.
+    </span>
+
+    <!-- ACTION -->
+    <div class="form-action">
+        <button type="submit" name="simpan" class="btn-primary">
+            <i class="fa-solid fa-save"></i> Simpan Pengumuman
+        </button>
+
+        <a href="pengumuman.php" class="btn-cancel">
+            <i class="fa-solid fa-arrow-left"></i> Kembali
+        </a>
+    </div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+<footer>
+© 2025 Aplikasi Pengumuman Akademik Online | Politeknik Negeri Batam
+</footer>
+
+<script src="../assets/js/script3.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <?php
-require_once "../config/auth.php";
-require_once "../config/koneksi.php";
+session_start();
+require_once "config/koneksi.php"; 
 ?>
 <!doctype html>
 <html lang="id">
@@ -12,7 +12,6 @@ require_once "../config/koneksi.php";
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!--Koneksikan dengan CSS-->
 <link rel="stylesheet" href="/PBL-1E-5_akademik/assets/css/tentang.css">
 </head>
 
